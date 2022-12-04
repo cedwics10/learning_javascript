@@ -55,6 +55,6 @@ const citations_booba = [
 
 function afficher_citation () {
   const result = (document.getElementById('citation').textContent =
-    getRandomItem(citations_booba))
-  console.log(result)
+    getRandomItem(citations_booba));
+  console.log(result);
 }
