@@ -5,6 +5,7 @@ const lienApiChange = 'https://api.exchangerate-api.com/v4/latest/USD'
 function showRateConv (data) {
   let devise1 = document.getElementById('sel1').value
   let devise2 = document.getElementById('sel2').value
+  
   let montant = parseFloat(document.getElementById('oamount').value)
 
   let taux1 = parseFloat(data.rates[devise1]);
@@ -30,7 +31,7 @@ async function returnCurrency () {
 }
 
 
-function reintiialiser()
+function reinitForm()
 {
-  
+  document.getElementById("oamount").value = '';
 }
