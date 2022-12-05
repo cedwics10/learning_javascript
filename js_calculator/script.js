@@ -11,10 +11,23 @@ function resetCalculator()
     console.log('reinit calculator');
 }
 
+// check if a new symbol is authorized
+function isLogicalCompute(new_symbol)
+{
+    let forbidden_double = ['+', '-', '/'];
+    if(calcExpressions.slice(-1) == new_symbol 
+    && forbidden_double.indexOf(new_symbol))
+        return false;
+    return true;
+}
+
 
 function addSymbol(character)
 {
-    calcExpressions.push(character);
+    if(isLogicalCompute(character))
+    {
+        calcExpressions.push(character);
+    }
     makeResult();
 }
 
