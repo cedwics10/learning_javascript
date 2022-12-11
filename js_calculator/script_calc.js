@@ -1,4 +1,4 @@
-specialSymbols = ['.', '-', '*', '+', '%', '/']
+const specialSymbols = ['.', '-', '*', '+', '%', '/']
 resetGlobals()
 
 function resetCalculator () {
@@ -9,38 +9,42 @@ function resetCalculator () {
 }
 
 function sCharAlreadyExists (new_symbol) {
-  
-  lastExpression = calcExpression.slice(-1);
+  lastExpression = calcExpression.slice(-1)
   numberSpecialChars = specialSymbols.length
-  console.log(new_symbol);
-  
-  if(lastExpression == []) return false;
+  console.log(new_symbol)
 
-  if(!specialSymbols.indexOf(new_symbol)) return false;
+  if (lastExpression == []) return false
+  if (!specialSymbols.indexOf(new_symbol)) return false
 
-
-  let key = 0;
-  while(key < numberSpecialChars) {
-    if (lastExpression.includes(specialSymbols[key]))
-      return true
-    key++;
+  let key = 0
+  while (key < numberSpecialChars) {
+    if (lastExpression.includes(specialSymbols[key])) return true
+    key++
   }
   return false
 }
 
 function specSymbolFirst (new_symbol) {
-  console.log(calcExpression.length)
-  if (calcExpression.length > 0) return false
-  console.log(new_symbol)
-  if (!specialSymbols.indexOf(new_symbol)) return false
+  if (calcExpression.length > 0) {
+    return false
+  }
+
+  if (specialSymbols.indexOf(new_symbol) == '-1') {
+    return false
+  }
   return true
 }
 
 function specSymbolRepeated (new_symbol) {
-  console.log(new_symbol)
   if (!specialSymbols.indexOf(new_symbol)) return false
+
   currentSign = calcExpression.slice(-1)
-  console.log(currentSign)
+
+  if (currentSign.length > 0) currentSign = currentSign[0]
+  else return false
+
+  if (!specialSymbols.includes(new_symbol)) return false
+  console.log(new_symbol)
   for (key = 1; key < specialSymbols.length; key++) {
     if (currentSign.includes(specialSymbols[key])) {
       return true
@@ -50,9 +54,8 @@ function specSymbolRepeated (new_symbol) {
 }
 
 function wrongSyntaxeWith (new_symbol) {
-  // if (specSymbolFirst(new_symbol)) return true
-  // if (specSymbolRepeated(new_symbol)) return true
-  if (sCharAlreadyExists(new_symbol)) return true
+  if (specSymbolFirst(new_symbol)) return true
+  if (specSymbolRepeated(new_symbol)) return true // OK
   return false
 }
 
@@ -67,7 +70,23 @@ function addSymbol (character) {
   if (doNotConcatenate(character))
     calcExpression[calcExpression.length - 1] += character
   else calcExpression.push(character)
+
   showComputation()
+}
+
+function removeASymbol () {
+  if (calcExpression.length == 0) return false
+  let lkeyCalcExpr = calcExpression.length - 1;
+  if (calcExpression[lkeyCalcExpr].length <= 1) 
+    calcExpression.length = lkeyCalcExpr;
+  else 
+    calcExpression[lkeyCalcExpr].substring(0, calcExpression[lkeyCalcExpr] - 1)
+  if(calcExpression.length == 0)
+  {
+    resetCalculator ();
+  }
+
+  showComputation ();
 }
 
 function MakeResultDisplay () {
@@ -78,11 +97,12 @@ function MakeResultDisplay () {
   )
     return calcExpression[lastkeyCalcExpression]
   if (displayedResult !== '0') return displayedResult
+  if(calcExpression.length == 0 ) return '0';
   return calcExpression.join(' ')
 }
 
 function showComputation () {
-  document.getElementById('calc-operation').innerHTML = calcExpression.join(' ')
+  document.getElementById('calc-operation').innerHTML = (calcExpression.length > 0) ? calcExpression.join(' ') : '0';
 
   displayedResult = MakeResultDisplay()
   document.getElementById('calc-typed').innerHTML = displayedResult
