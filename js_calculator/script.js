@@ -1,4 +1,4 @@
-specialSymbols = ['-', 'x', '+', '%', ''];
+specialSymbols = ['-', 'x', '+', '%', '/']
 
 dot = '.'
 
@@ -31,15 +31,10 @@ function resetCalculator () {
 
 // check if a new symbol is authorized
 function isLogicalCompute (new_symbol) {
-  let forbidden_double = ['+', '-', '/']
+  console.log(specialSymbols)
   if (
     calcExpression.slice(-1) == new_symbol &&
-    forbidden_double.indexOf(new_symbol)
-  )
-    return false
-  if (
-    calcExpression.slice(-1) == new_symbol &&
-    forbidden_double.indexOf(new_symbol)
+    specialSymbols.indexOf(new_symbol)
   )
     return false
   return true
@@ -47,21 +42,16 @@ function isLogicalCompute (new_symbol) {
 
 function doNotConcatenate (symbol) {
   if (isNumber(symbol) && !isNumber(calcExpression.slice(-1))) return true
+  // const noSpecialSymbolConcat = (sp_symbol) => s % 2 === 0;
   if (!isNumber(symbol) && isNumber(calcExpression.slice(-1))) return true
   if (symbol == dot && calcExpression.slice(-1).contains('.')) return true
   return false
 }
 
-function doNotAddSymbol (symbol) {
-  if (symbol == dot && calcExpression.slice(-1).contains('.')) return true
-  
-}
-
 function addSymbol (character) {
   //  à modifier
   if (isLogicalCompute(character)) {
-    if (doNotAddSymbol(character)) {
-    } else if (doNotConcatenate(character)) {
+    if (doNotConcatenate(character)) {
       calcExpression.push(character)
     } else {
       calcExpression[calcExpression.length - 1] += character
