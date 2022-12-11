@@ -1,4 +1,4 @@
-specialSymbols = ['.', '-', 'x', '+', '%', '/']
+specialSymbols = ['.', '-', '*', '+', '%', '/']
 resetGlobals()
 
 function resetCalculator () {
@@ -9,15 +9,21 @@ function resetCalculator () {
 }
 
 function sCharAlreadyExists (new_symbol) {
-  lastExpression = calcExpression.slice(-1)
+  
+  lastExpression = calcExpression.slice(-1);
   numberSpecialChars = specialSymbols.length
+  console.log(new_symbol);
+  
+  if(lastExpression == []) return false;
 
-  for (let key = 0; key < numberSpecialChars; key++) {
-    if (
-      lastExpression.includes(new_symbol) &&
-      new_symbol == specialSymbols[key]
-    )
+  if(!specialSymbols.indexOf(new_symbol)) return false;
+
+
+  let key = 0;
+  while(key < numberSpecialChars) {
+    if (lastExpression.includes(specialSymbols[key]))
       return true
+    key++;
   }
   return false
 }
@@ -35,16 +41,17 @@ function specSymbolRepeated (new_symbol) {
   if (!specialSymbols.indexOf(new_symbol)) return false
   currentSign = calcExpression.slice(-1)
   console.log(currentSign)
-  for (key = 1; key < specialSymbols.length; key++)
+  for (key = 1; key < specialSymbols.length; key++) {
     if (currentSign.includes(specialSymbols[key])) {
       return true
     }
+  }
   return false
 }
 
 function wrongSyntaxeWith (new_symbol) {
   // if (specSymbolFirst(new_symbol)) return true
-  if (specSymbolRepeated(new_symbol)) return true
+  // if (specSymbolRepeated(new_symbol)) return true
   if (sCharAlreadyExists(new_symbol)) return true
   return false
 }
@@ -56,7 +63,7 @@ function doNotConcatenate (new_symbol) {
 }
 
 function addSymbol (character) {
-  if (wrongSyntaxeWith(character)) return false
+  if (wrongSyntaxeWith(character)) return true
   if (doNotConcatenate(character))
     calcExpression[calcExpression.length - 1] += character
   else calcExpression.push(character)
