@@ -1,3 +1,5 @@
+// créer la fonction supprimer un caractère
+
 const specialSymbols = ['.', '-', '*', '+', '%', '/']
 resetGlobals()
 
