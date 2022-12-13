@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"  type="text/css"/>
-  
+  <link rel="stylesheet" href="style.css" type="text/css" />
+
   <script src="constants.js"></script>
   <script src="base.js"></script>
   <script src="script_calc.js"></script>
 
   <title>JS Calculator</title>
 </head>
-<body>
-<!-- Calculator Body -->
-<div class="calc-body">
 
-  <!-- Calculator Display Screen -->
-  <div class="calc-screen">
+<body>
+  <!-- Calculator Body -->
+  <div class="calc-body">
+
+    <!-- Calculator Display Screen -->
+    <div class="calc-screen">
       <div id="calc-operation">0</div>
       <div id="calc-typed">0</div>
-  </div>
-  
-  <!-- Calculator Buttons -->
-  <div class="calc-button-row">
+    </div>
+
+    <!-- Calculator Buttons -->
+    <div class="calc-button-row">
       <button class="ac" onclick="resetCalculator()">AC</button>
       <button class="opt">&#43;&#47;&#8722;</button>
       <button class="opt" onclick="addSymbol('%');">&#37;</button>
@@ -44,7 +46,8 @@
       <button onclick="addSymbol('.');">.</button>
       <button onclick="removeASymbol();">&#9003;</button>
       <button class="opt">&#61;</button>
+    </div>
   </div>
-  </div>  
 </body>
+
 </html>

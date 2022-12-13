@@ -1,14 +1,14 @@
 const specialSymbols = ['.', '-', '*', '+', '%', '/']
 resetGlobals()
 
-function resetCalculator () {
+function resetCalculator() {
   resetGlobals()
   document.getElementById('calc-operation').innerText = '0'
   document.getElementById('calc-typed').innerText = '0'
   console.log('Reset calculator')
 }
 
-function sCharAlreadyExists (new_symbol) {
+function sCharAlreadyExists(new_symbol) {
   lastExpression = calcExpression.slice(-1)
   numberSpecialChars = specialSymbols.length
   console.log(new_symbol)
@@ -24,7 +24,7 @@ function sCharAlreadyExists (new_symbol) {
   return false
 }
 
-function specSymbolFirst (new_symbol) {
+function specSymbolFirst(new_symbol) {
   if (calcExpression.length > 0) {
     return false
   }
@@ -35,7 +35,7 @@ function specSymbolFirst (new_symbol) {
   return true
 }
 
-function specSymbolRepeated (new_symbol) {
+function specSymbolRepeated(new_symbol) {
   if (!specialSymbols.indexOf(new_symbol)) return false
 
   currentSign = calcExpression.slice(-1)
@@ -53,19 +53,19 @@ function specSymbolRepeated (new_symbol) {
   return false
 }
 
-function wrongSyntaxeWith (new_symbol) {
+function wrongSyntaxeWith(new_symbol) {
   if (specSymbolFirst(new_symbol)) return true
   if (specSymbolRepeated(new_symbol)) return true // OK
   return false
 }
 
-function doNotConcatenate (new_symbol) {
+function doNotConcatenate(new_symbol) {
   if (isNumber(new_symbol) && !isNumber(calcExpression.slice(-1))) return false
   if (!isNumber(new_symbol) && isNumber(calcExpression.slice(-1))) return false
   return true
 }
 
-function addSymbol (character) {
+function addSymbol(character) {
   if (wrongSyntaxeWith(character)) return true
   if (doNotConcatenate(character))
     calcExpression[calcExpression.length - 1] += character
@@ -74,22 +74,21 @@ function addSymbol (character) {
   showComputation()
 }
 
-function removeASymbol () {
+function removeASymbol() {
   if (calcExpression.length == 0) return false
   let lkeyCalcExpr = calcExpression.length - 1;
-  if (calcExpression[lkeyCalcExpr].length <= 1) 
+  if (calcExpression[lkeyCalcExpr].length <= 1)
     calcExpression.length = lkeyCalcExpr;
-  else 
+  else
     calcExpression[lkeyCalcExpr].substring(0, calcExpression[lkeyCalcExpr] - 1)
-  if(calcExpression.length == 0)
-  {
-    resetCalculator ();
+  if (calcExpression.length == 0) {
+    resetCalculator();
   }
 
-  showComputation ();
+  showComputation();
 }
 
-function MakeResultDisplay () {
+function MakeResultDisplay() {
   lastkeyCalcExpression = calcExpression.length - 1
   if (
     lastkeyCalcExpression > 0 &&
@@ -97,11 +96,11 @@ function MakeResultDisplay () {
   )
     return calcExpression[lastkeyCalcExpression]
   if (displayedResult !== '0') return displayedResult
-  if(calcExpression.length == 0 ) return '0';
+  if (calcExpression.length == 0) return '0';
   return calcExpression.join(' ')
 }
 
-function showComputation () {
+function showComputation() {
   document.getElementById('calc-operation').innerHTML = (calcExpression.length > 0) ? calcExpression.join(' ') : '0';
 
   displayedResult = MakeResultDisplay()
