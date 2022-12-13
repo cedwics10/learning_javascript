@@ -4,6 +4,7 @@ function resetGlobals() {
     globalThis.textExpression = ''
     globalThis.displayedResult = '0'
     globalThis.calcResult = 0
-
+    globalThis.emptyNumber = '0';
+    globalThis.isDecNumber=/([0-9]+)\.([0-9]+)/;
     console.log('reinit calculator');
 }

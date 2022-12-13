@@ -44,7 +44,7 @@ function specSymbolRepeated(new_symbol) {
   else return false
 
   if (!specialSymbols.includes(new_symbol)) return false
-  console.log(new_symbol)
+
   for (key = 1; key < specialSymbols.length; key++) {
     if (currentSign.includes(specialSymbols[key])) {
       return true
@@ -54,20 +54,25 @@ function specSymbolRepeated(new_symbol) {
 }
 
 function wrongSyntaxeWith(new_symbol) {
+  previous = calcExpression.slice(-1);
   if (specSymbolFirst(new_symbol)) return true
-  if (specSymbolRepeated(new_symbol)) return true // OK
+  if (new_symbol == '.' && isDecNumber.test(previous)) return true
+  if (specSymbolRepeated(new_symbol)) return true
   return false
 }
 
-function doNotConcatenate(new_symbol) {
-  if (isNumber(new_symbol) && !isNumber(calcExpression.slice(-1))) return false
-  if (!isNumber(new_symbol) && isNumber(calcExpression.slice(-1))) return false
+function doConcatenate(new_symbol) {
+  previous = calcExpression.slice(-1);
+  if (new_symbol == '.' && isNumber(previous)) return true
+
+  if (isNumber(new_symbol) && !isNumber(previous)) return false
+  if (!isNumber(new_symbol) && isNumber(previous)) return false
   return true
 }
 
 function addSymbol(character) {
   if (wrongSyntaxeWith(character)) return true
-  if (doNotConcatenate(character))
+  if (doConcatenate(character))
     calcExpression[calcExpression.length - 1] += character
   else calcExpression.push(character)
 
@@ -90,12 +95,9 @@ function removeASymbol() {
 
 function MakeResultDisplay() {
   lastkeyCalcExpression = calcExpression.length - 1
-  if (
-    lastkeyCalcExpression > 0 &&
-    isNumber(calcExpression[lastkeyCalcExpression])
-  )
+  if (isNumber(calcExpression[lastkeyCalcExpression]))
     return calcExpression[lastkeyCalcExpression]
-  if (displayedResult !== '0') return displayedResult
+  if (displayedResult != emptyNumber) return displayedResult
   if (calcExpression.length == 0) return '0';
   return calcExpression.join(' ')
 }
@@ -105,4 +107,5 @@ function showComputation() {
 
   displayedResult = MakeResultDisplay()
   document.getElementById('calc-typed').innerHTML = displayedResult
+  console.log(calcExpression)
 }
