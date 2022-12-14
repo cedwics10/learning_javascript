@@ -83,15 +83,14 @@ function addSymbol(character) {
 
 function removeASymbol() {
   if (calcExpression.length == 0) return false
+
   let lkeyCalcExpr = calcExpression.length - 1;
   if (calcExpression[lkeyCalcExpr].length <= 1)
     calcExpression.length = lkeyCalcExpr;
   else
-    calcExpression[lkeyCalcExpr].substring(0, calcExpression[lkeyCalcExpr] - 1)
-  if (calcExpression.length == 0) {
-    resetCalculator();
+  {
+    calcExpression[lkeyCalcExpr] = calcExpression[lkeyCalcExpr].replace(/.$/, '');
   }
-
   showComputation();
 }
 
