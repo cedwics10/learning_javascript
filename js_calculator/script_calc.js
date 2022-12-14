@@ -82,14 +82,18 @@ function addSymbol(character) {
 }
 
 function removeASymbol() {
-  if (calcExpression.length == 0) return false
-
   let lkeyCalcExpr = calcExpression.length - 1;
-  if (calcExpression[lkeyCalcExpr].length <= 1)
-    calcExpression.length = lkeyCalcExpr;
-  else
+
+  if (lkeyCalcExpr == -1)
+    return false;
+  if (lkeyCalcExpr == 0 && calcExpression[lkeyCalcExpr].length == 1)
   {
-    calcExpression[lkeyCalcExpr] = calcExpression[lkeyCalcExpr].replace(/.$/, '');
+    resetCalculator()
+    showComputation(true)
+  }
+  else {
+    lenLastExpr = calcExpression[lkeyCalcExpr].length;
+    calcExpression[lkeyCalcExpr] = calcExpression[lkeyCalcExpr].substring(0, lenLastExpr - 1);
   }
   showComputation();
 }
@@ -103,10 +107,9 @@ function MakeResultDisplay() {
   return calcExpression.join(' ')
 }
 
-function showComputation() {
+function showComputation(delete_f_epr = false) {
   document.getElementById('calc-operation').innerHTML = (calcExpression.length > 0) ? calcExpression.join(' ') : '0';
-
-  displayedResult = MakeResultDisplay()
+  displayedResult = MakeResultDisplay();
   document.getElementById('calc-typed').innerHTML = displayedResult
   console.log(calcExpression)
 }
