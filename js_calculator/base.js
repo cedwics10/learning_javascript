@@ -1,7 +1,3 @@
-function isNumber (n) {
+function isInt (n) {
   return !isNaN(parseFloat(n)) && !isNaN(n - 0)
-}
-
-function isNotNumber (n) {
-  return !isNumber(n)
 }

@@ -1,3 +1,6 @@
+isIntOrDec=/([0-9]+\.)?([0-9]+)/;
+altExpr = ['+', '-'];
+
 function resetGlobals() {
     globalThis.lastkeyCalcExpression = 0
     globalThis.calcExpression = []

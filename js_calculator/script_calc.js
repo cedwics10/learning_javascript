@@ -65,10 +65,10 @@ function wrongSyntaxeWith(new_symbol) {
 
 function doConcatenate(new_symbol) {
   previous = calcExpression.slice(-1);
-  if (new_symbol == '.' && isNumber(previous)) return true
+  if (new_symbol == '.' && isInt(previous)) return true
 
-  if (isNumber(new_symbol) && !isNumber(previous)) return false
-  if (!isNumber(new_symbol) && isNumber(previous)) return false
+  if (isInt(new_symbol) && !isInt(previous)) return false
+  if (!isInt(new_symbol) && isInt(previous)) return false
   return true
 }
 
@@ -86,21 +86,38 @@ function removeASymbol() {
 
   if (lkeyCalcExpr == -1)
     return false;
-  if (lkeyCalcExpr == 0 && calcExpression[lkeyCalcExpr].length == 1)
-  {
+  if (lkeyCalcExpr == 0 && calcExpression[lkeyCalcExpr].length == 1) {
     resetCalculator()
     showComputation(true)
-  }
-  else {
+  } else if (calcExpression[lkeyCalcExpr].length == 1) {
+    calcExpression.length = lkeyCalcExpr;
+  } else {
     lenLastExpr = calcExpression[lkeyCalcExpr].length;
     calcExpression[lkeyCalcExpr] = calcExpression[lkeyCalcExpr].substring(0, lenLastExpr - 1);
   }
   showComputation();
 }
 
+function altSign() {
+  lastkeyCalcExpression = calcExpression.length - 1;
+  if (
+    isIntOrDec.test(calcExpression[lastkeyCalcExpression]) &&
+    altExpr.includes(calcExpression[lastkeyCalcExpression - 1])
+  ) {
+    let CurrentSign = calcExpression[lastkeyCalcExpression - 1];
+    KeyCurrentSign = Object.keys(altExpr).filter(function (key) {
+      return altExpr[key] === CurrentSign
+    })[0];
+    // KeyNewSign = (KeyCurrentSign.parseInt() + 1) % 2
+    KeyCurrentSign = (parseInt(KeyCurrentSign) +1) % 2;
+    calcExpression[lastkeyCalcExpression - 1] = altExpr[KeyCurrentSign];
+    showComputation()
+  }
+}
+
 function MakeResultDisplay() {
   lastkeyCalcExpression = calcExpression.length - 1
-  if (isNumber(calcExpression[lastkeyCalcExpression]))
+  if (isInt(calcExpression[lastkeyCalcExpression]))
     return calcExpression[lastkeyCalcExpression]
   if (displayedResult != emptyNumber) return displayedResult
   if (calcExpression.length == 0) return '0';

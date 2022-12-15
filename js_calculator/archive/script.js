@@ -13,7 +13,7 @@ function isNumber (n) {
 }
 
 function isNotNumber (n) {
-  return !isNumber(n)
+  return !isInt(n)
 }
 
 function resetCalculator () {
@@ -41,9 +41,9 @@ function isLogicalCompute (new_symbol) {
 }
 
 function doNotConcatenate (symbol) {
-  if (isNumber(symbol) && !isNumber(calcExpression.slice(-1))) return true
+  if (isInt(symbol) && !isInt(calcExpression.slice(-1))) return true
   // const noSpecialSymbolConcat = (sp_symbol) => s % 2 === 0;
-  if (!isNumber(symbol) && isNumber(calcExpression.slice(-1))) return true
+  if (!isInt(symbol) && isInt(calcExpression.slice(-1))) return true
   if (symbol == dot && calcExpression.slice(-1).contains('.')) return true
   return false
 }
@@ -64,7 +64,7 @@ function MakeResultDisplay () {
   lastkeyCalcExpression = calcExpression.length - 1
   if (
     lastkeyCalcExpression > 0 &&
-    isNumber(calcExpression[lastkeyCalcExpression])
+    isInt(calcExpression[lastkeyCalcExpression])
   )
     return calcExpression[lastkeyCalcExpression]
   if (displayedResult !== '0') return displayedResult
