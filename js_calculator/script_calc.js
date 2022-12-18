@@ -1,6 +1,6 @@
 // créer la fonction supprimer un caractère
 
-const specialSymbols = ['.', '-', '*', '+', '%', '/']
+
 resetGlobals()
 
 function resetCalculator() {
@@ -108,8 +108,7 @@ function altSign() {
     KeyCurrentSign = Object.keys(altExpr).filter(function (key) {
       return altExpr[key] === CurrentSign
     })[0];
-    // KeyNewSign = (KeyCurrentSign.parseInt() + 1) % 2
-    KeyCurrentSign = (parseInt(KeyCurrentSign) +1) % 2;
+    KeyCurrentSign = (parseInt(KeyCurrentSign) + 1) % 2;
     calcExpression[lastkeyCalcExpression - 1] = altExpr[KeyCurrentSign];
     showComputation()
   }
@@ -117,8 +116,7 @@ function altSign() {
 
 function MakeResultDisplay() {
   lastkeyCalcExpression = calcExpression.length - 1
-  if (isInt(calcExpression[lastkeyCalcExpression]))
-    return calcExpression[lastkeyCalcExpression]
+  if (isInt(calcExpression[lastkeyCalcExpression])) return calcExpression[lastkeyCalcExpression]
   if (displayedResult != emptyNumber) return displayedResult
   if (calcExpression.length == 0) return '0';
   return calcExpression.join(' ')

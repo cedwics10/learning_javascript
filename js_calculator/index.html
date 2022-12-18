@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" type="text/css" />
 
-  <script src="constants.js"></script>
+  <script type="module" src="math.js"></script>
   <script src="base.js"></script>
+  <script src="constants.js"></script>
   <script src="script_calc.js"></script>
-
+  <script src="script_result.js"></script>
   <title>JS Calculator</title>
 </head>
 
@@ -45,7 +46,7 @@
       <button onclick="addSymbol('0');">0</button>
       <button onclick="addSymbol('.');">.</button>
       <button onclick="removeASymbol();">&#9003;</button>
-      <button class="opt">&#61;</button>
+      <button onclick="computeResult();" class="opt">&#61;</button>
     </div>
   </div>
 </body>
