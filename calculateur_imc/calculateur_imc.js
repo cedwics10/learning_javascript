@@ -13,13 +13,9 @@ function calculerImc()
     {
         situation = "Votre poids est normal.";
     }
-    else if(IMC < 30)
-    {
-        situation = "Vous êtes en surpoids";
-    }
     else
     {
-        situation = "Vous êtes obèse";
+        situation = "Vous êtes en surpoids.";
     }
 
 
