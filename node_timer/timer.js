@@ -7,7 +7,9 @@ console.log('starting timer...');
 function computeXmas(currentDTime) {
     console.log('Nous sommes en année : '  + currentDTime.getFullYear());
     let christmasDay = new Date(currentDTime.getFullYear(), xmasMonth, xmasDay);
-    if (currentDTime.getDay() > xmasDay && currentDTime.getMonth() >= xmasMonth)
+    if ((currentDTime.getDay() > xmasDay && currentDTime.getMonth() == xmasMonth) ||
+	(currentDTime.getMonth() > xmasMonth)
+	)
         christmasDay.setFullYear(christmasDay.getFullYear() + 1)
 
 
