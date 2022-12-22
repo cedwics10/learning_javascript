@@ -66,7 +66,6 @@ function wrongSyntaxeWith(new_symbol) {
 function doConcatenate(new_symbol) {
   previous = calcExpression.slice(-1);
   if (new_symbol == '.' && isInt(previous)) return true
-
   if (isInt(new_symbol) && !isInt(previous)) return false
   if (!isInt(new_symbol) && isInt(previous)) return false
   return true
@@ -84,8 +83,7 @@ function addSymbol(character) {
 function removeASymbol() {
   let lkeyCalcExpr = calcExpression.length - 1;
 
-  if (lkeyCalcExpr == -1)
-    return false;
+  if (lkeyCalcExpr == -1) return false;
   if (lkeyCalcExpr == 0 && calcExpression[lkeyCalcExpr].length == 1) {
     resetCalculator()
     showComputation(true)
