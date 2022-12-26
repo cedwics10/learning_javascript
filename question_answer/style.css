@@ -16,6 +16,8 @@ body {
   transition: 0.25 ease;
   background: black;
   padding: 10px;
+  transition: 0.25s;
+  border-radius: 20px;
 }
 
 p {
@@ -23,3 +25,16 @@ p {
   width: 240px;
   margin: 10px auto 0;
 }
+
+.good_answer {
+  visibility: visible;
+  background-color: green;
+}
+
+.bad_answer {
+  visibility: visible;
+  background-color: red;
+}
+
+/* .reveal_answer {
+} */
