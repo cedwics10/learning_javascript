@@ -2,7 +2,6 @@ const isIntOrDec=/([0-9]+\.)?([0-9]+)/;
 const altExpr = ['+', '-'];
 const specialSymbols = ['.', '-', '*', '+', '%', '/']
 
-
 function resetGlobals() {
     globalThis.lastkeyCalcExpression = 0
     globalThis.calcExpression = []

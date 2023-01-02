@@ -1,13 +1,8 @@
-/*
-* à faire 
-1. Insérer des boutons poru faire des parenthèses
-2. Créer un résutlat en fonction des ordres de priorité ?
+lienApiMath = 'http://api.mathjs.org/v4/?expr=';
 
-- Fonction permettant d'obtenir le résultat d'un calcul
-*/
-function computeResult()
-{
-	let mathExpression = calcExpression.join('');
-	console.log(mathExpression);
-	console.log(math.eval(mathExpression));
+async function computeResult(url = '', callback = '') {
+	let mathUrl = lienApiMath + calcExpression.join('');
+	let res = await fetch(mathUrl),
+		ret = await res.text();
+	document.getElementById('calc-typed').innerHTML = callback ? callback(ret) : ret;
 }
