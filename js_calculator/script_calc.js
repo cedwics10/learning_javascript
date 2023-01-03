@@ -1,6 +1,4 @@
 // créer la fonction supprimer un caractère
-
-
 resetGlobals()
 
 function resetCalculator() {

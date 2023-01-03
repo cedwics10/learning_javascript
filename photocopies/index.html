@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>2. Le magasin décide de mettre en place des tarifs dégressifs.
+        Il vend chaque photocopie 9 centimes d'euros hors taxe,
+        prix auquel il applique une TVA de 20% pour obtenir le prix final TTC. 
+        Audelà de 20 photocopies, les photocopies supplémentaires sont à 8 centimes l'unité.
+        Audelà de 50 photocopies, les photocopies supplémentaires sont à 7 centimes l'unité.
+        Notre programme prend en entrée le nombre de photocopie à réaliser
+        et fournit en sortie le montant de la facture TTC en euros.
+    </p>
+    
+</body>
+<script>
+    //déclaration des variables
+    let nbphotocopie = prompt("Veuillez saisir le nombre de photocopies que vous souhaitez réaliser.");
+    let facture, px_photocopies;
+    let tva = 0.2;
+    if(nbphotocopie < 20)
+    {
+        px_photocopies = 100*nbphotocopie*0.09*(1+tva);
+        facture = Math.round(px_photocopies)/100;
+    }
+    else if(nbphotocopie < 50)
+    {
+        px_photocopies = ((nbphotocopie-20)*0.08*1.2+(20)*0.09)*(1+tva);
+        facture = Math.round(100*px_photocopies)/100;
+    }
+    else
+    {  
+        px_photocopies = ((nbphotocopie-50)*0.07 + 30*0.08 + 20 * 0.07) *(1+tva);
+        facture = Math.round(100*(px_photocopies))/100;
+    }
+    
+    alert("Le montant de la facture TTC est de " + facture + " €");
+
+</script>
+</html>

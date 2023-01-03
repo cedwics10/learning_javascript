@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+</head>
+
+<body>
+    <pre>
+Exercice : condition simple et calcul
+Une entreprise de location de véhicules loue ses véhicules de tourisme aux conditions suivantes :
+- le forfait journalier est de 45 Euros hors taxe,
+- les 50 premiers km sont gratuits,
+- les km suivants sont facturés 0,32 Euro H.T. du km.
+- Le taux de la T.V.A. est de 20 %.
+Écrire un programme qui demande à l'utilisateur le nombre de jours de location 
+et le nombre de km parcourus et qui affiche en retour le montant TTC à payer.
+</pre>
+    <p>
+        <label for="nbj">Nombre de jours de location : </label>
+        <input type="number" id="nbj">
+    </p>
+    <p>
+        <label for="nbk">Nombre de kilometres : </label>
+        <input type="number" id="nbk">
+    </p>
+    <button onclick="calcul()">Calculer la facture</button>
+    <hr>
+    <div id="resultat"></div>
+</body>
+<script>
+    function calcul() {
+        let facture = nbj.value*45;
+        if (nbk.value>50)
+            facture=facture + (nbk.value-50)*0.32;
+        
+        facture=facture*1.2;
+
+        
+        alert("Le montant de la facture est de " + facture + " €");
+    }
+</script>
+</html>
