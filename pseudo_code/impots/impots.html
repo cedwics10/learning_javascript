@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+    L’impôt est payé selon les règles suivantes (monde imaginaire !):
+    - les hommes de plus de 20 ans paient l’impôt
+    - les femmes paient l’impôt si elles ont entre 18 et 35 ans
+    - les autres ne paient pas d’impôt
+
+    Ecrire un programme qui demande :
+    - l’âge
+    - le genre ("homme" ou "femme")
+    et affiche "imposable" ou "non imposable " en fonction des régles énoncées  au-dessus.
+    <hr />
+    <div id="impot_paye"">la personne paie-t-elle les impôts ?</div>
+    <label for="age">Âge : </label><input type="text" id="age"/>
+    
+    <label for="genre">Genre : </label><select id="genre">
+    <option value="f">Femme</option>
+    <option value="h">Homme</option>
+    </select>
+
+
+    <button onclick="calculerInpots();">Calculer l'impôt payé</button>
+    
+    <script>
+        function calculerInpots()
+        {
+            let genreI = genre.value;
+            let ageI = age.value;
+            let impot_paye;
+            if(genreI == 'h' && ageI > 20 )
+            {
+                impot_paye.innerHTML = 'Cette personne paie les impôts';
+            }
+            else if(genreI =='f' && ageI >= 18 && ageI <= 35)
+            {
+                impot_paye.innerHTML = 'Cette personne paie les impôts';
+            }
+            else
+            {
+                impot_paye.innerHTML = 'Cette personne ne paie pas les impôts';
+            }
+        }
+    </script>
+    </pre>
+
+</body>
+</html>
