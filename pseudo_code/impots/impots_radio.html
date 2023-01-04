@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+    L’impôt est payé selon les règles suivantes (monde imaginaire !):
+    - les hommes de plus de 20 ans paient l’impôt
+    - les femmes paient l’impôt si elles ont entre 18 et 35 ans
+    - les autres ne paient pas d’impôt
+
+    Ecrire un programme qui demande :
+    - l’âge
+    - le genre ("homme" ou "femme")
+    et affiche "imposable" ou "non imposable " en fonction des régles énoncées  au-dessus.
+    </pre>
+    <p>
+        <label for="age">Age : </label>
+        <input type="number" id="age">
+    </p>
+    <p>
+        Genre :
+        <label for="homme">Homme</label>
+        <input type="radio" id="homme" name="genre">
+        <label for="femme">Femme</label>
+        <input type="radio" id="femme" name="genre">
+    </p>
+    <button onclick="calcul()">Calculer la facture</button>
+    <hr>
+    <div id="resultat"></div>
+</body>
+<script>
+    function calcul() {
+        if (age.value>=20 && homme.checked)
+            resultat.innerHTML="imposable";
+        else if (femme.checked && age.value>=18 && age.value<=35)
+            resultat.innerHTML="imposable";
+        else
+            resultat.innerHTML="NON imposable";
+    }
+</script>
+</html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <pre>
     L’impôt est payé selon les règles suivantes (monde imaginaire !):
@@ -25,31 +27,27 @@
     <option value="f">Femme</option>
     <option value="h">Homme</option>
     </select>
-
+  
 
     <button onclick="calculerInpots();">Calculer l'impôt payé</button>
     
     <script>
-        function calculerInpots()
-        {
+        function calculerInpots() {
             let genreI = genre.value;
             let ageI = age.value;
-            let impot_paye;
-            if(genreI == 'h' && ageI > 20 )
-            {
-                impot_paye.innerHTML = 'Cette personne paie les impôts';
+            if (genreI == 'h' && ageI > 20) {
+                impot_paye.innerHTML = "Cette personne paie des impôts";
             }
-            else if(genreI =='f' && ageI >= 18 && ageI <= 35)
-            {
-                impot_paye.innerHTML = 'Cette personne paie les impôts';
+            else if (genreI == 'f' && ageI >= 18 && ageI <= 35) {
+                impot_paye.innerHTML = "Cette personne paie des impôts";
             }
-            else
-            {
-                impot_paye.innerHTML = 'Cette personne ne paie pas les impôts';
+            else {
+                impot_paye.innerHTML = "Cette personne ne paie pas d'impôts";
             }
         }
     </script>
     </pre>
 
 </body>
+
 </html>

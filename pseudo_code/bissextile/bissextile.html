@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+    Faire un programme qui demande à l'utilisateur de saisir une année et qui affiche en retour si l'année est bissextile ou non.
+    Définition :
+    Une année est bissextile si :
+    (l'année est divisible par 4 et non divisible par 100)
+    ou
+    (l'année est divisible par 400).
+    <hr />
+    <div id="verifAnnee"">L'année est-elle bissextile ?</div>
+    <label for="annee">Année : </label><input type="text" id="annee"/>
+    <button onclick="anneeBissextile();">Vérifier si l'année est bissextile.</button>
+
+    <script>
+        function anneeBissextile() {
+            let anneeTexte = annee.value;
+            if((anneeTexte % 4 == 0 && anneeTexte % 100 != 0) || anneeTexte % 400 == 0) {
+                verifAnnee.innerHTML = "L'année est bissextile.";
+            }
+            else {
+                verifAnnee.innerHTML = "L'année n'est pas bissextile.";
+            }
+        }
+    </script>
+    </pre>
+
+</body>
+
+</html>
