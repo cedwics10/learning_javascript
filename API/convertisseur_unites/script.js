@@ -38,4 +38,6 @@ function showRateConv (data) {
 
 let boutonConversion = document.getElementById('bouton_conv');
 boutonConversion.addEventListener('click',returnCurrency);
-console.log(boutonConversion);
+
+let boutonReinit = document.getElementById('bouton_reinit');
+boutonReinit.addEventListener('click',reinitForm);
