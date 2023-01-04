@@ -22,6 +22,6 @@ function calculerImc()
     document.getElementById("imc").innerHTML = "Votre IMC est " + IMC + ". " + situation;
 }
 
-
-
-
+let bouton=document.getElementById("calcul_imc");
+console.log(bouton);
+bouton.addEventListener("click",calculerImc);

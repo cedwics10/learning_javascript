@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="calculateur_imc.js"></script>
+    <script defer src="calculateur_imc.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcul d'IMC</title>
@@ -11,6 +11,6 @@
     <h1 id="imc">Calculez votre IMC</h1>
     <p><label for="poids">Tapez votre poids (en kilos) :</label> <input type="text" name="poids" id="poids"/></p>
     <p><label for="taille">Tapez votre taille (en mètres) :</label> <input type="text" name="taille" id="taille"/></p>
-    <input type="submit" onclick="calculerImc()"/>
+    <button id="calcul_imc">Calculez votre IMC</button>
 </body>
 </html>

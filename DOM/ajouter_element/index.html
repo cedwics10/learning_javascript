@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    <div id="contenu">
+        <h1>DOM</h1>
+        <p class="bleu petit">
+            Pour créer une balise DIV, utiliser la fontion : document.createElement("div")
+        </p>
+        <button id="bouton">Cliquer moi pour changer le titre H1 de la page en "manipulation du DOM"</button>
+    </div>
+    -->
+</body>
+<script>
+    function changerH1() {
+        //récupérer la bmlise H1 par son id
+        let lesH1=document.getElementsByTagName("h1");
+        let titre=lesH1[0];
+        titre.innerHTML="Manipulation du DOM";
+
+        //ajout d'un nouvelle balise
+        let div=document.createElement("div");
+        div.innerHTML="Hello World !";
+        div.style.border="1px solid red";
+        div.className="popo";
+        let contenu=document.getElementById("contenu");
+        contenu.appendChild(div);
+    }
+
+
+
+    //construction de la page
+    let body=document.getElementsByTagName("body")[0];
+    //1. Créer une DIV d'id=contenu
+    let div=document.createElement("div");
+    div.id = 'contenu'; 
+    body.appendChild(div);  //2. Ajouter cette div au body
+    
+    //3. Céer une H1 ayant comme innerHTML "DOM"
+    let H1=document.createElement("h1");
+    H1.innerHTML = 'DOM';
+    //4. ajouter ce H1 à la DIV contenu
+    div.appendChild(H1);
+    
+    let pPetitBleu = document.createElement('p')
+    pPetitBleu.className = 'bleu petit';
+    pPetitBleu.innerHTML = "Pour créer une balise DIV, utiliser la fontion : document.createElement(\"div\")";
+    div.appendChild(pPetitBleu);
+
+    let boutonChangerH1 = document.createElement('button')
+    boutonChangerH1.id = 'bouton';
+    boutonChangerH1.innerHTML = 'Cliquer moi pour changer le titre H1 de la page en "manipulation du DOM"';
+    div.appendChild(boutonChangerH1);
+
+
+    //ajout d'un gestionnaire d'évebement sur le bouton
+    let bouton=document.getElementById("bouton");
+    bouton.addEventListener("click",changerH1);
+    
+</script>
+</html>

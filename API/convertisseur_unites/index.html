@@ -15,14 +15,11 @@
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
     </script>
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Lobster&family=Pacifico&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <!-- linking style.css file-->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -172,9 +169,8 @@
             </div>
 
             <div class="text-center">
-
-                <!-- bouton de reconversion -->
-                <button class="btn btn-primary convert m-2" type="submit" onclick="returnCurrency();">
+                <!-- bouton de conversion -->
+                <button id="bouton_conv" class="btn btn-primary convert m-2" type="submit">
                     Convertir
                 </button>
 

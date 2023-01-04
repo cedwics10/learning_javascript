@@ -35,3 +35,7 @@ function reinitForm()
 {
   document.getElementById("oamount").value = '';
 }
+
+let boutonConversion = document.getElementById('bouton_conv');
+console.log(boutonConversion);
+boutonConversion.addEventListener('click',showRateConv());

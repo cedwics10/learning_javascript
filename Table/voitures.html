@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="voiture">Sélectionner une voiture :</label>
+    <select name="voiture" id="liste_voitures">
+    </select>
+    <button>Choix</button>
+</body>
+<script>
+    let voitures=["clio","peugeot 205","Porche carrera","Tesla","Ferrari S32","Smart"];
+    let selectVoitures = document.getElementById('liste_voitures');
+    //générer une liste déroulante des voitures
+    for(i=0;i<voitures.length;i++)
+        selectVoitures.innerHTML += `<option value="${voitures[i]}">${voitures[i]}</option>`;
+
+</script>
+</html>

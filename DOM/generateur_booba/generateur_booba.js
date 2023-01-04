@@ -1,9 +1,3 @@
-function getRandomItem(arr) {
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  const item = arr[randomIndex];
-  return item;
-}
-
 const citationsBooba = [
   "Ne fais pas trop de bien ou tu seras cloué sur une croix.",
   "J'préfère avoir un ennemi que la moitié d'un poto.",
@@ -25,7 +19,6 @@ const citationsBooba = [
   "Chercher Booba à la boutique Ünkut c'est comme chercher Ronald chez McDonald.",
   "J'y ai cru quand j'ai vu, j'ai appris quand j'ai lu.",
   "J'ai demandé ma route au mur, il m'a dit d'aller tout droit.",
-
   "J'aime l'argent mais je préfère avoir le temps, tu as l'arme, encore faut-il avoir le cran.",
   "Comment ne pas être un pitbull quand la vie est une chienne ?",
   "Des fois j'me dope comme un coureur cycliste. Quand se réveillent mes cicatrices, j'me sens si seul et si triste.",
@@ -47,8 +40,18 @@ const citationsBooba = [
   "J'n'ai plus d'besoins que des envies.",
 ];
 
+function getRandomItem(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  const item = arr[randomIndex];
+  return item;
+}
+
 function afficherCitation() {
   const result = (document.getElementById("citation").textContent =
     getRandomItem(citationsBooba));
   console.log(result);
 }
+
+let link_quote = document.getElementById('changeQuote');
+console.log(link_quote);
+link_quote.addEventListener('click', afficherCitation);
