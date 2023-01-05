@@ -7,11 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" type="text/css" />
 
-  <script src="base.js"></script>
-  <script src="constants.js"></script>
-  <script src="script_calc.js"></script>
-  <script src="script_result.js"></script>
-  <title>Calculatrice Javascript</title>
+  <script defer src="base.js"></script>
+  <script defer src="constants.js"></script>
+  <script defer src="script_calc.js"></script>
+  <script defer src="script_result.js"></script>
+  <script defer src="events.js"></script>
+  <title>Calculatrice Javascript !!!</title>
 </head>
 
 <body>
@@ -21,26 +22,26 @@
       <div id="calc-typed">0</div>
     </div>
     <div class="calc-button-row">
-      <button class="ac" onclick="resetCalculator()">AC</button>
-      <button class="opt" onclick="altSign()">&#43;&#47;&#8722;</button>
-      <button class="opt" onclick="addSymbol('%');">&#37;</button>
-      <button class="opt" onclick="addSymbol('/');">&#247;</button>
-      <button onclick="addSymbol('7');">7</button>
-      <button onclick="addSymbol('8');">8</button>
-      <button onclick="addSymbol('9');">9</button>
-      <button class="opt" onclick="addSymbol('*');">&#215;</button>
-      <button onclick="addSymbol('4');">4</button>
-      <button onclick="addSymbol('5');">5</button>
-      <button onclick="addSymbol('6');">6</button>
-      <button class="opt" onclick="addSymbol('-');">&#8722;</button>
-      <button onclick="addSymbol('1');">1</button>
-      <button onclick="addSymbol('2');">2</button>
-      <button onclick="addSymbol('3');">3</button>
-      <button class="opt" onclick="addSymbol('+');">&#43;</button>
-      <button onclick="addSymbol('0');">0</button>
-      <button onclick="addSymbol('.');">.</button>
-      <button onclick="removeASymbol();">&#9003;</button>
-      <button onclick="computeResult();" class="opt">&#61;</button>
+      <button id="resetButton" class="ac">AC</button>
+      <button id="altSignButton" class="opt">&#43;&#47;&#8722;</button>
+      <button id="percentButton" class="opt">&#37;</button>
+      <button id="slashButton" class="opt">&#247;</button>
+      <button id="Button7">7</button>
+      <button id="Button8">8</button>
+      <button id="Button9">9</button>
+      <button id="ButtonTimes" class="opt">&#215;</button>
+      <button id="Button4">4</button>
+      <button id="Button5">5</button>
+      <button id="Button6">6</button>
+      <button id="ButtonMinus" class="opt">&#8722;</button>
+      <button id="Button1">1</button>
+      <button id="Button2">2</button>
+      <button id="Button3">3</button>
+      <button id="ButtonPlus" class="opt">&#43;</button>
+      <button id="Button0">0</button>
+      <button id="ButtonDot">.</button>
+      <button id="ButtonRemove">&#9003;</button>
+      <button id="ButtonResult" class="opt">&#61;</button>
     </div>
   </div>
 </body>
