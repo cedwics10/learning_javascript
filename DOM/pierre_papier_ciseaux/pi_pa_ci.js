@@ -1,8 +1,7 @@
-
-gameChoices = ['Pi', 'Ci', 'Fe'];
-advantage = {'Pi' : 'Ci', 'Ci' : 'Fe', 'Fe': 'Pi'};
-playerScore = 0;
-computerScore = 0;
+let gameChoices = ['Pi', 'Ci', 'Fe'];
+let advantage = {'Pi' : 'Ci', 'Ci' : 'Fe', 'Fe': 'Pi'};
+let playerScore = 0;
+let computerScore = 0;
 
 function updateScore()
 {
@@ -29,3 +28,5 @@ function whoWins()
     }
     updateScore()
 }
+
+document.getElementById('buttonWin').addEventListener('click',whoWins);

@@ -53,5 +53,4 @@ function afficherCitation() {
 }
 
 let link_quote = document.getElementById('changeQuote');
-console.log(link_quote);
 link_quote.addEventListener('click', afficherCitation);
