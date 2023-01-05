@@ -1,31 +1,13 @@
 let resetBu = document.getElementById('resetButton');
 resetBu.addEventListener('click', resetCalculator);
 
-// let numberBu = [];
-// let numberBo = [];
-
-// for (number = 0; number < 10; number++) {
-//     numberBu.push(document.getElementById('Button' + number.toString()));
-//     numberBu[number].addEventListener('click',
-//         (event) => {
-//             addSymbol(number.toString());
-//         }
-//     );
-//     console.log(number.toString());
-// }
-
-
-for (number = 0; number <= 9; number++) {
-    let numberBu = null;
-    numberBu = document.getElementById('Button' + number.toString());
-    console.log('Button' + number.toString());
-    numberBu.addEventListener('click', () => {
-        addSymbol(number.toString());
+let numbers = ['0', '1','2', '3', '4', '5', '6', '7', '8','9']
+numbers.forEach(function(number) {
+    document.getElementById('Button' + number)
+    .addEventListener('click', (event) => {
+        addSymbol(number);
     });
-    delete(numberBu);
-}
-
-console.log(number);
+  });
 
 const percentBu = document.getElementById('percentButton');
 percentBu.addEventListener('click', (event) => addSymbol('%'));
