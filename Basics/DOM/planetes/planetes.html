@@ -1,0 +1,45 @@
+<!--
+On donne la liste des planètes avec la masse en kilogramme et le rayon en mètre.		
+    1. MERCURY (3.303e+23, 2.4397e6),
+    2. VENUS   (4.869e+24, 6.0518e6),
+    3. EARTH   (5.976e+24, 6.37814e6),
+    4. MARS    (6.421e+23, 3.3972e6),
+    5. JUPITER (1.9e+27,   7.1492e7),
+    6. SATURN  (5.688e+26, 6.0268e7),
+    7. URANUS  (8.686e+25, 2.5559e7),
+    8. NEPTUNE (1.024e+26, 2.4746e7).
+	
+A faire : générer en javascript un formulaire qui comprend : 
+- un input de type "number" pour saisir une masse m (en kg) 
+- une liste déroulante pour choisir une planète, 
+- un bouton "calculer" qui calcule le poids de l'utilisateur à la surface de cette planète.
+
+Rappel :
+Le poids est la force de la pesanteur, d'origine gravitationnelle exercée par une planète sur
+un corps massique.
+Le poids est donné par la formule P=m*g où g est l'accélération gravitationnelle de la planète
+m la masse de l'objet posé à sa surface.
+L'accélération due à la gravition à la surface d'une planète est : 
+* g = G*M/(R*R) où G est La constante de Gravitation universelle
+* M la masse de la planète
+* R le rayon de la planète.
+La constante de Gravitation universelle vaut G = 6.67300E-11  (m3 kg-1 s-2)
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="script.js"></script>
+    <title>Planètes</title>
+</head>
+
+<body>
+    <!-- <h1 id="resultat">Calculer votre poids sur une planète étrangère.</h1> -->
+    <label for="masse">Ma masse sur Terre : </label> <input type="number" id="masse" step="0.1" min="0"/><br />
+    <label for="planete">Planète : </label> <select id="planete"></select><br /><br />
+    <!-- <button id="envoyer">Calculer mon poids sur la planète</button> -->
+</body>
+</html>
