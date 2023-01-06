@@ -36,6 +36,16 @@ labelPlanete.innerHTML = 'Planete : ';
 body.appendChild(labelPlanete);
 
 // SELECT PLANETES
+let selectPlanete = document.createElement('select');
+selectPlanete.id = 'planete';
+planetes.forEach((element,key) => {
+    let optionPl = document.createElement('option');
+    optionPl.value = key;
+    optionPl.text = element;
+    selectPlanete.add(optionPl, null);
+}); // Ajouter les éléments un par un
+body.appendChild(selectPlanete);
+
 body.innerHTML +='<br />';
 
 // Traitements
