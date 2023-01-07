@@ -1,2 +1,15 @@
+- Modifier le code HTML de la calculatrice poru ajotuer les boutons
+* parenthèses
+* puissance
+* e 
+* racine carrée
+* log
+* consinus
+* sinus
+* tan
+* arcos
+* arcsinus
+* arctan
+
 - Ajouter les parenthèses, racine carrées
 - (éventuel) ajouter les exponentielles, log etc.
