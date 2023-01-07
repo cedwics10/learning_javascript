@@ -1,1 +1,2 @@
-Régler le souci de compatibilité avec math.js sur Google Chrome ...
+- Ajouter les parenthèses, racine carrées
+- (éventuel) ajouter les exponentielles, log etc.
