@@ -1,4 +1,22 @@
-// créer la fonction supprimer un caractère
+let lastkeyCalcExpression = 0
+let calcExpression = []
+let textExpression = ''
+let displayedResult = '0'
+let calcResult = 0
+let emptyNumber = '0';
+let isDecNumber = /([0-9]+)\.([0-9]+)/;
+
+function resetGlobals() {
+  lastkeyCalcExpression = 0
+  calcExpression = []
+  textExpression = ''
+  displayedResult = '0'
+  calcResult = 0
+  emptyNumber = '0';
+
+  console.log('reinit calculator');
+}
+
 resetGlobals()
 
 function resetCalculator() {
