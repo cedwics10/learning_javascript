@@ -1,6 +1,3 @@
-
-
-
 function simpleCompute(exp) {
 	try {
 		result = Function(`'use strict'; return (${exp})`)()
