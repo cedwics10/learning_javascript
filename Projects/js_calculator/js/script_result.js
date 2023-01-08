@@ -24,6 +24,6 @@ function computeResult() {
 	let result = Function(`'use strict'; return (${strCalcExpression})`)()
 	console.log(result);
 	if (isInt(result) || isFloat(result))
-		result = parseFloat(result).toFixed(8);
+		result = parseFloat(parseFloat(result).toFixed(8)).toString();
 	document.getElementById('calc-typed').innerHTML = result;
 }
