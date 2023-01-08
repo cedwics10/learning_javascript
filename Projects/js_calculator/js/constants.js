@@ -11,6 +11,14 @@ let calcResult = 0
 let emptyNumber = '0';
 let isDecNumber = /([0-9]+)\.([0-9]+)/;
 
+const regexBracTimes = /\(([^()]+)\)/;
+const regexMathForm = /[a-z]+\(([0-9\.]+)\)/;
+const MathFormJS = {
+    // 'exp': '',
+    'sqrt': 'Math.sqrt',
+    'log': 'Math.log'
+};
+
 function resetGlobals() {
     lastkeyCalcExpression = 0
     calcExpression = []

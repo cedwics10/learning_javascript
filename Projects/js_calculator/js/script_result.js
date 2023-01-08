@@ -1,4 +1,5 @@
-const regexBracTimes = /\(([^()]+)\)/;
+
+
 
 function simpleCompute(exp) {
 	try {

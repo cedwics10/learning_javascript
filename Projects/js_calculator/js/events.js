@@ -34,8 +34,13 @@ DotBu.addEventListener('click', (event) => addSymbol('.'));
 const ButtonOBrac = document.getElementById('ButtonOBrac');
 ButtonOBrac.addEventListener('click', (event) => addSymbol('('));
 
+const ButtonLog = document.getElementById('ButtonLog');
+ButtonLog.addEventListener('click', (event) => addSymbol('log('));
+
+
 const ButtonCBrac = document.getElementById('ButtonCBrac');
 ButtonCBrac.addEventListener('click', (event) => addSymbol(')'));
+
 
 const RemoveBu = document.getElementById('ButtonRemove');
 RemoveBu.addEventListener('click', removeASymbol);

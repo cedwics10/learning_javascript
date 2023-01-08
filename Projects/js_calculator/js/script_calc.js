@@ -16,12 +16,12 @@ function sCharAlreadyExists(new_symbol) {
 
 function specSymbolFirst(new_symbol) {
   if (calcExpression.length > 0) {
-    console.log('faux');
+    console.log('faux 1');
     return false
   }
 
   if (specialSymbols.indexOf(new_symbol) == '-1') {
-    console.log('faux');
+    console.log('faux 2');
     return false
   }
   console.log('vrai');
