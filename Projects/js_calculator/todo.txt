@@ -1,6 +1,9 @@
 - Faire en sorte de traiter le terme "log(" comme un opérateur qui va exécuter une fonction JS
-* traiter 
+
+
+
+(* traiter 
 - De même pour : exp(, sqrt(
 - Permettre l'ajout de puissnce dans l'expression, d'une manière déguisée (avec un accent circonflexe)
 - Créer une prise en compte des puissances
-- Traiter "**" comme un symbole spécial de base.
+- Traiter "**" comme un symbole spécial de base)
