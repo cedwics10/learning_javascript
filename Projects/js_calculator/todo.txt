@@ -1,7 +1,18 @@
-- Modifier le code HTML de la calculatrice poru ajotuer les boutons
+
+- résultat : prendre en compte qu'un résultat qui n'est pas un entier est une ERREUJR de syntaxe
+
 * parenthèses
+- ajouter la prise en compte de l'absence du signe "*" lorsque l'on utilise les parenthèses
+C'est-à-dire qu'entre une parenthèse fermante et une ouvrante, il faut ajouter un "*"
+
 * puissance
-* e 
+- Ajouter la prise en comtpe des puissances
+- Afficher autre chose que ** à l'écran mais bien un signe "^"
+
+* e
+- Ajouter la prise en compte des exponentielles
+- Convertir l'expression du résultat avec un 
+ 
 * racine carrée
 * log
 * consinus
