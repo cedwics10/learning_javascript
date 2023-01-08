@@ -1,22 +1,6 @@
-* parenthèses
-- Utiliser une régex (.)(.) avec un ungreedy pour que les parenthèses créent des multiplications
-
-* puissance
-- Ajouter la prise en comtpe des puissances
-- Afficher autre chose que ** à l'écran mais bien un signe "^"
-
-* e
-- Ajouter la prise en compte des exponentielles
-- Convertir l'expression du résultat avec un 
- 
-* racine carrée
-* log
-* consinus
-* sinus
-* tan
-* arcos
-* arcsinus
-* arctan
-
-- Ajouter les parenthèses, racine carrées
-- (éventuel) ajouter les exponentielles, log etc.
+- Faire en sorte de traiter le terme "log(" comme un opérateur qui va exécuter une fonction JS
+* traiter 
+- De même pour : exp(, sqrt(
+- Permettre l'ajout de puissnce dans l'expression, d'une manière déguisée (avec un accent circonflexe)
+- Créer une prise en compte des puissances
+- Traiter "**" comme un symbole spécial de base.

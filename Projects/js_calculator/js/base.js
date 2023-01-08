@@ -17,3 +17,7 @@ function isInt(val) {
   var intVal = parseInt(val, 10);
   return parseFloat(val) == intVal && !isNaN(intVal);
 }
+
+function range(start, end, step = 1) {
+  return Array.from({ length: Math.ceil((end - start) / step) }, (_, i) => (start + (i * step)).toString());
+}

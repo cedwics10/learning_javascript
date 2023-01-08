@@ -2,8 +2,8 @@ let resetBu = document.getElementById('resetButton');
 resetBu.addEventListener('click', resetCalculator);
 
 // (!!!) - find a better manner to do that maybe ?
-let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-numbers.forEach(function (number) {
+let digitsPrinted = range(0, 10);
+digitsPrinted.forEach(function (number) {
   document.getElementById('Button' + number)
     .addEventListener('click', (event) => {
       addSymbol(number);
