@@ -1,31 +1,3 @@
-let lastkeyCalcExpression = 0
-let calcExpression = []
-let textExpression = ''
-let displayedResult = '0'
-let calcResult = 0
-let emptyNumber = '0';
-let isDecNumber = /([0-9]+)\.([0-9]+)/;
-
-function resetGlobals() {
-  lastkeyCalcExpression = 0
-  calcExpression = []
-  textExpression = ''
-  displayedResult = '0'
-  calcResult = 0
-  emptyNumber = '0';
-
-  console.log('reinit calculator');
-}
-
-resetGlobals()
-
-function resetCalculator() {
-  resetGlobals()
-  document.getElementById('calc-operation').innerText = '0'
-  document.getElementById('calc-typed').innerText = '0'
-  console.log('Reset calculator')
-}
-
 function sCharAlreadyExists(new_symbol) {
   lastExpression = calcExpression.slice(-1)
   numberSpecialChars = specialSymbols.length
@@ -44,12 +16,15 @@ function sCharAlreadyExists(new_symbol) {
 
 function specSymbolFirst(new_symbol) {
   if (calcExpression.length > 0) {
+    console.log('faux');
     return false
   }
 
   if (specialSymbols.indexOf(new_symbol) == '-1') {
+    console.log('faux');
     return false
   }
+  console.log('vrai');
   return true
 }
 
@@ -89,8 +64,13 @@ function doConcatenate(new_symbol) {
 
 function addSymbol(character) {
   if (wrongSyntaxeWith(character)) return true
-  if (doConcatenate(character))
-    calcExpression[calcExpression.length - 1] += character
+  if (doConcatenate(character)) {
+
+    if (brackets.includes(character))
+      calcExpression.push(character);
+    else
+      calcExpression[calcExpression.length - 1] += character
+  }
   else calcExpression.push(character)
 
   showComputation()
@@ -126,19 +106,4 @@ function altSign() {
     calcExpression[lastkeyCalcExpression - 1] = altExpr[KeyCurrentSign];
     showComputation()
   }
-}
-
-function MakeResultDisplay() {
-  lastkeyCalcExpression = calcExpression.length - 1
-  if (isInt(calcExpression[lastkeyCalcExpression])) return calcExpression[lastkeyCalcExpression]
-  if (displayedResult != emptyNumber) return displayedResult
-  if (calcExpression.length == 0) return '0';
-  return calcExpression.join(' ')
-}
-
-function showComputation(delete_f_epr = false) {
-  document.getElementById('calc-operation').innerHTML = (calcExpression.length > 0) ? calcExpression.join(' ') : '0';
-  displayedResult = MakeResultDisplay();
-  document.getElementById('calc-typed').innerHTML = displayedResult
-  console.log(calcExpression)
 }
