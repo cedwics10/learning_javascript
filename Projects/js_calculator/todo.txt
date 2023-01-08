@@ -1,9 +1,5 @@
-
-- résultat : prendre en compte qu'un résultat qui n'est pas un entier est une ERREUJR de syntaxe
-
 * parenthèses
-- ajouter la prise en compte de l'absence du signe "*" lorsque l'on utilise les parenthèses
-C'est-à-dire qu'entre une parenthèse fermante et une ouvrante, il faut ajouter un "*"
+- Utiliser une régex (.)(.) avec un ungreedy pour que les parenthèses créent des multiplications
 
 * puissance
 - Ajouter la prise en comtpe des puissances

@@ -1,10 +1,45 @@
+const regexBracTimes = /\(([^()]+)\)/;
+
+function simpleCompute(exp) {
+	try {
+		result = Function(`'use strict'; return (${exp})`)()
+	}
+	catch (error) {
+		console.error(error);
+		result = false;
+	}
+	return result;
+}
+
+function prepareResult(expression) {
+	if (!regexBracTimes.test(expression)) {
+		return expression;
+	}
+	console.log('Entre parenthèses : ', regexBracTimes.test(expression));
+
+	expression = expression.replace(regexBracTimes, function (match, p1) {
+		return simpleCompute(p1);
+	});
+	console.log(expression);
+	return prepareResult(expression);
+
+}
+
+
 function computeResult() {
+	let result;
 	let strCalcExpression = calcExpression.join('');
-	let result = Function(`'use strict'; return (${strCalcExpression})`)()
+	strCalcExpression = prepareResult(strCalcExpression);
+
+	result = simpleCompute(strCalcExpression);
+
 	console.log(result);
-	if (isInt(result) || isFloat(result))
-		result = parseFloat(parseFloat(result).toFixed(8)).toString();
-	document.getElementById('calc-typed').innerHTML = result;
+
+	textResult = 'Syntax error';
+	if (isInt(result) || isFloat(result)) {
+		textResult = parseFloat(parseFloat(result).toFixed(8)).toString();
+	}
+	document.getElementById('calc-typed').innerHTML = textResult;
 }
 
 function MakeResultDisplay() {
