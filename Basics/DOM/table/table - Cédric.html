@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau HTML</title>
+    <link rel="stylesheet" href="stylecedric.css">
+<body>
+
+</body>
+<script>
+
+    function alea(min, max) {
+        return Math.floor((max - min + 1) * Math.random()) + min;
+    }
+    
+    /**
+     * création d'un tableau html de nbl lignes et nbc colonnes
+     * remplir chaque case avec un nombre aléatoire entre 1 et 10;
+     */
+    function CreerTable(nbl, nbc) {
+        let body = document.getElementsByTagName('body')[0];
+		let table = document.createElement('table');
+        body.appendChild(table);
+        for(i=0;i<nbl;i++)
+        {
+            let row = document.createElement('tr');
+            for(j=0;j<nbc;j++)
+            {
+                let cell = document.createElement('td');
+                let nbAlea = alea(1,10);
+                cell.innerText = nbAlea;
+                if(nbAlea % 2 == 0)
+                    cell.className = 'rouge';
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+
+    }
+
+    CreerTable(10,10);
+</script>
+
+</html>
