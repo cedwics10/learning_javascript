@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        width: 30px;
+    }
+
+    #output {
+        text-align: right;
+    }
+</style>
+
+<body>
+    <label id="essai"></label>
+    <div><input id="output" disabled role="region" aria-live="polite" value="0"></div>
+    <div><button>/</button><button>*</button><button>-</button><button>+</button></div>
+    <div><button>7</button><button>8</button><button>9</button><button>(</button></div>
+    <div><button>4</button><button>5</button><button>6</button><button>)</button></div>
+    <div><button>1</button><button>2</button><button>3</button><button>.</button></div>
+    <div><button>cos</button><button>sin</button><button>tan</button></div>
+    <div><button>0</button><button>=</button><button>AC</button>
+</body>
+<script>
+    let specialSymbols = ['(', ')', '-', '+', '/', '*', 'AC'];
+
+    //tableau d'objet "button"
+    let boutons = document.getElementsByTagName("button");
+
+    //ajoute une gestionnaire de clic à chaque bouton
+    for (let i = 0; i < boutons.length; i++) {
+        boutons[i].addEventListener("click", afficher);
+    }
+
+    function calculer_resultat() {
+        let calcul = output.value;
+        calcul = calcul.replace('cos', 'Math.cos');
+        calcul = calcul.replace('sin', 'Math.sin');
+        calcul = calcul.replace('tan', 'Math.tan');
+        calcul = console.log(calcul);
+        output.value = eval(calcul);
+    }
+
+    //foncon executer quand on clique sur un bouton
+    function afficher(event) {
+        //event contient les informations sur l'évenement qui a déclencher la  fonction
+        let btn = event.target;
+        if (btn.innerText == 'AC')
+            output.value = '0';
+        else if (btn.innerText == "=")
+            calculer_resultat();
+        else {
+            if (output.value == '0')
+                output.value = btn.innerText;
+            else
+                output.value += btn.innerText;
+        }
+    }
+
+    //gestionnaire d'appuie sur une touche du clavier
+    document.addEventListener("keydown", clavier);
+
+    function clavier(event) {
+        console.log(event.key);
+
+        //event est un objet fabriqué par le navigateur et qui contient les info sur l'appuie d'une touche
+        //event.key contient le caractére appuyé
+
+        for (let i = 0; i < 9; i++) {
+            if (parseInt(event.key) != NaN && event.key == i)
+                afficher(event);
+        }
+
+        specialSymbols.forEach((value) => {
+            if (value == event.key)
+                output.value += event.key;
+        })
+
+        if (event.key == 'c')
+            output.value += 'cos(';
+        if (event.key == 's')
+            output.value += 'sin(';
+        if (event.key == 't')
+            output.value += 'tan(';
+        if (event.key == 'Backspace') {
+            console.log('effacer');
+            clavier(event);
+        }
+        if (event.key == '=') {
+            calculer_resultat();
+        }
+    }
+</script>
+
+</html>

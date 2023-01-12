@@ -24,12 +24,9 @@
     <div><button>7</button><button>8</button><button>9</button><button>(</button></div>
     <div><button>4</button><button>5</button><button>6</button><button>)</button></div>
     <div><button>1</button><button>2</button><button>3</button><button>.</button></div>
-    <div><button>cos</button><button>sin</button><button>tan</button></div>
-    <div><button>0</button><button>=</button><button>AC</button>
+    <div><button>0</button><button>cos</button><button>sin</button><button>=</button></div>
 </body>
 <script>
-    let specialSymbols = ['(', ')', '-', '+', '/', '*', 'AC'];
-
     //tableau d'objet "button"
     let boutons = document.getElementsByTagName("button");
 
@@ -38,58 +35,28 @@
         boutons[i].addEventListener("click", afficher);
     }
 
-    function calculer_resultat() {
-        output.value = eval(output.value);
-    }
-
     //foncon executer quand on clique sur un bouton
     function afficher(event) {
         //event contient les informations sur l'évenement qui a déclencher la  fonction
         let btn = event.target;
-        if (btn.innerText == 'AC')
-            output.value = '0';
-        else if (btn.innerText == "=")
-            calculer_resultat();
-        else {
-            if (output.value == '0')
-                output.value = btn.innerText;
-            else
-                output.value += btn.innerText;
-        }
+        if (btn.innerText == "=") {
+            let s = output.value;
+            s = s.replace("cos", "Math.cos");
+            s = s.replace("sin", "Math.sin");
+            output.value = eval(s);
+        } else
+            output.value += btn.innerText;
     }
 
     //gestionnaire d'appuie sur une touche du clavier
     document.addEventListener("keydown", clavier);
 
     function clavier(event) {
-        console.log(event.key);
-
         //event est un objet fabriqué par le navigateur et qui contient les info sur l'appuie d'une touche
         //event.key contient le caractére appuyé
-
-        for (let i = 0; i < 9; i++) {
-            if (parseInt(event.key) != NaN && event.key == i)
-                afficher(event);
-        }
-
-        specialSymbols.forEach((value) => {
-            if (value == event.key)
-                output.value += event.key;
-        })
-
-        if (event.key == 'c')
-            output.value += 'cos';
-        if (event.key == 's')
-            output.value += 'sin';
-        if (event.key == 't')
-            output.value += 'tan';
-        if (event.key == 'Backspace') {
-            console.log('effacer');
-            clavier(event);
-        }
-        if (event.key = '=') {
-            
-        }
+        let carValide = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '/', '*', '-', '+', '(', ')', '.'];
+        if (carValide.includes(event.key))
+            output.value += event.key;
     }
 </script>
 
