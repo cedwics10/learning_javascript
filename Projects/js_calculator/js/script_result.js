@@ -25,11 +25,10 @@ function prepareResult(expression) {
 
 
 function computeResult() {
-	let result;
 	let strCalcExpression = calcExpression.join('');
 	strCalcExpression = prepareResult(strCalcExpression);
 
-	result = simpleCompute(strCalcExpression);
+	let result = simpleCompute(strCalcExpression);
 
 	console.log(result);
 

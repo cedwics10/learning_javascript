@@ -1,5 +1,5 @@
 function sCharAlreadyExists(new_symbol) {
-  lastExpression = calcExpression.slice(-1)
+  let lastExpression = calcExpression.slice(-1)
   numberSpecialChars = specialSymbols.length
   console.log(new_symbol)
 
@@ -31,7 +31,7 @@ function specSymbolFirst(new_symbol) {
 function specSymbolRepeated(new_symbol) {
   if (!specialSymbols.indexOf(new_symbol)) return false
 
-  currentSign = calcExpression.slice(-1)
+  let currentSign = calcExpression.slice(-1)
 
   if (currentSign.length > 0) currentSign = currentSign[0]
   else return false
@@ -47,7 +47,7 @@ function specSymbolRepeated(new_symbol) {
 }
 
 function wrongSyntaxeWith(new_symbol) {
-  previous = calcExpression.slice(-1);
+  let previous = calcExpression.slice(-1);
   if (specSymbolFirst(new_symbol)) return true
   if (new_symbol == '.' && isDecNumber.test(previous)) return true
   if (specSymbolRepeated(new_symbol)) return true
@@ -55,7 +55,7 @@ function wrongSyntaxeWith(new_symbol) {
 }
 
 function doConcatenate(new_symbol) {
-  previous = calcExpression.slice(-1);
+  let previous = calcExpression.slice(-1);
   if (new_symbol == '.' && isInt(previous)) return true
   if (isInt(new_symbol) && !isInt(previous)) return false
   if (!isInt(new_symbol) && isInt(previous)) return false
@@ -93,7 +93,7 @@ function removeASymbol() {
 }
 
 function altSign() {
-  lastkeyCalcExpression = calcExpression.length - 1;
+  let lastkeyCalcExpression = calcExpression.length - 1;
   if (
     isIntOrDec.test(calcExpression[lastkeyCalcExpression]) &&
     altExpr.includes(calcExpression[lastkeyCalcExpression - 1])

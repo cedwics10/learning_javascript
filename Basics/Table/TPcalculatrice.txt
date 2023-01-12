@@ -1,0 +1,36 @@
+TP calculatrice
+---------------
+PARTIE 1 :
+Le but est de créer une calculatrice dans une page HTML.
+
+L'afficheur sera constitué par un label.
+Les boutons disponibles sont :
+- les chiffres de 0 à 9
+- les opérations +, -, *, /
+- les caractères "(" et ")"
+- le caractère "." pour le séparateur décimal
+- un bouton "=" qui permet de déclencher le calcul de l'expression affiché dans l'afficheur.
+
+La mise en forme :
+on disposera les boutons ainsi :
+/ * - +
+7 8 9 (
+4 5 6 )
+1 2 3 .
+0     =
+
+Gestion des clics sur les boutons :
+A chaque clic sur un bouton, le caractère associé est ajouté à la string affichée dans l'afficheur.
+Ainsi, par exemple, après avoir cliqué les boutons adéquats, on pourrait avoir dans l'afficheur la chaine : "3*5*(6+2)".
+En cliquant sur le bouton "=", le contenu de l'afficheur doit etre remplacer par "120".
+
+Pour effectuer ce calcul, il faut utiliser la fonction javascript eval(chaine) qui permet d'exécuter une expression passée en parametre sous forme d'une string.
+Ainsi : eval("3*5*(6+2)") retournera la valeur : 120
+
+PARTIE 2 :
+- utiliser l'api de synthèse vocale pour vocaliser le résultat quand on clique sur le bouton "=".
+- mettre en place un gestionnaire d'évenement d'appui sur les touches du clavier, de sorte qu'on lui puisse utiliser le pavé numérique avec notre calculatrice.
+
+
+
+

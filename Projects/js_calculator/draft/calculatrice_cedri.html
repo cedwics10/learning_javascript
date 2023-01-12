@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylecalcul.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Calculatrice en javascript </h1>
+    <br>
+    <input type="text" id="display" disabled> <br>
+    <div>
+
+
+
+        <button onclick="ajouter('/');">/</button> 
+        <button onclick="ajouter('*');">*</button> 
+        <button onclick="ajouter('-');">-</button> 
+        <button onclick="ajouter('+');">+</button> 
+        <button onclick="reinitialiser();">AC</button> 
+    </div>
+    <div>
+
+        <button onclick="ajouter('7');">7</button>
+        <button onclick="ajouter('8');">8</button>
+        <button onclick="ajouter('9');">9</button>
+        <button onclick="ajouter('(');">(</button> 
+
+    </div>
+    <div>
+        <button onclick="ajouter('4');">4</button> 
+        <button onclick="ajouter('5');">5</button> 
+        <button onclick="ajouter('6');">6</button> 
+        <button onclick="ajouter(')');">)</button> 
+
+    </div>
+    <div>
+        <button onclick="ajouter('1');">1</button> 
+        <button onclick="ajouter('2');">2</button> 
+        <button onclick="ajouter('3');">3</button> 
+        <button onclick="ajouter('.');">.</button> 
+
+    </div>
+    <div>
+        <button onclick="ajouter('0');">0</button> 
+        <button onclick="calculerResultat();">=</button> 
+        
+
+    </div>
+
+    
+
+</body>
+<script>
+    function ajouter(bouton)
+    {   
+        display.value+= bouton;
+    }
+
+    function calculerResultat()
+    {
+        display.value=eval(display.value);
+    }
+
+    function reinitialiser()
+    {
+        display.value = '0';
+    }
+</script>
+</html>

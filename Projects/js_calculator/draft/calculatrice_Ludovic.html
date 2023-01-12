@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /*Calculator Body*/
+    .calc-body {
+      width: 275px;
+      margin: auto;
+      padding: 3px;
+      text-align: center;
+      min-height: 300px;
+      box-shadow: 0 8px 50px -7px black;
+      background: #3a4655;
+    }
+
+    .calc-body-calc {
+      width: 275px;
+      margin: auto;
+      min-height: 150px;
+      box-shadow: 0 8px 50px -7px black;
+      background: #3a4655;
+    }
+
+    .div-calcul {
+      background: #3a4655;
+    }
+
+    /*Calculator Display Screen*/
+    .calc-screen {
+      padding: 0.5rem;
+    }
+
+    #calc-operation {
+      font-size: 1.3rem;
+      text-align: right;
+      color: yellow;
+      padding-bottom: 2px;
+      border-radius: 3px;
+      background: blueviolet;
+
+    }
+
+    #calc-resultat {
+      font-size: 1.3rem;
+      text-align: right;
+      color: yellow;
+      padding-bottom: 2px;
+      min-height: 5px;
+      border-radius: 3px;
+      background: blueviolet;
+    }
+
+    #calc-typed {
+      font-size: 2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    /*Calculator Buttons*/
+    .calc-button-row {
+      display: table;
+    }
+
+    .calc-button-row button {
+      display: table-cell;
+      width: 20%;
+      text-align: center;
+      background: #425062;
+      color: #fff;
+      height: 40px;
+      font-size: 1.3rem;
+      border: none;
+      border-color: blue;
+      border-width: 1px 1px 0px 0;
+      border-style: solid;
+    }
+
+    .calc-button-row button.ac {
+      color: #ff7665;
+    }
+
+    .calc-button-row button.opt {
+      color: #ffbc56;
+    }
+
+    /*The border has been managed in every fourth button so that the design will not distract.*/
+    .calc-button-row button:nth-child(4n) {
+      border-right: none;
+    }
+
+    .calc-button-row button:active {
+      position: relative;
+      top: 1px;
+    }
+
+    .calc-button-row button:hover {
+      background: #3e4b5c;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="calc-typed" class="calc-body-calc">
+    <h4>calculator</h2>
+      <p id="calc-operation" class="calc-screen"></p>
+      <p id="calc-resultat" class="calc-screen"></p>
+  </div>
+  <div class="calc-body calc-button-row">
+    <p>
+      <button id="btnCos" value="cos">cos</button>
+      <button id="btnSin" value="sin">sin</button>
+      <button id="btnTan" value="tan">tan</button>
+      <button id="btnPi" value="pi">pi</button>
+    </p>
+    <p>
+      <button id="btnSlash" value="/">/</button>
+      <button id="btnMulti" value="*">*</button>
+      <button id="btnMoin" value="-">-</button>
+      <button id="btnPlus" value="+">+</button>
+    </p>
+    <p>
+      <button id="btn7" value="7">7</button>
+      <button id="btn8" value="8">8</button>
+      <button id="btn9" value="9">9</button>
+      <button id="btnParOp" value="("> ( </button>
+    </p>
+    <p>
+      <button id="btn4" value="4">4</button>
+      <button id="btn5" value="5">5</button>
+      <button id="btn6" value="6">6</button>
+      <button id="btnParClos" value=")"> ) </button>
+    </p>
+    <p>
+      <button id="btn1" value="1">1</button>
+      <button id="btn2" value="2">2</button>
+      <button id="btn3" value="3">3</button>
+      <button id="btnPoints" value="."> . </button>
+    </p>
+    <p>
+      <button id="btn0" value="0">0</button>
+      <button id="btnAC" value="AC">AC</button>
+      <button id="btnEgal" value="=">=</button>
+    </p>
+  </div>
+  <script>
+    let total = 0;
+    let p = document.getElementById("calc-operation");
+    p.innerText = total;
+    let pr = document.getElementById("calc-resultat");
+    let btnSlash = document.getElementById("btnSlash");
+    console.log(btnSlash.value);
+    btnSlash.addEventListener("click", () => {
+      calculatorOperator(btnSlash.value);
+    });
+    let btnMulti = document.getElementById("btnMulti");
+    btnMulti.addEventListener("click", () => {
+      calculatorOperator(btnMulti.value);
+    });
+    let btnMoin = document.getElementById("btnMoin");
+    btnMoin.addEventListener("click", () => {
+      calculatorOperator(btnMoin.value);
+    });
+    let btnPlus = document.getElementById("btnPlus");
+    btnPlus.addEventListener("click", () => {
+      calculatorOperator(btnPlus.value);
+    });
+    let btn7 = document.getElementById("btn7");
+    btn7.addEventListener("click", () => {
+      calculator(btn7.value);
+    });
+    let btn8 = document.getElementById("btn8");
+    btn8.addEventListener("click", () => {
+      calculator(btn8.value);
+    });
+    let btn9 = document.getElementById("btn9");
+    btn9.addEventListener("click", () => {
+      calculator(btn9.value);
+    });
+    let btnParOp = document.getElementById("btnParOp");
+    btnParOp.addEventListener("click", () => {
+      calculatorConcat(btnParOp.value);
+    });
+    let btn4 = document.getElementById("btn4");
+    btn4.addEventListener("click", () => {
+      calculator(btn4.value);
+    });
+    let btn5 = document.getElementById("btn5");
+    btn5.addEventListener("click", () => {
+      calculator(btn5.value);
+    });
+    let btn6 = document.getElementById("btn6");
+    btn6.addEventListener("click", () => {
+      calculator(btn6.value);
+    });
+    let btnParClos = document.getElementById("btnParClos");
+    btnParClos.addEventListener("click", () => {
+      calculatorConcat(btnParClos.value);
+    });
+    let btn1 = document.getElementById("btn1");
+    btn1.addEventListener("click", () => {
+      calculator(btn1.value);
+    });
+    let btn2 = document.getElementById("btn2");
+    btn2.addEventListener("click", () => {
+      calculator(btn2.value);
+    });
+    let btn3 = document.getElementById("btn3");
+    btn3.addEventListener("click", () => {
+      calculator(btn3.value);
+    });
+    let btnPoints = document.getElementById("btnPoints");
+    btnPoints.addEventListener("click", () => {
+      calculatorConcat(btnPoints.value);
+    });
+    let btn0 = document.getElementById("btn0");
+    btn0.addEventListener("click", () => {
+      calculator(btn0.value);
+    });
+    let btnAC = document.getElementById("btnAC");
+    btnAC.addEventListener("click", () => {
+      calculatorAC();
+    });
+    let btnEgal = document.getElementById("btnEgal");
+    btnEgal.addEventListener("click", () => {
+      resultat();
+    });
+    let x;
+
+    function calculator(x) {
+      if (total === 0) {
+        total = x;
+        p.innerText = total;
+      }
+      else {
+        total = total + "" + x;
+        p.innerText = total;
+      }
+    }
+
+    function calculatorAC() {
+      total = 0;
+      p.innerText = total;
+      pr.innerText = " ";
+    }
+
+    function calculatorConcat(x) {
+      if (total === 0 && x != ".") {
+        total = x;
+        p.innerText = total;
+      }
+      else {
+        total = total + "" + x;
+        p.innerText = total;
+      }
+    }
+
+    function resultat() {
+      total = eval(total);
+      eval('total = ' + total); // total = 2 * 3;
+      pr.innerText = total;
+    }
+
+    function calculatorOperator(x) {
+      if (total != 0) {
+        total = total + "" + x;
+        p.innerText = total;
+      }
+      else {
+        total = 0;
+        p.innerText = total;
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>

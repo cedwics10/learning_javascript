@@ -10,11 +10,10 @@ function isFloat(val) {
 }
 
 function isInt(val) {
-  var intRegex = /^-?\d+$/;
-  if (!intRegex.test(val))
+  if (!isIntNumber.test(val))
     return false;
 
-  var intVal = parseInt(val, 10);
+  let intVal = parseInt(val, 10);
   return parseFloat(val) == intVal && !isNaN(intVal);
 }
 

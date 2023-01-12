@@ -9,6 +9,8 @@ let textExpression = ''
 let displayedResult = '0'
 let calcResult = 0
 let emptyNumber = '0';
+
+let isIntNumber = /^-?\d+$/;
 let isDecNumber = /([0-9]+)\.([0-9]+)/;
 
 const regexBracTimes = /\(([^()]+)\)/;
