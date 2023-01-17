@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Ampoule.class.js"></script>
+    <script src="superAmpoule.class.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -31,52 +33,7 @@
 <body>
 
 </body>
-<script>
-    /*
-    attributs :
-        balise img (src,alt)
-        etat : allumé/éteinte
-    méthode :
-        changerEtat() : inverse l'état de l'ampoule'
-        ecouteur d'evenement sur le click => changerEtat        
-    */
-    class Ampoule {
-        //
-        constructor(domparent) {
-            //initialisation des attributs
-            this.img=document.createElement("img");
-            this.img.src="lampe_off.gif";
-            this.img.alt="lampe éteinte";
-            this.img.tabIndex="0";
-            this.etat="éteint";
-            //rattachement au DOM des balises
-            domparent.appendChild(this.img);
-            //gestion des événements
-            this.img.addEventListener("click",()=>this.changerEtat());
-        }
-
-        changerEtat() {
-            if (this.etat=="éteint") {
-                this.etat="allumé";
-                this.img.src="lampe_on.gif";
-                this.img.alt="lampe allumée";
-            } else {
-                this.img.src="lampe_off.gif";
-                this.img.alt="lampe éteinte";
-                this.etat="éteint";
-            }
-        }
-
-    }
-
-    function alea(min, max) {
-        return Math.floor((max - min + 1) * Math.random()) + min;
-    }
-
-    /**
-     * création d'un tableau html de nbl lignes et nbc colonnes
-     * remplir chaque case avec un nombre aléatoire entre 1 et 10;
-     */
+<script> 
     function creerTable(nbl, nbc) {
         let t = document.createElement("table");
         document.body.appendChild(t);
@@ -97,8 +54,7 @@
 
     for(let i=0; i<=2; i++)
         for(let j=0; j<=2; j++)
-            new Ampoule(plateau.rows[i].cells[j]);            
-
+            new superAmpoule(plateau.rows[i].cells[j]);            
 </script>
 
 </html>
