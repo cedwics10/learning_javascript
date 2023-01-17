@@ -1,0 +1,45 @@
+TP Yams
+---------------
+PARTIE 1 : Simuler un dés à 6 faces
+
+on considére une balise img qui va nous servir à simuler un dé, l'image affichée étant la face active du dé.
+
+Faire :
+1. Dans la partie HTML : Définir une balise img avec ses attributs src, id et alt, ainsi que tabindex="0" pour l'accessibilité.
+2. En javascript : attacher à l'image un gestionnaire d'évenement sur le click (fonction "rouler").
+3. Créer la fonction "rouler" qui tire au hasard une nouvelle face active pour l'image :
+- tire un nombre aléatoire entre 1 et 6
+- modifie l'attribut src et alt de l'image
+- vocaliser la nouvelle valeur
+
+On rappelle la fonction qui tire un nombre aléatoire entre min et max :
+function alea(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+PARTIE 2 : Développer un objet "dice" (notion de classe et de constructeur)
+
+PARTIE 3 : Créer plusieurs objets de type "dice" (et organisation par fichiers : dice.class.js , tools.js)
+
+PARTIE 4 : Développer une classe "Diceplus" qui comporte une case à cocher qui permet d'empécher le dé de rouler (héritage de Dice).
+
+PARTIE 5 : Développer un jeu de Yams : on a 5 dés que l'on peut relancer 3 fois,
+avec la possibilité de bloquer certains dés, 
+dans le but de faire une des combinaisons comme yams (5 dés identiques), carré, full, brelan, double paire, paire...etc.
+A chaque tours il faut réaliser une combinaison qui rapporte des points.
+
+Voici la grille des combinaisons :
+"1" => le nombre de 1 x 1
+"2" => le nombre de 2 x 2
+"3" => le nombre de 3 x 3
+"4" => le nombre de 4 x 4
+"5" => le nombre de 5 x 5
+"6" => le nombre de 6 x 6
+"une paire" => sommme des 2 dés
+"une double paire" => sommme des 4 dés
+"un brelan" => sommme des 3 dés
+"petite suite (1,2,3,4,5)" => 20
+"grande suite (2,3,4,5,6)" => 25
+"full" => somme des 5 dés + 30
+"carré" => somme des 4 dés + 40
+"yams" => somme des 5 dés + 50

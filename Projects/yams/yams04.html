@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yams 02</title>
+</head>
+
+<body>
+    <h1>Utilisation d'une classe "Dice" et "Diceplus"</h1>
+    <button id="btrouler">Faire rouler tous les dés</button>
+</body>
+<script src="dice.class.js"></script>
+<script src="tools.js"></script>
+<script>    
+    //PROGRAMME PRINCIPAL
+    let des=[];
+    //création des dés
+    for(let i=0; i<5; i++)
+        des.push(new Diceplus(document.body));
+
+    //ajout d'un gestionnaire
+    btrouler.addEventListener("click",rouler);
+
+    function rouler() {
+        audio.play();
+        for(let i=0; i<des.length;i++) {
+            des[i].rouler();
+        }
+    }
+
+    //effet sonore
+    let audio=document.createElement("audio");
+    audio.src="rolling_dice.mp3";    
+    
+</script>
+
+</html>
