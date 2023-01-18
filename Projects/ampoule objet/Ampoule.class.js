@@ -12,13 +12,14 @@ class Ampoule {
     constructor(domparent) {
         //initialisation des attributs
         this.img = document.createElement("img");
-        this.img.id = 'ampoule' + Math.floor(no/3) +'' + (no % 3);
+        this.img.id = 'ampoule' + Math.floor(no / 3) + '' + (no % 3);
         no++;
 
         this.img.src = "lampe_off.gif";
         this.img.alt = "lampe éteinte";
         this.img.tabIndex = "0";
         this.etat = "éteint";
+
         //rattachement au DOM des balises
         domparent.appendChild(this.img);
         //gestion des événements
