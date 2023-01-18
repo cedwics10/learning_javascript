@@ -23,8 +23,8 @@ class superAmpoule extends Ampoule {
         let y = tdAmpoule.cellIndex;
         let x = tdAmpoule.parentNode.rowIndex
 
-        for (let coorX = Math.max(0, x - 1); coorX <= Math.min(2, x + 1); coorX++) {
-            for (let coorY = Math.max(0, y - 1); coorY <= Math.min(2, y + 1); coorY++) {
+        for (let coorX = Math.max(0, x - 1); coorX <= Math.min(nbLignes - 1, x + 1); coorX++) {
+            for (let coorY = Math.max(0, y - 1); coorY <= Math.min(nbColonnes - 1, y + 1); coorY++) {
                 let neighbor = table.rows[coorX].cells[coorY];
 
                 let deltaX = Math.abs(coorX - x);
@@ -40,6 +40,9 @@ class superAmpoule extends Ampoule {
                 }
             }
         }
+
+        if (aGagne())
+            sonGagne()
 
     }
 

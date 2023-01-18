@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="Ampoule.class.js"></script>
+    <script defer src="superAmpoule.class.js"></script>
+    <script defer src="functions.js"></script>
+    <title>Jeu des ampoules</title>
+  </head>
+  <style>
+    table,
+    td {
+      border: 1px solid #000;
+    }
+
+    td {
+      width: 30px;
+      height: 30px;
+    }
+
+    .rouge {
+      background-color: red;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+
+  <body>
+  <div id="dimensions">
+    <h1>Le jeu des ampoules</h1>
+    <h2>Choisissez la dimension de votre grille de jeu !</h2>
+    <label for="lignes">Nombre de lignes : </label></label><input type="number" id="lignes" />
+    <label for="lignes">Nombre de colonnes : </label></label><input type="number" id="colonnes" />
+    <button id="boutonGenerer">Démarrer le jeu</button>
+  </div>
+  </body>
+</html>

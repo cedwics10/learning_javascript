@@ -6,14 +6,11 @@
       changerEtat() : inverse l'état de l'ampoule'
       ecouteur d'evenement sur le click => changerEtat        
   */
-let no = 0;
 class Ampoule {
     //
     constructor(domparent) {
         //initialisation des attributs
         this.img = document.createElement("img");
-        this.img.id = 'ampoule' + Math.floor(no / 3) + '' + (no % 3);
-        no++;
 
         this.img.src = "lampe_off.gif";
         this.img.alt = "lampe éteinte";
@@ -36,6 +33,8 @@ class Ampoule {
             this.img.alt = "lampe éteinte";
             this.etat = "éteint";
         }
+
+        clicInterrupteur()
     }
 
 }
