@@ -1,0 +1,6 @@
+Nous avons une grille.
+Nous avons un point de coordonnées (x,y)
+Ce qui est autour du (x,y) doit avoir de nouvelles coordonnées !
+Ce qui est autour est un disque de rayon 1 avec la norme infinie !
+Donc, il faut surtout vérifier que les coordonnées du voisin valent bien
+(x+-1,y+-1) pour accepter de le modifier !!
