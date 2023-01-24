@@ -1,0 +1,46 @@
+TP RPG (role playing game)
+--------------------------
+Un rpg est un jeu qui met en scène un personnage en quête d'un objet magique (anneau,amulette,...etc).
+La quête se déroule typiquement dans un donjon constitué de niveaux infectés de monstres qui sont les gardiens du trésor.
+Le personnage doit combattre les monstres et progresser dans les niveaux du donjon jusqu'à trouver l'objet de sa quête.
+
+PARTIE 1 : mise en place des bases du jeu
+Chaque niveau du donjon est un plateau (tableau de lignes et de colonnes) avec des murs pour former un genre de labyrinthe.
+- un plateau : grille de 10x10 cellules
+- un personnnage : image localisée dans une cellule
+- des murs : images localisées dans la grille
+
+1.Créer les éléments de base (conception sans classe)
+2.Implémenter les déplacements du personnage par gestion des touches de direction du clavier (tenir compte des murs).
+
+
+PARTIE 2 : Conception objet avec classes
+1. Créer un classe Item définie ainsi :
+attributs :
+- img : balise img
+- x,y : coorodonnées de l'item dans la grille
+- etat : string donnant l'état de l'item
+méthodes :
+- deplacer(x,y): déplace l'item aux nouvelles coordonnées x,y
+- supprimer() : change l'état à "supprimé"
+
+2. Définir les murs comme des objets de type Item, et définir une sortie de type Item qui permet d'accèder au niveau suivant du donjon.
+
+3. Créer une classe Perso héritée de Item qui ajoute les éléments suivants :
+Attributs :
+- point_de_vie : integer
+- attaque : integer
+- defense : integer
+Méthode :
+- attaquer(perso) : attaque un autre perso (on définira les modalités d'une attaque, le résultat sera que les points de vie des 2 persos changent)
+
+4. Créer un classe Troll héritée de Perso 
+- chasser(cible) : déplacer le Troll d'une case dans la direction d'une cible
+
+5. Créer une classe Joueur héritée de Perso qui implémente une gestion du clavier pour déplacer le perso.
+
+PARTIE 3 : sonorisation et vocalisation.
+
+PARTIE 4 : algorithme de recherche de chemin.
+
+
