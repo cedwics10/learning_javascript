@@ -1,7 +1,9 @@
-
 let resultat = document.createElement('span');
 resultat.id = 'regions';
 document.body.appendChild(resultat);
+
+ville.setAttribute("disabled", "disabled");
+dep.setAttribute("disabled", "disabled");
 
 async function listeRegions() {
     //récupération d'un texte simple
@@ -9,8 +11,18 @@ async function listeRegions() {
         .then((reponse) => reponse.text())
         .then(data => {
             let tableau = JSON.parse(data);
-            console.log(tableau);
+
         });
 }
 
-document.addEventListener('click', listeRegions);
+function depsChange() {
+
+}
+
+function villesChange() {
+
+}
+
+document.addEventListener('load', listeRegions);
+region.addEventListener('change', depsChange);
+dep.addEventListener('change', villesChange);
