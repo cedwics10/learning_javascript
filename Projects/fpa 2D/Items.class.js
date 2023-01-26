@@ -2,6 +2,7 @@ class Items {
     constructor(jeu) {
         this.jeu = jeu;
         this.img = document.createElement("img");
+        this.img.id = 'objet' + alea(1, 100);
         document.body.appendChild(this.img);
     }
 
@@ -34,9 +35,13 @@ class Ennemis extends Items {
     }
 }
 
+let nombreTrolls = 0;
+
 class Troll extends Ennemis {
     constructor(jeu) {
         super(jeu);
+        this.img.id = 'troll ' + nombreTrolls;
+        nombreTrolls++;
         this.img.src = "troll.png";
         this.img.className = "troll";
     }
