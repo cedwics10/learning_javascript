@@ -1,0 +1,3 @@
+Cette application nécessite un serveur pour fonctionner.
+Lancez un serveur avec une distribution AMP et accéder au fichier "france.html"
+via un alias ou "localhost"
