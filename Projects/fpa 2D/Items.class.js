@@ -1,8 +1,11 @@
+let nombreItems = 0;
+
 class Items {
     constructor(jeu) {
         this.jeu = jeu;
         this.img = document.createElement("img");
-        this.img.id = 'objet' + alea(1, 100);
+        this.img.id = 'objet' + nombreItems;
+        nombreItems++;
         document.body.appendChild(this.img);
     }
 
@@ -48,8 +51,18 @@ class Troll extends Ennemis {
 }
 
 class Balle extends Items {
-    constructor(jeu) {
+    constructor(jeu, e) {
         super(jeu);
+        this.img.className = "balle";
+        this.img.src = 'balle.jpg';
+        this.x = e.pageX;
+        this.y = e.pageY;
+        console.log(this.x, this.y);
+        this.deplacer();
+        // this.img.style.visibility = 'hidden';
+    }
+
+    tirBalle() {
     }
 
 }

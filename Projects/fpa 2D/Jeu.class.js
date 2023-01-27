@@ -2,6 +2,14 @@ class Jeu {
     constructor() {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
-        document.addEventListener('click', (e) => { console.log('PAM !') });
+
+        this.nouvellesBalles();
+    }
+
+    nouvellesBalles() {
+        this.balles = [];
+        document.addEventListener('click', (e) => {
+            this.balles.push(new Balle(this, e));
+        });
     }
 }
