@@ -1,42 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>FPA - Deux dimensions</title>
-</head>
-<style>
-    .troll {
-        width: 30px;
-        height: 30px;
-        position: absolute;
-    }
-
-    body {
-        padding: 0;
-        margin: 0;
-        border: 1px solid #000;
-        overflow: hidden;
-
-    }
-</style>
-
-<body>
-</body>
-<script src="tools.js"></script>
-<script src="Jeu.class.js"></script>
-<script src="Items.class.js"></script>
-<script>
-    document.body.style.width = (window.innerWidth) + "px";
-    document.body.style.height = (window.innerHeight) + "px";
+  </head>
+  <body></body>
+  <script src="tools.js"></script>
+  <script src="Jeu.class.js"></script>
+  <script src="Items.class.js"></script>
+  <script>
+    document.body.style.width = window.innerWidth + "px";
+    document.body.style.height = window.innerHeight + "px";
     let jeu = new Jeu();
     let trolls = [];
     for (let i = 0; i < 40; i++) {
-        let troll = new Troll(jeu);
-        trolls.push(troll);
+      let troll = new Troll(jeu);
+      trolls.push(troll);
     }
-</script>
-
+  </script>
 </html>
