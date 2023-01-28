@@ -1,11 +1,15 @@
 body {
   border: 1px solid #000;
   overflow: hidden;
+
+  padding: 0;
+  margin: 0;
 }
 
 .troll {
   width: 4%;
   height: 10%;
+
   position: absolute;
 }
 

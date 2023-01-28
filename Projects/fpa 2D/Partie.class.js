@@ -7,8 +7,7 @@
  * La balle observe les données des joueurs , haaa
  */
 class Partie {
-    constructor() {
-        this.width = window.innerWidth;
-        this.height = window.innerHeight;
+    constructor(jeu) {
+        this.jeu = jeu;
     }
 }

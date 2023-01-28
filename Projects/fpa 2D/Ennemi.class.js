@@ -9,16 +9,17 @@ class Ennemi extends Item {
     }
 
     calculPosition() {
-        this.x += this.vx;
-        this.y += this.vy;
         if (this.x < 0 || this.x > window.innerWidth) this.vx = -this.vx;
         if (this.y < 0 || this.y > window.innerHeight) this.vy = -this.vy;
-        
+        this.x += this.vx;
+        this.y += this.vy;
     }
 
     deplacer() {
         this.calculPosition();
-        this.afficher(false);
+
+        this.img.style.top = parseInt(this.y) + "px";
+        this.img.style.left = parseInt(this.x) + "px";
     }
 
     /**
@@ -26,6 +27,6 @@ class Ennemi extends Item {
      * @param {int} ms 
      */
     animer(ms) {
-        setInterval(() => { this.deplacer(); }, 100);
+        setInterval(() => { this.deplacer(); }, 10);
     }
 }

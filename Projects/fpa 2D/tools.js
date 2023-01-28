@@ -3,11 +3,11 @@ function alea(min, max) {
 }
 
 function vocaliser(chaine) {
-    if (ckVocaliser.checked) {
-        const utterThis = new SpeechSynthesisUtterance(chaine);
-        utterThis.rate = 5;
-        window.speechSynthesis.speak(utterThis);
-    }
+    // if (ckVocaliser.checked) {
+    //     const utterThis = new SpeechSynthesisUtterance(chaine);
+    //     utterThis.rate = 5;
+    //     window.speechSynthesis.speak(utterThis);
+    // }
 }
 
 /**
