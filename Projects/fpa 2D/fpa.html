@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FPA - Deux dimensions</title>
+  </head>
+
+  <body></body>
+
+  <script>
+    document.body.style.width = window.innerWidth + "px";
+    document.body.style.height = window.innerHeight + "px";
+  </script>
+  <script src="tools.js"></script>
+  <script src="Partie.class.js"></script>
+  <script src="Item.class.js"></script>
+  <script src="Ennemi.class.js"></script>
+  <script src="Troll.class.js"></script>
+  <script src="Balle.class.js"></script>
+  <script>
+    let niveau = new Partie();
+    let trolls = [];
+    for (let nb = 0; nb < 50; nb++) {
+      trolls.push(new Troll(niveau));
+    }
+
+    let balles = [];
+  </script>
+</html>
