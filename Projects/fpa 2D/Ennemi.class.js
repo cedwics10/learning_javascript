@@ -13,6 +13,7 @@ class Ennemi extends Item {
         this.y += this.vy;
         if (this.x < 0 || this.x > window.innerWidth) this.vx = -this.vx;
         if (this.y < 0 || this.y > window.innerHeight) this.vy = -this.vy;
+        
     }
 
     deplacer() {

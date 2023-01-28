@@ -9,7 +9,6 @@ class Item {
         this.vx = 0;
         this.vy = 0;
 
-
         nombreItems++;
     }
 
