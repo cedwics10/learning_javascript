@@ -2,12 +2,19 @@
  * Représente les ennemis à tuer
  */
 class Ennemi extends Item {
+    /**
+     * 
+     * @param {partie} partie 
+     */
     constructor(partie) {
         super(partie);
         this.vx = Math.random() * 5;
         this.vy = Math.random() * 5;
     }
 
+    /**
+     * 
+     */
     calculPosition() {
         if (this.x < 0 || this.x > window.innerWidth) this.vx = -this.vx;
         if (this.y < 0 || this.y > window.innerHeight) this.vy = -this.vy;
@@ -15,6 +22,9 @@ class Ennemi extends Item {
         this.y += this.vy;
     }
 
+    /**
+     * 
+     */
     deplacer() {
         this.calculPosition();
 
@@ -27,6 +37,16 @@ class Ennemi extends Item {
      * @param {int} ms 
      */
     animer(ms) {
-        setInterval(() => { this.deplacer(); }, 10);
+        setInterval(() => { this.deplacer(); }, ms);
+    }
+
+    /**
+     * 
+     */
+    creerImg() {
+        this.x = alea(0, window.innerWidth);
+        this.y = alea(0, window.innerHeight);
+        super.creerImg();
+
     }
 }

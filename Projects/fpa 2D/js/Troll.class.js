@@ -14,7 +14,7 @@ class Troll extends Ennemi {
         this.creerImg();
         document.body.appendChild(this.img);
 
-        this.animer(100);
+        this.animer(10);
 
         nombreTrolls++;
     }
@@ -23,7 +23,7 @@ class Troll extends Ennemi {
         super.creerImg();
 
         this.id = 'troll' + nombreTrolls;
-        this.img.src = "troll.png";
+        this.img.src = "images/troll.png";
         this.img.className = "troll";
     }
 

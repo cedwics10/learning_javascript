@@ -1,6 +1,12 @@
 let nombreItems = 0;
-
+/**
+ * 
+ */
 class Item {
+    /**
+     * 
+     * @param {partie} partie 
+     */
     constructor(partie) {
         this.partie = partie;
 
@@ -13,11 +19,14 @@ class Item {
         nombreItems++;
     }
 
+    /**
+     * 
+     */
     creerImg() {
-        this.x = alea(0, window.innerWidth);
-        this.y = alea(0, window.innerHeight);
-
         this.img.style.top = this.x + "px";
         this.img.style.left = this.y + "px";
+        document.body.appendChild(this.img);
     }
+
+
 }
