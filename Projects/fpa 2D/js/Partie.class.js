@@ -7,6 +7,10 @@
  * La balle observe les données des joueurs , haaa
  */
 class Partie {
+    /**
+     * 
+     * @param {Jeu} jeu 
+     */
     constructor(jeu) {
         this.jeu = jeu;
     }

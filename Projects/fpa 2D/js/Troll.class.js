@@ -12,19 +12,19 @@ class Troll extends Ennemi {
         super(partie);
 
         this.creerImg();
-        document.body.appendChild(this.img);
-
         this.animer(10);
-
         nombreTrolls++;
+    }
+
+    donneesTroll() {
+        this.id = 'troll' + nombreTrolls;
+        this.img.src = "images/troll.png";
+        this.img.className = "troll";
     }
 
     creerImg() {
         super.creerImg();
-
-        this.id = 'troll' + nombreTrolls;
-        this.img.src = "images/troll.png";
-        this.img.className = "troll";
+        this.donneesTroll();
     }
 
 

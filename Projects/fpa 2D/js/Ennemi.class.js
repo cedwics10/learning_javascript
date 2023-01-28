@@ -15,16 +15,6 @@ class Ennemi extends Item {
     /**
      * 
      */
-    calculPosition() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > window.innerWidth) this.vx = -this.vx;
-        if (this.y < 0 || this.y > window.innerHeight) this.vy = -this.vy;
-    }
-
-    /**
-     * 
-     */
     creerImg() {
         this.x = alea(0, window.innerWidth);
         this.y = alea(0, window.innerHeight);

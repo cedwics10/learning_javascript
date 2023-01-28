@@ -17,8 +17,8 @@ class Arme extends Item {
 
     deplacerImg() {
         window.addEventListener('mousemove', (e) => {
-            this.x = e.pageX - 200;
-            this.y = e.pageY - 200;
+            this.x = e.clientX - 70;
+            this.y = e.clientY - 100;
 
             this.img.style.left = parseInt(this.x) + "px";
             this.img.style.top = parseInt(this.y) + "px";

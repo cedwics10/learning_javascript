@@ -14,11 +14,7 @@ body {
 }
 
 #arme {
-  height: 500px;
-  width: 500px;
-
   transition: 0.2s ease;
-
   position: absolute;
 }
 
