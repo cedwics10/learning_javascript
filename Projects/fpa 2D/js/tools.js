@@ -29,3 +29,9 @@ function creerTable(nbl, nbc, domparent) {
     //retourne l'objet table
     return t;
 }
+
+function audio(lien) {
+    const audio = new Audio();
+    audio.src = lien;
+    audio.play();
+};

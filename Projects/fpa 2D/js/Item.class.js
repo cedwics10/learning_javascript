@@ -13,6 +13,8 @@ class Item {
         this.img = document.createElement('img');
         this.img.id = 'objet' + nombreItems;
 
+        this.vivant = true;
+
         this.x = 0;
         this.y = 0;
 
@@ -56,6 +58,16 @@ class Item {
         setInterval(() => {
             this.deplacer();
         }, ms);
+    }
+
+    /**
+     * 
+     */
+
+    mourir() {
+        this.vivaant = false;
+        document.body.removeChild(this.img);
+        // hériter pour sonoriser la mort !
     }
 
 }

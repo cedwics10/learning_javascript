@@ -18,7 +18,7 @@ class Balle extends Item {
         this.vx = 10;
         this.vy = 0;
 
-        this.animer(1);
+        this.animer(10);
     }
 
     calculPosition() {
@@ -27,8 +27,33 @@ class Balle extends Item {
         if (this.y < 0 || this.y > window.innerHeight) this.vy = 0;
     }
 
+    aTouche(troll) {
+        if (troll.vivant === true
+            && (troll.x - this.x) > 0
+            && (troll.x - this.x) < 418
+            && (troll.y - this.y) > 0
+            && (troll.y - this.y) < 165
+        ) {
+            console.log('touché');
+            return true;
+        }
+        return false;
+    }
+    /**
+     * 
+     */
+    verifierCollision() {
+        this.trolls.forEach(
+            (troll) => {
+                if (this.aTouche(troll)) {
+                    troll.mourir();
+                }
+            }
+        );
+    }
+
     deplacer() {
         super.deplacer();
-        console.log('ok');
+        this.verifierCollision();
     }
 }

@@ -28,7 +28,7 @@ class Arme extends Item {
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                console.log('pan');
+                console.log('pan'); // sonoriser
                 this.balles.push(new Balle(this, e));
                 console.log(this.balles);
             });
