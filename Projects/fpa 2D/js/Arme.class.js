@@ -1,8 +1,10 @@
 class Arme extends Item {
     constructor(partie, trolls) {
-
         super(partie);
+
+        this.partie = partie;
         this.trolls = trolls;
+        this.balles = [];
 
         this.img.id = 'arme';
         this.img.src = 'images/arme.png';
@@ -19,5 +21,9 @@ class Arme extends Item {
             this.img.style.left = parseInt(e.pageX - 200) + "px";
             this.img.style.top = parseInt(e.pageY - 200) + "px";
         });
+    }
+
+    tirArme() {
+        // this.balles.append(new Balle(this));
     }
 }
