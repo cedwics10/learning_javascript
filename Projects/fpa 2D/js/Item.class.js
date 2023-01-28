@@ -28,5 +28,22 @@ class Item {
         document.body.appendChild(this.img);
     }
 
+    /**
+     * 
+     */
+    deplacer() {
+        this.calculPosition();
+
+        this.img.style.top = parseInt(this.y) + "px";
+        this.img.style.left = parseInt(this.x) + "px";
+    }
+
+    /**
+     * 
+     * @param {int} ms 
+     */
+    animer(ms) {
+        setInterval(() => { this.deplacer(); }, ms);
+    }
 
 }

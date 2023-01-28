@@ -11,19 +11,26 @@ class Arme extends Item {
 
         this.creerImg();
         this.deplacerImg();
+        this.tirArme();
 
     }
 
     deplacerImg() {
         window.addEventListener('mousemove', (e) => {
-            console.log(e.pageX, e.pageY)
-            console.log(this.img);
-            this.img.style.left = parseInt(e.pageX - 200) + "px";
-            this.img.style.top = parseInt(e.pageY - 200) + "px";
+            this.x = e.pageX - 200;
+            this.y = e.pageY - 200;
+
+            this.img.style.left = parseInt(this.x) + "px";
+            this.img.style.top = parseInt(this.y) + "px";
         });
     }
 
     tirArme() {
-        // this.balles.append(new Balle(this));
+        document.addEventListener('click',
+            (e) => {
+                console.log('pan');
+                this.balles.push(new Balle(this, e));
+                console.log(this.balles);
+            });
     }
 }

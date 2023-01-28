@@ -13,15 +13,20 @@ body {
   position: absolute;
 }
 
-.balle {
-  height: 20px;
-  width: 50px;
-  position: absolute;
-}
-
 #arme {
   height: 500px;
   width: 500px;
+
+  transition: 0.2s ease;
+
+  position: absolute;
+}
+
+.balle {
+  height: 165px;
+  width: 418px;
+
+  scale: 0.3;
 
   position: absolute;
 }
