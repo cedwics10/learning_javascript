@@ -33,8 +33,8 @@ class Balle extends Item {
             && (troll.x - this.x) < 418
             && (troll.y - this.y) > 0
             && (troll.y - this.y) < 165
+            && this.vx > 0
         ) {
-            console.log('touché');
             return true;
         }
         return false;

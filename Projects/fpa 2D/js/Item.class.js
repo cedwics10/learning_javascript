@@ -67,7 +67,7 @@ class Item {
     mourir() {
         this.vivaant = false;
         document.body.removeChild(this.img);
-        // hériter pour sonoriser la mort !
+        jouerSon('sound/mortTroll.mp3');
     }
 
 }

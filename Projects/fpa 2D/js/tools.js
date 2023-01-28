@@ -30,7 +30,7 @@ function creerTable(nbl, nbc, domparent) {
     return t;
 }
 
-function audio(lien) {
+function jouerSon(lien) {
     const audio = new Audio();
     audio.src = lien;
     audio.play();

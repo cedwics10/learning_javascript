@@ -28,7 +28,7 @@ class Arme extends Item {
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                console.log('pan'); // sonoriser
+                jouerSon('sound/357 magnum.mp3');
                 this.balles.push(new Balle(this, e));
                 console.log(this.balles);
             });
