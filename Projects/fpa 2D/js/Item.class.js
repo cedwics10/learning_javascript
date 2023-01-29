@@ -61,6 +61,12 @@ class Item {
         }, ms);
     }
 
+    sonoriser(ms) {
+        setInterval(() => {
+            jouerSon('sound/troll.mp3', 10);
+        }, ms);
+    }
+
     /**
      * 
      */

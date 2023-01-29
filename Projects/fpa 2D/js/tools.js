@@ -28,8 +28,9 @@ function creerTable(nbl, nbc, domparent) {
     return t;
 }
 
-function jouerSon(lien) {
+function jouerSon(lien, Qvolume = 1) {
     const audio = new Audio();
+    audio.volume /= Qvolume;
     audio.src = lien;
     audio.play();
 };

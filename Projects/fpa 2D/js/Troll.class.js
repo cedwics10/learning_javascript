@@ -13,15 +13,22 @@ class Troll extends Ennemi {
 
         this.creerImg();
         this.animer(10);
+        this.sonoriser(alea(1000, 10000));
         nombreTrolls++;
     }
 
+    /**
+     * 
+     */
     donneesTroll() {
         this.id = 'troll' + nombreTrolls;
         this.img.src = "images/troll.png";
         this.img.className = "troll";
     }
 
+    /**
+     * 
+     */
     creerImg() {
         super.creerImg();
         this.donneesTroll();
