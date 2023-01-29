@@ -12,7 +12,10 @@ class Balle extends Item {
 
         this.x = parseInt(e.pageX) + 200;
         this.y = parseInt(e.pageY) - 130;
-        console.log(this.x, this.y);
+
+        this.immobile = false;
+        this.nbMorts = 0;
+
         this.creerImg();
 
         this.vx = 10;
@@ -23,7 +26,11 @@ class Balle extends Item {
 
     calculPosition() {
         super.calculPosition();
-        if (this.x < 0 || this.x > window.innerWidth) this.vx = 0;
+        if (!this.immobile && (this.x < 0 || this.x > window.innerWidth)) {
+            this.vx = 0;
+            this.immobile = true;
+            vocaliser('Vous avez tué ' + this.nbMorts + ' trolls.');
+        }
         if (this.y < 0 || this.y > window.innerHeight) this.vy = 0;
     }
 
@@ -47,6 +54,7 @@ class Balle extends Item {
             (troll) => {
                 if (this.aTouche(troll)) {
                     troll.mourir();
+                    this.nbMorts++;
                 }
             }
         );

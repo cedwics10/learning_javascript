@@ -14,6 +14,7 @@ class Item {
         this.img.id = 'objet' + nombreItems;
 
         this.vivant = true;
+        this.immobile = true;
 
         this.x = 0;
         this.y = 0;
