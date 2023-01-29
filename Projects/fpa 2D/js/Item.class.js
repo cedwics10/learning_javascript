@@ -62,7 +62,7 @@ class Item {
     }
 
     sonoriser(ms) {
-        setInterval(() => {
+        this.interval = setInterval(() => {
             jouerSon('sound/troll.mp3', 10);
         }, ms);
     }
@@ -75,6 +75,7 @@ class Item {
         this.vivaant = false;
         document.body.removeChild(this.img);
         jouerSon('sound/mortTroll.mp3');
+        clearInterval(this.interval);
     }
 
 }
