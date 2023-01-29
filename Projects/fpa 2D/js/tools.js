@@ -3,11 +3,9 @@ function alea(min, max) {
 }
 
 function vocaliser(chaine) {
-    // if (ckVocaliser.checked) {
-    //     const utterThis = new SpeechSynthesisUtterance(chaine);
-    //     utterThis.rate = 5;
-    //     window.speechSynthesis.speak(utterThis);
-    // }
+    var synth = window.speechSynthesis;
+    var utterance = new SpeechSynthesisUtterance(chaine);
+    synth.speak(utterance);
 }
 
 /**
