@@ -36,7 +36,7 @@ function jouerSon(lien, Qvolume = 1) {
 };
 
 function EntreeCollision(objAtt, objCible) {
-    if (objCible.vivant === true
+    if (objCible.enVie === true
         && (objCible.x - objAtt.x) > 0
         && (objCible.x - objAtt.x) < 418
         && (objCible.y - objAtt.y) > 0

@@ -38,6 +38,7 @@ class Balle extends Item {
         this.trolls.forEach(
             (troll) => {
                 if (EntreeCollision(this, troll)) {
+                    console.log('mort');
                     troll.mourir();
                     this.nbMorts++;
                 }
