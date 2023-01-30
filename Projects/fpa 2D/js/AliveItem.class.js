@@ -1,5 +1,8 @@
 /**
  * Représente les ennemis à tuer
+ * Il s'anime
+ * iL Se sonorise
+ * Il peut se faire tuer
  */
 class AliveItem extends Item {
     /**
@@ -37,16 +40,6 @@ class AliveItem extends Item {
     /**
      * 
      */
-    sonoriser() {
-        let ms = alea(this.minDelaiSon, this.maxDelaiSon);
-        this.interval = setInterval(() => {
-            jouerSon(this.cri, 10);
-        }, ms);
-    }
-
-    /**
-     * 
-     */
     mourir() {
         if (this.enVie) {
             this.enVie = false;
@@ -56,4 +49,16 @@ class AliveItem extends Item {
             clearInterval(this.interval);
         }
     }
+
+    /**
+     * 
+     */
+    sonoriser() {
+        let ms = alea(this.minDelaiSon, this.maxDelaiSon);
+        this.interval = setInterval(() => {
+            jouerSon(this.cri, 10);
+        }, ms);
+    }
+
+
 }
