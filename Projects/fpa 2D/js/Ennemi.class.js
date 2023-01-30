@@ -6,8 +6,8 @@ class Ennemi extends Item {
      * 
      * @param {partie} partie 
      */
-    constructor(partie) {
-        super(partie);
+    constructor(partie, x, y) {
+        super(partie, 0, 0);
         this.vx = Math.random() * 5;
         this.vy = Math.random() * 5;
     }

@@ -7,17 +7,17 @@ class Item {
      * 
      * @param {partie} partie 
      */
-    constructor(partie) {
+    constructor(partie, x = 0, y = 0) {
         this.partie = partie;
+
+        this.x = x;
+        this.y = y;
 
         this.img = document.createElement('img');
         this.img.id = 'objet' + nombreItems;
 
         this.vivant = true;
         this.immobile = true;
-
-        this.x = 0;
-        this.y = 0;
 
         nombreItems++;
     }

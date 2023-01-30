@@ -8,8 +8,8 @@ class Troll extends Ennemi {
      * 
      * @param {Jeu} partie 
      */
-    constructor(partie) {
-        super(partie);
+    constructor(partie, x, y) {
+        super(partie, x, y);
 
         this.creerImg();
         this.animer(10);
