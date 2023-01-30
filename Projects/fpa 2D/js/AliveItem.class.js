@@ -34,6 +34,9 @@ class AliveItem extends Item {
         }, this.vAnimation);
     }
 
+    /**
+     * 
+     */
     sonoriser() {
         let ms = alea(this.minDelaiSon, this.maxDelaiSon);
         this.interval = setInterval(() => {
@@ -41,6 +44,9 @@ class AliveItem extends Item {
         }, ms);
     }
 
+    /**
+     * 
+     */
     mourir() {
         if (this.enVie) {
             this.enVie = false;
