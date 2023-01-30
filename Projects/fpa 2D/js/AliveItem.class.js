@@ -3,7 +3,6 @@
  */
 class AliveItem extends Item {
     /**
-     * 
      * @param {partie} partie 
      */
     constructor(partie, id = '',
@@ -23,6 +22,16 @@ class AliveItem extends Item {
 
         this.cri = cri;
         this.criMort = criMort;
+    }
+
+    /**
+     * Créer un événement de déplacement de l'objet DOM
+     * @param {int} ms 
+     */
+    animer() {
+        setInterval(() => {
+            this.deplacer();
+        }, this.vAnimation);
     }
 
     sonoriser() {

@@ -54,14 +54,4 @@ class Item {
         this.img.style.left = parseInt(this.x) + "px";
     }
 
-    /**
-     * Créer un événement de déplacement de l'objet DOM
-     * @param {int} ms 
-     */
-    animer() {
-        setInterval(() => {
-            this.deplacer();
-        }, this.vAnimation);
-    }
-
 }

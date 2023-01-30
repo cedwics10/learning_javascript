@@ -1,11 +1,11 @@
 /**
  * Représente une balle perdue sur la carte
  */
-class Balle extends Item {
+class Balle extends AliveItem {
     constructor(partie, trolls, x, y) {
         super(partie, '', 'balle', 'images/balle.gif');
+
         this.trolls = trolls;
-        this.arme = arme;
 
         this.x = x;
         this.y = y;
@@ -31,6 +31,11 @@ class Balle extends Item {
         if (this.y < 0 || this.y > window.innerHeight) this.vy = 0;
     }
 
+    deplacer() {
+        super.deplacer();
+        this.verifierCollision();
+    }
+
     /**
      * Créer une fonction générique de collision
      */
@@ -44,10 +49,5 @@ class Balle extends Item {
                 }
             }
         );
-    }
-
-    deplacer() {
-        super.deplacer();
-        this.verifierCollision();
     }
 }
