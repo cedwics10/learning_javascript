@@ -47,12 +47,12 @@ class Balle extends Item {
         return false;
     }
     /**
-     * 
+     * Créer une fonction générique de collision
      */
     verifierCollision() {
         this.trolls.forEach(
             (troll) => {
-                if (this.aTouche(troll)) {
+                if (EntreeCollision(this, troll)) {
                     troll.mourir();
                     this.nbMorts++;
                 }

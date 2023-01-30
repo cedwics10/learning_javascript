@@ -34,3 +34,16 @@ function jouerSon(lien, Qvolume = 1) {
     audio.src = lien;
     audio.play();
 };
+
+function EntreeCollision(objAtt, objCible) {
+    if (objCible.vivant === true
+        && (objCible.x - objAtt.x) > 0
+        && (objCible.x - objAtt.x) < 418
+        && (objCible.y - objAtt.y) > 0
+        && (objCible.y - objAtt.y) < 165
+        && objAtt.vx > 0
+    ) {
+        return true;
+    }
+    return false;
+}
