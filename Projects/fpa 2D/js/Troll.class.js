@@ -1,23 +1,18 @@
 /**
  * Représente les trolls, qui sont des ennemis à tuer
  */
-class Troll extends Ennemi {
+class Troll extends AliveItem {
     /**
      * 
      * @param {Partie} partie 
-     * @param {int} nombreTrolls
+     * @param {int} numeroTroll 
      */
-    constructor(partie, nombreTrolls) {
-        super(partie);
-
-        this.id = 'troll' + nombreTrolls;
-        this.img.src = "images/troll.png";
-        this.img.className = "troll";
-
-        this.cri = 'sound/mortTroll.mp3';
+    constructor(partie, numeroTroll) {
+        super(partie, 'troll' + numeroTroll, 'troll',
+            'images/troll.png', 'sound/troll.mp3', 'sound/mortTroll.mp3');
 
         this.creerImg();
-        this.animer(this.vAnimation);
+        this.animer();
         this.sonoriser();
     }
 }

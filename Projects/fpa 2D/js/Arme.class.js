@@ -1,18 +1,16 @@
 class Arme extends Item {
     constructor(partie, trolls) {
-        super(partie);
+        super(partie, 'arme',
+            '', 'images/arme.png');
 
-        this.partie = partie;
         this.trolls = trolls;
         this.balles = [];
 
-        this.img.id = 'arme';
-        this.img.src = 'images/arme.png';
+        this.bruitArme = 'sound/357 magnum.mp3'
 
         this.creerImg();
         this.deplacerImg();
         this.tirArme();
-
     }
 
     deplacerImg() {
@@ -28,9 +26,12 @@ class Arme extends Item {
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                jouerSon('sound/357 magnum.mp3');
-                this.balles.push(new Balle(this, e));
-                console.log(this.balles);
+                jouerSon(this.bruitArme);
+                this.balles.push(new Balle(this.partie,
+                    this.trolls,
+                    parseInt(e.pageX) + 200,
+                    parseInt(e.pageY) - 130
+                ));
             });
     }
 }

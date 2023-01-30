@@ -6,22 +6,28 @@ class Item {
      * 
      * @param {partie} partie 
      */
-    constructor(partie) {
+    constructor(partie, id = '',
+        className = '', imageSrc = '') {
+
         this.partie = partie;
 
         this.x = alea(0, window.innerWidth);
         this.y = alea(0, window.innerHeight);
 
-        this.vAnimation = 0;
+        this.vAnimation = 10;
 
         this.img = document.createElement('img');
+        if (id !== '') this.img.id = id;
+        this.img.src = imageSrc;
 
+        if (className !== '') this.img.className = className;
+
+        this.enVie = false;
         this.immobile = true;
-        this.vivant = false;
     }
 
     /**
-     * Déplacer l'image sur 
+     * Déplacer l'image sur le jeu
      */
     creerImg() {
         this.img.style.top = this.x + "px";

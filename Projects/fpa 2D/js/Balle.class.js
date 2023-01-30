@@ -2,25 +2,22 @@
  * Représente une balle perdue sur la carte
  */
 class Balle extends Item {
-    constructor(arme, e) {
-        super(arme.partie);
-        this.trolls = arme.trolls;
+    constructor(partie, trolls, x, y) {
+        super(partie, '', 'balle', 'images/balle.gif');
+        this.trolls = trolls;
         this.arme = arme;
 
-        this.img.src = 'images/balle.gif';
-        this.img.classList.add('balle');
-
-        this.x = parseInt(e.pageX) + 200;
-        this.y = parseInt(e.pageY) - 130;
-
-        this.immobile = false;
-        this.nbMorts = 0;
-
-        this.creerImg();
+        this.x = x;
+        this.y = y;
 
         this.vx = 10;
         this.vy = 0;
 
+        this.immobile = false;
+
+        this.nbMorts = 0;
+
+        this.creerImg();
         this.animer(10);
     }
 
@@ -34,18 +31,6 @@ class Balle extends Item {
         if (this.y < 0 || this.y > window.innerHeight) this.vy = 0;
     }
 
-    aTouche(troll) {
-        if (troll.vivant === true
-            && (troll.x - this.x) > 0
-            && (troll.x - this.x) < 418
-            && (troll.y - this.y) > 0
-            && (troll.y - this.y) < 165
-            && this.vx > 0
-        ) {
-            return true;
-        }
-        return false;
-    }
     /**
      * Créer une fonction générique de collision
      */

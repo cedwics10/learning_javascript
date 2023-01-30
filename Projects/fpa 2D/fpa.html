@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>FPA - Deux dimensions</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>FPA - Deux dimensions</title>
-</head>
+  <body></body>
+  <script src="js/tools.js"></script>
+  <script src="js/constants.js"></script>
+  <script src="js/Jeu.class.js"></script>
+  <script src="js/Partie.class.js"></script>
+  <script src="js/Item.class.js"></script>
+  <script src="js/AliveItem.class.js"></script>
+  <script src="js/Troll.class.js"></script>
+  <script src="js/Arme.class.js"></script>
+  <script src="js/Balle.class.js"></script>
+  <script>
+    document.body.style.width = window.innerWidth + "px";
+    document.body.style.height = window.innerHeight + "px";
 
-<body></body>
-<script src="js/tools.js"></script>
-<script src="js/Jeu.class.js"></script>
-<script src="js/Partie.class.js"></script>
-<script src="js/Item.class.js"></script>
-<script src="js/Ennemi.class.js"></script>
-<script src="js/Troll.class.js"></script>
-<script src="js/Arme.class.js"></script>
-<script src="js/Balle.class.js"></script>
-<script>
-  document.body.style.width = window.innerWidth + "px";
-  document.body.style.height = window.innerHeight + "px";
+    let jeu = new Jeu();
+    let partie = new Partie(jeu);
 
-  let jeu = new Jeu();
-  let partie = new Partie(jeu);
+    let trolls = [];
+    for (let i = 0; i < 40; i++) {
+      let troll = new Troll(partie, i);
+      trolls.push(troll);
+    }
 
-  let trolls = [];
-  for (let i = 0; i < 40; i++) {
-    let troll = new Troll(partie, i);
-    trolls.push(troll);
-  }
-
-  let arme = new Arme(partie, trolls);
-</script>
-
+    let arme = new Arme(partie, trolls);
+  </script>
 </html>
