@@ -1,4 +1,3 @@
-let nombreItems = 0;
 /**
  * 
  */
@@ -7,23 +6,22 @@ class Item {
      * 
      * @param {partie} partie 
      */
-    constructor(partie, x = 0, y = 0) {
+    constructor(partie) {
         this.partie = partie;
 
-        this.x = x;
-        this.y = y;
+        this.x = alea(0, window.innerWidth);
+        this.y = alea(0, window.innerHeight);
+
+        this.vAnimation = 0;
 
         this.img = document.createElement('img');
-        this.img.id = 'objet' + nombreItems;
 
-        this.vivant = true;
         this.immobile = true;
-
-        nombreItems++;
+        this.vivant = false;
     }
 
     /**
-     * 
+     * Déplacer l'image sur 
      */
     creerImg() {
         this.img.style.top = this.x + "px";
@@ -46,36 +44,18 @@ class Item {
      */
     deplacer() {
         this.calculPosition();
-
         this.img.style.top = parseInt(this.y) + "px";
         this.img.style.left = parseInt(this.x) + "px";
     }
 
     /**
-     * 
+     * Créer un événement de déplacement de l'objet DOM
      * @param {int} ms 
      */
-    animer(ms) {
+    animer() {
         setInterval(() => {
             this.deplacer();
-        }, ms);
-    }
-
-    sonoriser(ms) {
-        this.interval = setInterval(() => {
-            jouerSon('sound/troll.mp3', 10);
-        }, ms);
-    }
-
-    /**
-     * 
-     */
-
-    mourir() {
-        this.vivaant = false;
-        document.body.removeChild(this.img);
-        jouerSon('sound/mortTroll.mp3');
-        clearInterval(this.interval);
+        }, this.vAnimation);
     }
 
 }
