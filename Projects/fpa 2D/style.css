@@ -26,3 +26,13 @@ body {
 
   position: absolute;
 }
+
+#arme > .balle {
+  position: relative;
+  scale: 0.3;
+  height: 165px;
+  width: 418px;
+
+  left: 200px;
+  top: -130px;
+}
