@@ -1,1 +1,5 @@
 - Spatialiser le son
+- Mettre les trolls et les armes dans le niveau de la partie
+- Créer un niveau d'introduction
+- Créer un niveau 1 de découverte
+- Créer des niveaux au fur et à mesure
