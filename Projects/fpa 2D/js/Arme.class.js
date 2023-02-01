@@ -26,7 +26,7 @@ class Arme extends Item {
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                jouerSon(this.bruitArme);
+                jouerSon(this.bruitArme, this.x / window.innerWidth * 2 - 1);
                 this.balles.push(new Balle(this.partie,
                     this.trolls,
                     parseInt(e.pageX) + 200,

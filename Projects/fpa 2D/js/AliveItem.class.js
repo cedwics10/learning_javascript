@@ -56,7 +56,10 @@ class AliveItem extends Item {
     sonoriser() {
         let ms = alea(this.minDelaiSon, this.maxDelaiSon);
         this.interval = setInterval(() => {
-            jouerSon(this.cri, 10);
+            let soundPos = 1;
+            if (this.x)
+                soundPos = this.x / document.body.style.width.slice(0, -2) * 2 - 1;
+            jouerSon(this.cri, soundPos, 10);
         }, ms);
     }
 

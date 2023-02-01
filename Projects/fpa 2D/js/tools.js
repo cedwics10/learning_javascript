@@ -8,8 +8,20 @@ function vocaliser(chaine) {
     synth.speak(utterance);
 }
 
-function jouerSon(lien, Qvolume = 1) {
-    const audio = new Audio();
+function jouerSon(lien, balance = 0, Qvolume = 1) {
+    let audio = document.createElement("audio");
+    audio.crossOrigin = "anonymous";
+
+    let audioCtx, source, panNode;
+
+    audioCtx = new window.AudioContext();
+    source = audioCtx.createMediaElementSource(audio);
+
+    panNode = audioCtx.createStereoPanner();
+    source.connect(panNode);
+    panNode.connect(audioCtx.destination);
+
+    panNode.pan.value = balance;
     audio.volume /= Qvolume;
     audio.src = lien;
     audio.play();
