@@ -1,7 +1,7 @@
 /**
  * Représente un niveau dans le jeu joué
  */
-class Partie {
+class Niveau {
     /**
      * 
      * @param {Jeu} jeu 
