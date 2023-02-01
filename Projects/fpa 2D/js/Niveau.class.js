@@ -10,14 +10,17 @@ class Niveau {
         this.jeu = jeu;
         this.numero = 1;
         this.trolls = [];
+        this.nbTrolls = 40;
+        this.nbTrollsEnVie = this.nbTrolls;
 
         this.genererNiveau();
     }
 
     genererNiveau() {
-        for (let i = 0; i < 40; i++) {
+        this.jeu.niveau++;
+        console.log('Au niveau :', this.jeu.niveau);
+        for (let i = 0; i < this.nbTrolls; i++) {
             let troll = new Troll(this);
-            console.log(troll);
             this.trolls.push(troll);
         }
         this.arme = new Arme(this, this.trolls);

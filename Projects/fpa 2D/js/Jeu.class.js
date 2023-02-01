@@ -7,5 +7,6 @@ class Jeu {
         this.height = window.innerHeight;
 
         this.highScore = 0;
+        this.niveau = 0;
     }
 }
