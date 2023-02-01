@@ -24,6 +24,8 @@
   <script>
     let audio = document.createElement("audio");
     let audio2 = document.createElement("audio");
+    audio.crossOrigin = "anonymous";
+    audio2.crossOrigin = "anonymous";
     audio.id = "premier";
 
     let audioCtx, source, panNode;
