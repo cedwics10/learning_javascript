@@ -1,37 +1,71 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Stéréo</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Stereo</h1>
-    <input type="number" step="0.1" min="-1" max="1" id="panning" value="0" onchange="panNode.pan.value = panning.value;">
+    <input
+      type="number"
+      step="0.1"
+      min="-1"
+      max="1"
+      id="panning"
+      value="0"
+      onchange=""
+    />
     <button onclick="go()">Play</button>
+    <button onclick="go_deux()">Play 2</button>
     <button onclick="stop()">Stop</button>
-</body>
-<script>
+  </body>
+  <script>
     let audio = document.createElement("audio");
+    let audio2 = document.createElement("audio");
+    audio.id = "premier";
+
     let audioCtx, source, panNode;
-    
+    let audioCtx2, source2, panNode2;
+
     function go() {
-        if (!audioCtx) {
-            audioCtx = new window.AudioContext();
-            source = audioCtx.createMediaElementSource(audio);
-            // Create a stereo panner
-            panNode = audioCtx.createStereoPanner();
-            source.connect(panNode);
-            panNode.connect(audioCtx.destination);
-        }
-        panNode.pan.value = panning.value;
-        audio.src = "colvert.mp3";
-        audio.play();
+      if (!audioCtx) {
+        audioCtx = new window.AudioContext();
+        source = audioCtx.createMediaElementSource(audio);
+        // Create a stereo panner
+        panNode = audioCtx.createStereoPanner();
+        source.connect(panNode);
+        panNode.connect(audioCtx.destination);
+      }
+      panNode.pan.value = panning.value;
+      audio.src = "colvert.mp3";
+      audio.play();
+    }
+
+    function go_deux() {
+      if (!audioCtx2) {
+        audioCtx2 = new window.AudioContext();
+        source2 = audioCtx2.createMediaElementSource(audio2);
+        // Create a stereo panner
+        panNode2 = audioCtx2.createStereoPanner();
+        source2.connect(panNode2);
+        panNode2.connect(audioCtx2.destination);
+      }
+      panNode2.pan.value = 1;
+      audio2.src = "audio_s.mp3";
+      audio2.play();
     }
 
     function stop() {
-        audio.pause();
+      audio.pause();
+      audio2.pause();
     }
-</script>
+
+    function changeStereo() {
+      if (panNode) panNode.pan.value = -1;
+    }
+
+    setInterval(changeStereo, 1000);
+  </script>
+</html>
