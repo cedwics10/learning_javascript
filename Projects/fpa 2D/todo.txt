@@ -3,3 +3,4 @@
 - Créer un niveau d'introduction
 - Créer un niveau 1 de découverte
 - Créer des niveaux de difficultés croissantes fur et à mesure
+- Concevoir un jeu adapté en fonction des dimensions de l'écran
