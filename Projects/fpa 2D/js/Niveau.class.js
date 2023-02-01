@@ -8,10 +8,22 @@ class Niveau {
      */
     constructor(jeu) {
         this.jeu = jeu;
-        this.niveau = 1;
+        this.numero = 1;
+        this.trolls = [];
+
+        this.genererNiveau();
     }
 
-    generer() {
+    genererNiveau() {
+        for (let i = 0; i < 40; i++) {
+            let troll = new Troll(this);
+            console.log(troll);
+            this.trolls.push(troll);
+        }
+        this.arme = new Arme(this, this.trolls);
+    }
+
+    changerNiveau() {
 
     }
 }
