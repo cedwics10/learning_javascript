@@ -54,20 +54,27 @@ class AliveItem extends Item {
     /**
      * EDIT : sonoriser
      */
+
+    giveSoundPos() {
+
+    }
+
     sonoriser() {
         let ms = alea(this.minDelaiSon, this.maxDelaiSon);
-        this.interval = setInterval(() => {
-            let soundPos = -1;
-            if (this.x)
-                soundPos = this.x / document.body.style.width.slice(0, -2) * 2 - 1;
-            console.log(soundPos);
 
-            if (!this.audio) {
-                let soundO = jouerSon(this.cri, soundPos, 10, true);
-                this.audio = soundO.sound;
-                this.panner = soundO.panner;
-            }
-        }, ms);
+
+        if (!this.audio) {
+            let soundO = jouerSon(this.cri, 0, 10, true);
+            this.audio = soundO.sound;
+            this.panner = soundO.panner;
+        }
+
+        setInterval(() => {
+            let soundPos = this.x ? this.x / document.body.style.width.slice(0, -2) * 2 - 1 : 0
+            this.panner.pan.value = soundPos;
+        }, 1000);
+
+
     }
 
     spatialiserSon() {

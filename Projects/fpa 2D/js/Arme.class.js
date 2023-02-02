@@ -28,18 +28,20 @@ class Arme extends Item {
         if (this.x)
             soundPos = Math.round(this.x / document.body.style.width.slice(0, -2) * 2 - 1);
 
-        if (this.audio) {
+        if (this.audio & this.audio.paused) {
             this.audio.play();
         }
-        else {
-            this.audio, this.panNode = jouerSon(this.bruitArme, this.x / window.innerWidth * 2 - 1);
+        else if (!this.audio) {
+            let soundO = jouerSon(this.bruitArme, this.x / window.innerWidth * 2 - 1);
+            this.audio = soundO.audio;
+            this.panNode = soundO.panner;
         }
     }
 
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                this.sonoriserTir();
+                // this.sonoriserTir();
 
                 this.balles.push(new Balle(this.partie,
                     this.trolls,
