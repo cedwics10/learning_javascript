@@ -46,42 +46,26 @@ class AliveItem extends Item {
             this.enVie = false;
             document.body.removeChild(this.img);
 
-            jouerSon(this.criMort);
+            // jouerSon(this.criMort);
+
             clearInterval(this.interval);
         }
     }
 
-    /**
-     * EDIT : sonoriser
-     */
-
-    giveSoundPos() {
-
-    }
-
-    sonoriser() {
-        let ms = alea(this.minDelaiSon, this.maxDelaiSon);
-
-
+    initSon() {
         if (!this.audio) {
-            let soundO = jouerSon(this.cri, 0, 10, true);
-            this.audio = soundO.sound;
+            let soundO = creerSon(this.cri, 0, 10);
+
+            this.audio = soundO.audio;
+            this.audio.loop = true;
+
             this.panner = soundO.panner;
         }
-
-        setInterval(() => {
-            let soundPos = this.x ? this.x / document.body.style.width.slice(0, -2) * 2 - 1 : 0
-            this.panner.pan.value = soundPos;
-        }, 1000);
-
-
     }
 
-    spatialiserSon() {
-        if (this.panner & !this.spatal) {
-            setInterval(() => { panNode.pan.value = Math.random() * 2 - 1 }, 1000);
-        }
-    }
-
-
+    // sonoriser() {
+    //     if (this.audio) {
+    //         this.audio.play();
+    //     }
+    // }
 }

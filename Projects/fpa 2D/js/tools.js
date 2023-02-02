@@ -8,32 +8,27 @@ function vocaliser(chaine) {
     synth.speak(utterance);
 }
 
-function jouerSon(lien, balance = 0, Qvolume = 1, loop = false) {
+function creerSon(lien, balance = 0, Qvolume = 1) {
     let audio = document.createElement("audio");
+
     audio.crossOrigin = "anonymous";
+    audio.src = lien;
+    audio.volume /= Qvolume;
 
-    let audioCtx, source, panNode;
+    let audioCtx = new window.AudioContext();
+    let source = audioCtx.createMediaElementSource(audio);
 
-    audioCtx = new window.AudioContext();
-    source = audioCtx.createMediaElementSource(audio);
-
-    panNode = audioCtx.createStereoPanner();
-    source.connect(panNode);
+    let panNode = audioCtx.createStereoPanner();
     panNode.connect(audioCtx.destination);
-
     panNode.pan.value = balance;
 
-    audio.src = lien;
-
-    audio.volume /= Qvolume;
-    audio.loop = loop;
-    audio.play();
+    source.connect(panNode);
 
     return {
         'audio': audio,
         'panner': panNode
     };
-};
+}
 
 function EntreeCollision(objAtt, objCible) {
     if (objCible.enVie === true

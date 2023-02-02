@@ -1,4 +1,10 @@
-- Spatialiser le son
+- Spatialiser le son : nous devons activerle son des trolls suivant une case à
+cocher qui nous permettra de pouvoir lancer le son partout.
+
+1. Programmer une touche qui sonorise les trolls
+2. Créer une fonction cotneannt une boucle for qui lance tous les sons pour chaque trolls
+
+
 - Mettre les trolls et les armes dans le niveau de la partie
 - Créer un niveau d'introduction
 - Créer un niveau 1 de découverte

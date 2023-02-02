@@ -8,5 +8,11 @@ class Jeu {
 
         this.highScore = 0;
         this.niveau = 0;
+
+        this.createHTML();
+    }
+
+    createHTML() {
+
     }
 }
