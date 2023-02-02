@@ -18,7 +18,7 @@ class Niveau {
 
     genererNiveau() {
         this.jeu.niveau++;
-        console.log('Au niveau :', this.jeu.niveau);
+        vocaliser('Vous êtes au niveau :' + this.jeu.niveau);
         for (let i = 0; i < this.nbTrolls; i++) {
             let troll = new Troll(this);
             this.trolls.push(troll);
