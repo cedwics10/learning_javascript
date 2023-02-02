@@ -17,6 +17,7 @@ class Troll extends AliveItem {
         this.creerImg();
         this.animer();
         this.sonoriser();
+        this.spatialiserSon();
     }
 }
 

@@ -8,7 +8,7 @@ function vocaliser(chaine) {
     synth.speak(utterance);
 }
 
-function jouerSon(lien, balance = 0, Qvolume = 1) {
+function jouerSon(lien, balance = 0, Qvolume = 1, loop = false) {
     let audio = document.createElement("audio");
     audio.crossOrigin = "anonymous";
 
@@ -22,10 +22,17 @@ function jouerSon(lien, balance = 0, Qvolume = 1) {
     panNode.connect(audioCtx.destination);
 
     panNode.pan.value = balance;
-    audio.volume /= Qvolume;
+
     audio.src = lien;
+
+    audio.volume /= Qvolume;
+    audio.loop = loop;
     audio.play();
-    return audio, panNode;
+
+    return {
+        'audio': audio,
+        'panner': panNode
+    };
 };
 
 function EntreeCollision(objAtt, objCible) {

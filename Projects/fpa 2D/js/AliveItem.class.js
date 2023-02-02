@@ -60,13 +60,20 @@ class AliveItem extends Item {
             let soundPos = -1;
             if (this.x)
                 soundPos = this.x / document.body.style.width.slice(0, -2) * 2 - 1;
+            console.log(soundPos);
 
-            if (!this.audio)
-                this.audio, this.panNode = jouerSon(this.cri, soundPos, 10);
-            else {
-                this.audio.play();
+            if (!this.audio) {
+                let soundO = jouerSon(this.cri, soundPos, 10, true);
+                this.audio = soundO.sound;
+                this.panner = soundO.panner;
             }
         }, ms);
+    }
+
+    spatialiserSon() {
+        if (this.panner & !this.spatal) {
+            setInterval(() => { panNode.pan.value = Math.random() * 2 - 1 }, 1000);
+        }
     }
 
 
