@@ -26,6 +26,9 @@ class AliveItem extends Item {
 
         this.cri = cri;
         this.criMort = criMort;
+
+        this.audio = null;
+        this.panner = null;
     }
 
     /**
@@ -52,16 +55,16 @@ class AliveItem extends Item {
         }
     }
 
-    initSon() {
-        if (!this.audio) {
-            let soundO = creerSon(this.cri, 0, 10);
+    // initSon() {
+    //     if (!this.audio) {
+    //         let soundO = creerSon(this.cri, 0, 10);
 
-            this.audio = soundO.audio;
-            this.audio.loop = true;
+    //         this.audio = soundO.audio;
+    //         this.audio.loop = true;
 
-            this.panner = soundO.panner;
-        }
-    }
+    //         this.panner = soundO.panner;
+    //     }
+    // }
 
     // sonoriser() {
     //     if (this.audio) {

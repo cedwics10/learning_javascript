@@ -22,7 +22,7 @@ class Niveau {
         vocaliser('Vous êtes au niveau :' + this.jeu.niveau);
         for (let i = 0; i < this.nbTrolls; i++) {
             let troll = new Troll(this);
-            troll.initSon();
+            //  troll.initSon();
             this.trolls.push(troll);
         }
         this.arme = new Arme(this);
@@ -33,8 +33,8 @@ class Niveau {
         switch (touche) {
             case 's':
                 this.trolls.forEach((v) => {
-                    v.audio.play();
-
+                    // Définir le son de troll dans le tableau du jeu
+                    // Fin du bordel
                 });
                 break;
         }
