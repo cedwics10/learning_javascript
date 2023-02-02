@@ -52,7 +52,7 @@ class AliveItem extends Item {
     }
 
     /**
-     * 
+     * EDIT : sonoriser
      */
     sonoriser() {
         let ms = alea(this.minDelaiSon, this.maxDelaiSon);
