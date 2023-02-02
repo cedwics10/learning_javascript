@@ -23,7 +23,7 @@ class Niveau {
             let troll = new Troll(this);
             this.trolls.push(troll);
         }
-        this.arme = new Arme(this, this.trolls);
+        this.arme = new Arme(this);
     }
 
     changerNiveau() {

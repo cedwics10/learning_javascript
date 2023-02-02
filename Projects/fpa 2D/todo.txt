@@ -2,4 +2,4 @@
 - Mettre les trolls et les armes dans le niveau de la partie
 - Créer un niveau d'introduction
 - Créer un niveau 1 de découverte
-- Créer des niveaux de difficultés croissantes fur et à mesure
+- Créer des niveaux de difficultés croissants fur et à mesure

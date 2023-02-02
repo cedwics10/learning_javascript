@@ -6,6 +6,7 @@
  */
 class AliveItem extends Item {
     /**
+     * Crée les paramètres du personnage/objet en déplacement
      * @param {partie} partie 
      */
     constructor(partie, id = '',
@@ -38,7 +39,7 @@ class AliveItem extends Item {
     }
 
     /**
-     * 
+     * Fait mourir le personnage en vie
      */
     mourir() {
         if (this.enVie) {

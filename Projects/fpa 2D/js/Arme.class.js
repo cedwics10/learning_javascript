@@ -1,9 +1,9 @@
 class Arme extends Item {
-    constructor(partie, trolls) {
+    constructor(partie) {
         super(partie, 'arme',
             '', 'images/arme.png');
 
-        this.trolls = trolls;
+        this.trolls = partie.trolls;
         this.balles = [];
 
         this.bruitArme = 'sound/357 magnum.mp3'
