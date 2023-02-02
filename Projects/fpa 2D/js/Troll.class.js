@@ -6,11 +6,11 @@ class Troll extends AliveItem {
     static nbTrolls = 0;
     /**
     * 
-    * @param {Partie} partie 
+    * @param {Niveau} niveau 
     * @param {int} numeroTroll 
     */
-    constructor(partie) {
-        super(partie, 'troll' + Troll.nbTrolls, 'troll',
+    constructor(niveau) {
+        super(niveau, 'troll' + Troll.nbTrolls, 'troll',
             'images/troll.png', 'sound/troll.mp3', 'sound/mortTroll.mp3');
         Troll.nbTrolls++;
 
