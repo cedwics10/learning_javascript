@@ -25,6 +25,7 @@ function jouerSon(lien, balance = 0, Qvolume = 1) {
     audio.volume /= Qvolume;
     audio.src = lien;
     audio.play();
+    return audio, panNode;
 };
 
 function EntreeCollision(objAtt, objCible) {

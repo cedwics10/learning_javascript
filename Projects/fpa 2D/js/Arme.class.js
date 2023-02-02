@@ -23,10 +23,24 @@ class Arme extends Item {
         });
     }
 
+    sonoriserTir() {
+        let soundPos = -1;
+        if (this.x)
+            soundPos = Math.round(this.x / document.body.style.width.slice(0, -2) * 2 - 1);
+
+        if (this.audio) {
+            this.audio.play();
+        }
+        else {
+            this.audio, this.panNode = jouerSon(this.bruitArme, this.x / window.innerWidth * 2 - 1);
+        }
+    }
+
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                jouerSon(this.bruitArme, this.x / window.innerWidth * 2 - 1);
+                this.sonoriserTir();
+
                 this.balles.push(new Balle(this.partie,
                     this.trolls,
                     parseInt(e.pageX) + 200,
