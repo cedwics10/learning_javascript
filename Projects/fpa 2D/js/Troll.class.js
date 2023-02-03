@@ -2,7 +2,6 @@
  * Représente les trolls, qui sont des ennemis à tuer
  */
 class Troll extends AliveItem {
-
     static nbTrolls = 0;
     /**
     * 

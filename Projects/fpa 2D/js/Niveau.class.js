@@ -14,7 +14,7 @@ class Niveau {
         this.nbTrollsEnVie = this.nbTrolls;
 
         this.genererNiveau();
-        document.addEventListener('keydown', (e) => this.keys(e));
+        this.genererEvenements();
     }
 
     genererNiveau() {
@@ -34,16 +34,14 @@ class Niveau {
     keys(e) {
         let touche = e.key.toLowerCase();
         switch (touche) {
-            case 's':
-                this.trolls.forEach((v) => {
-                    // Définir le son de troll dans le tableau du jeu
-                    // Fin du bordel
-                });
+            case 'p': // touche pause à créer
+                break;
+            case 'q': // quitter la partie après une confirmation
                 break;
         }
     }
 
-    changerNiveau() {
-
+    genererEvenements() {
+        document.addEventListener('keydown', (e) => this.keys(e));
     }
 }

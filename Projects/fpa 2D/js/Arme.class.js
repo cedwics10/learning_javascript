@@ -11,6 +11,7 @@ class Arme extends Item {
         this.creerImg();
         this.deplacerImg();
         this.tirArme();
+        this.sonoriserTir();
     }
 
     deplacerImg() {
@@ -24,18 +25,11 @@ class Arme extends Item {
     }
 
     sonoriserTir() {
-        let soundPos = -1;
-        if (this.x)
-            soundPos = Math.round(this.x / document.body.style.width.slice(0, -2) * 2 - 1);
-
-        if (this.audio & this.audio.paused) {
+        this.sonTir = window.addEventListener('click', () => {
+            if (!this.audio)
+                this.audio = new Audio(this.bruitArme);
             this.audio.play();
-        }
-        else if (!this.audio) {
-            let soundO = jouerSon(this.bruitArme, this.x / window.innerWidth * 2 - 1);
-            this.audio = soundO.audio;
-            this.panNode = soundO.panner;
-        }
+        });
     }
 
     tirArme() {

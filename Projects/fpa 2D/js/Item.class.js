@@ -6,10 +6,10 @@ class Item {
      * 
      * @param {partie} partie 
      */
-    constructor(partie, id = '',
+    constructor(niveau, id = '',
         className = '', imageSrc = '') {
 
-        this.partie = partie;
+        this.niveau = niveau;
 
         this.x = alea(0, window.innerWidth);
         this.y = alea(0, window.innerHeight);

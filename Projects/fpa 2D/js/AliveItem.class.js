@@ -7,12 +7,12 @@
 class AliveItem extends Item {
     /**
      * Crée les paramètres du personnage/objet en déplacement
-     * @param {partie} partie 
+     * @param {Niveau} niveau que l'objet "vivant" observe 
      */
-    constructor(partie, id = '',
+    constructor(niveau, id = '',
         className = '', imageSrc = '',
         cri = '', criMort = '') {
-        super(partie, id, className, imageSrc);
+        super(niveau, id, className, imageSrc);
 
         this.vx = Math.random() * 5;
         this.vy = Math.random() * 5;
@@ -48,9 +48,6 @@ class AliveItem extends Item {
         if (this.enVie) {
             this.enVie = false;
             document.body.removeChild(this.img);
-
-            // jouerSon(this.criMort);
-
             clearInterval(this.interval);
         }
     }
