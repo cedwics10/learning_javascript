@@ -54,21 +54,4 @@ class AliveItem extends Item {
             clearInterval(this.interval);
         }
     }
-
-    // initSon() {
-    //     if (!this.audio) {
-    //         let soundO = creerSon(this.cri, 0, 10);
-
-    //         this.audio = soundO.audio;
-    //         this.audio.loop = true;
-
-    //         this.panner = soundO.panner;
-    //     }
-    // }
-
-    // sonoriser() {
-    //     if (this.audio) {
-    //         this.audio.play();
-    //     }
-    // }
 }

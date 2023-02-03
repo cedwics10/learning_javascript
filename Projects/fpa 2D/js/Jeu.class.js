@@ -11,8 +11,4 @@ class Jeu {
 
         this.createHTML();
     }
-
-    createHTML() {
-
-    }
 }

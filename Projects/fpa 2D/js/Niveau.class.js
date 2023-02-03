@@ -27,7 +27,10 @@ class Niveau {
         }
         this.arme = new Arme(this);
     }
-
+    /**
+     * Keys to interact with the game
+     * @param {*} e  
+     */
     keys(e) {
         let touche = e.key.toLowerCase();
         switch (touche) {
