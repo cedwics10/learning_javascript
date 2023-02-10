@@ -35,8 +35,6 @@ class Arme extends Item {
     tirArme() {
         document.addEventListener('click',
             (e) => {
-                // this.sonoriserTir();
-
                 this.balles.push(new Balle(this.partie,
                     this.trolls,
                     parseInt(e.pageX) + 200,
