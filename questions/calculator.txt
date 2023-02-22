@@ -1,2 +1,0 @@
-Evaluate a string as a mathematical expression in JavaScript
-https://stackoverflow.com/questions/2276021/evaluating-a-string-as-a-mathematical-expression-in-javascript
