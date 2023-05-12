@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jeu de la bataille</title>
+</head>
+
+<body>
+
+
+    <div data-vue="index" class="vue">
+        <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span>
+        </h1>
+
+        <duv id="attente">* En attente d'un camarade pour se connecter</duv>
+        <br /><button data-vue="jeu" disabled>Joueur au jeu</button>
+    </div>
+
+    <div data-vue="jeu" class="vue">
+        * Veuillez tirer une carte :
+        <button data-vue="carte">Tirer une carte</button>
+    </div>
+
+    <div data-vue="carte" class="vue">
+        Vous avez tiré la carte : AS DE PIQUEs<br />
+        BRAVO !<br />
+        <button data-vue="jeu">Tirer une carte</button>
+
+    </div>
+
+    <div data-vue="bataille" class="vue">
+        * Vous êes à égalité. C'est parti pour la bataille !
+    </div>
+</body>
+<script src="js/Joueur.class.js"></script>
+<script src="js/bataille.js"></script>
+<script src="js/fonctions.js"></script>
+<!-- <script src="js/Joueur.class.js"></script>
+<script src="js/Paquet.class.js"></script>
+ -->
+
+</html>

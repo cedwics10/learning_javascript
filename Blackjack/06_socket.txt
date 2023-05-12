@@ -1,0 +1,38 @@
+/*
+Ce code est un exemple de mise en place d'une application web en utilisant le framework Express et le module Socket.IO pour la communication en temps réel entre le serveur et le client. Voici une explication ligne par ligne :
+
+const express = require('express'); : Cette ligne importe le module Express qui est un framework Node.js pour la création d'applications web.
+
+const app = express(); : Cette ligne crée une instance de l'application Express. L'objet app est utilisé pour configurer l'application, définir des routes, et gérer les requêtes et réponses HTTP.
+
+const http = require('http'); : Cette ligne importe le module HTTP de Node.js qui est utilisé pour créer un serveur HTTP.
+
+const server = http.createServer(app); : Cette ligne crée une instance de serveur HTTP en passant l'objet app créé précédemment comme argument.
+
+const { Server } = require("socket.io"); : Cette ligne importe la classe Server du module Socket.IO qui sera utilisée pour créer un serveur de socket.
+
+const io = new Server(server); : Cette ligne crée une instance du serveur de socket en passant l'instance de serveur HTTP créée précédemment comme argument.
+
+En résumé, ce code met en place une application web avec Express et crée un serveur HTTP avec le module Node.js HTTP. Il utilise ensuite le module Socket.IO pour créer un serveur de socket qui permettra la communication en temps réel entre le serveur et le client.
+*/
+
+Les SOCKETS : communication bidirectionnelle : https://fr.wikipedia.org/wiki/Socket
+
+cf. toutes les façons d'envoyer un message : https://socket.io/fr/docs/v3/emit-cheatsheet/
+
+
+//Envoyer un message à toutes les sockets
+io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' }); 
+
+//Envoyer un message à toutes les sockets sauf la socket qui émet le message
+socket.broadcast.emit('hi');
+
+Travail à réaliser :
+- Envoyer un message à toutes les personnes connéctées quand quelqu'un se connecte ou se déconnecte.
+- Permettre aux personnes de se définir un pseudo    
+- Afficher les messages du server en italique
+- Afficher l'heure (HH:MM:SS) devant chaque message.
+- Afficher un message : “{user} est en train de taper....” en dessous de l'input lorsqu'un utilisateur tape un message.
+- Montrer qui est en ligne.
+- rendre l'ensemble accessible et adapté aux lecteurs d'écran (balise aria-live ou synthèse vocale interne au navigateur)
+- Permettre d'envoyer des messages privés à quelqu'un.
