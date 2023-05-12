@@ -12,20 +12,13 @@ const { Server } = require("socket.io")
 
 const io = new Server(serverWeb);
 
-
-
 io.on("connection", (socket) => {
-
     console.log('Un nouveau joueur est connecté')
     socket.on("connect", (pseudoDeco) => {
-        console.log('Le joueur a quitté la partie.')
+        console.log('Le joueur accède à la partie.')
     })
-
 
     socket.on("disconnect", (pseudoDeco) => {
         console.log('Le joueur a quitté la partie.')
     })
 })
-
-
-
