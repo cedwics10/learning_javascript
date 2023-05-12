@@ -43,6 +43,7 @@ class Ctr_Bataille {
         })
     }
 
+    // Méthode statique
     cacherTout() {
         let htmlEDivs = document.body.getElementsByClassName('vue')
         let arrayDivs = Array.from(htmlEDivs)
