@@ -1,8 +1,6 @@
 class Ctr_Bataille {
     constructor() {
-        this.joueur1 = new Joueur()
-
-        this.nombreConnecte = 0
+        this.socket = new ClientSockets()
 
         this.cacherTout()
         this.a_index()
@@ -12,15 +10,20 @@ class Ctr_Bataille {
         this.cacherTout()
         let nomJoueur
 
-        // Prénom du joueur
         while (!nomJoueur)
             nomJoueur = prompt('Entez votre nom')
 
-        this.joueur1.prenom = nomJoueur
+        this.socket.inscriptionPseudo(nomJoueur)
 
         document.getElementById('prenom').innerText = nomJoueur
 
         this.afficherVue('index')
+    }
+
+    a_pret() {
+        this.cacherTout()
+
+        this.afficherVue('pret')
     }
 
     afficherVue(nom) {
@@ -36,7 +39,6 @@ class Ctr_Bataille {
                 div.style.display = 'None'
             }
             else {
-                console.log('ok')
                 div.style.display = 'block'
             }
             console.log(div.dataset.vue)

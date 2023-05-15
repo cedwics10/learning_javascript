@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Jeu de la bataille</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
 </head>
 
 <body>
@@ -17,7 +19,14 @@
         </h1>
 
         <duv id="attente">* En attente d'un camarade pour se connecter</duv>
-        <br /><button data-vue="jeu" disabled>Joueur au jeu</button>
+        <br /><button disabled>Joueur au jeu</button>
+    </div>
+
+    <div data-vue="pret" class="vue">
+        <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span></h1>
+
+        <duv id="attente">La partie peut commencer</duv>
+        <br /><button data-vue="jeu">Joueur au jeu</button>
     </div>
 
     <div data-vue="jeu" class="vue">
@@ -43,11 +52,8 @@
         * Vous êes à égalité. C'est parti pour la bataille !
     </div>
 </body>
-<script src="js/Joueur.class.js"></script>
+<script src="js/ClientSockets.class.js"></script>
 <script src="js/bataille.js"></script>
 <script src="js/fonctions.js"></script>
-<!-- <script src="js/Joueur.class.js"></script>
-<script src="js/Paquet.class.js"></script>
- -->
 
 </html>
