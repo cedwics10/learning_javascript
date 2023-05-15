@@ -12,6 +12,7 @@ const { Server } = require("socket.io")
 
 const io = new Server(serverWeb);
 
+nombreJoueursPartie = 2
 objetJoueurs = {}
 
 function nombreJoueurs() {
@@ -20,7 +21,7 @@ function nombreJoueurs() {
 
 io.on("connection", (socket) => {
 
-    if (nombreJoueurs() < 2) {
+    if (nombreJoueurs() < nombreJoueursPartie) {
         objetJoueurs[socket.id] = {}
         console.log('Un nouveau joueur est connecté.')
     }
@@ -42,12 +43,8 @@ io.on("connection", (socket) => {
         objetJoueurs[socket.id] = {
             prenom: prenom
         }
-
-        // console.log('Le nouveau joueur connecté a pour nom : ' + prenom)
-        // console.log('Le nombre de jouerus connectés est de : ' + Object.keys(objetJoueurs).length)
-
-
         socket.emit('sjoueurs', nombreJoueurs)
+
     })
 
 
@@ -57,7 +54,7 @@ io.on("connection", (socket) => {
             return false
 
         delete objetJoueurs[socket.id]
-        console.log('Un joueur a quitté la partie')
+        console.log('Un joueur vient de se déconnecter.')
     })
 })
 

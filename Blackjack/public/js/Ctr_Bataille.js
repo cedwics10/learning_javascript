@@ -1,6 +1,6 @@
-class Ctr_Bataille {
-    constructor() {
-        this.socket = new ClientSockets()
+class Ctr_Bataille { // Contrôleur client de la bataille
+    constructor(socket) {
+        this.modeleClient = new ClientSockets()
 
         this.cacherTout()
         this.a_index()
@@ -8,29 +8,23 @@ class Ctr_Bataille {
 
     a_index() {
         this.cacherTout()
-        let nomJoueur
 
-        while (!nomJoueur)
-            nomJoueur = prompt('Entez votre nom')
-
-        this.socket.inscriptionPseudo(nomJoueur)
-
-        document.getElementById('prenom').innerText = nomJoueur
+        this.nomJoueur = this.modeleClient.inscriptionPseudo(this)
+        document.getElementById('prenom').innerText = this.nomJoueur
 
         this.afficherVue('index')
     }
 
     a_pret() {
         this.cacherTout()
-
         this.afficherVue('pret')
     }
 
     afficherVue(nom) {
         console.log(nom)
 
-        let htmlEDivs = document.body.getElementsByClassName('vue')
-        let arrayDivs = Array.from(htmlEDivs)
+        let htmlDivs = document.body.getElementsByClassName('vue')
+        let arrayDivs = Array.from(htmlDivs)
 
         let divAffiche
 
@@ -58,8 +52,5 @@ class Ctr_Bataille {
     }
 
 }
-ctrBataille = new Ctr_Bataille()
 
-
-
-
+let ctrBataille = new Ctr_Bataille()

@@ -1,11 +1,19 @@
 class ClientSockets {
 
-    constructor() {
-        this.socket = io();
+    constructor(socket) {
+        this.io = io();
     }
 
-    inscriptionPseudo(pseudo) {
-        this.socket.emit("connection", null)
-        this.socket.emit("joueur", pseudo)
+    inscriptionPseudo(objectBataille) {
+
+        let nomJoueur
+
+        while (!nomJoueur)
+            nomJoueur = prompt('Entez votre nom')
+
+        this.io.emit("connection", null)
+        this.io.emit("joueur", nomJoueur)
+
+        return nomJoueur
     }
 }
