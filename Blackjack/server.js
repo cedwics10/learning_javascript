@@ -29,7 +29,11 @@ io.on("connection", (socket) => {
         console.log('Il y a déjà assez de joueurs connectés')
     }
 
+
     socket.on("joueur", (prenom) => {
+
+        io.emit('sjoueurs', nombreJoueurs()) // io désigne tlm, socket le client
+
         if (!objetJoueurs[socket.id]) {
             console.log("Un joueur tente de se connecter alors qu'il ne fait pas partie des joueurs.")
             return false;
@@ -43,8 +47,9 @@ io.on("connection", (socket) => {
         objetJoueurs[socket.id] = {
             prenom: prenom
         }
-        socket.emit('sjoueurs', nombreJoueurs)
 
+
+        console.log('Le nombre de joueurs (' + nombreJoueurs() + ') s est envoyé')
     })
 
 

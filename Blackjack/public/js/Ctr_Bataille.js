@@ -21,8 +21,6 @@ class Ctr_Bataille { // Contrôleur client de la bataille
     }
 
     afficherVue(nom) {
-        console.log(nom)
-
         let htmlDivs = document.body.getElementsByClassName('vue')
         let arrayDivs = Array.from(htmlDivs)
 
@@ -35,7 +33,6 @@ class Ctr_Bataille { // Contrôleur client de la bataille
             else {
                 div.style.display = 'block'
             }
-            console.log(div.dataset.vue)
         })
     }
 
@@ -53,4 +50,4 @@ class Ctr_Bataille { // Contrôleur client de la bataille
 
 }
 
-let ctrBataille = new Ctr_Bataille()
+

@@ -1,7 +1,7 @@
 class ClientSockets {
 
-    constructor(socket) {
-        this.io = io();
+    constructor() {
+        this.socket = io(); // renommer socket
     }
 
     inscriptionPseudo(objectBataille) {
@@ -11,8 +11,8 @@ class ClientSockets {
         while (!nomJoueur)
             nomJoueur = prompt('Entez votre nom')
 
-        this.io.emit("connection", null)
-        this.io.emit("joueur", nomJoueur)
+        this.socket.emit("connection", null)
+        this.socket.emit("joueur", nomJoueur)
 
         return nomJoueur
     }

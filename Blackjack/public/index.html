@@ -18,15 +18,14 @@
         <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span>
         </h1>
 
-        <duv id="attente">* En attente d'un camarade pour se connecter</duv>
-        <br /><button disabled>Joueur au jeu</button>
+        Nombre de joueurs en ligne : <span id="attente"></span>
     </div>
 
     <div data-vue="pret" class="vue">
         <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span></h1>
 
         <duv id="attente">La partie peut commencer</duv>
-        <br /><button data-vue="jeu">Joueur au jeu</button>
+        <button data-vue="jeu">Jouer au jeu</button>
     </div>
 
     <div data-vue="jeu" class="vue">
@@ -55,11 +54,13 @@
 
     <script src="js/ClientSockets.class.js"></script>
     <script src="js/Ctr_Bataille.js"></script>
-    <script src="js/ServerSockets.class.js"></script>
-
-
 
     <script src="js/fonctions.js"></script>
+    <script>
+        let ctrBataille = new Ctr_Bataille()
+    </script>
+
+    <script src="js/ServerSockets.class.js"></script>
 
 </body>
 

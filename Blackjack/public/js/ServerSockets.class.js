@@ -1,12 +1,9 @@
-console.log(typeof ctrBataille.socket)
+ctrBataille.modeleClient.socket.on('sjoueurs', function (nbJoueurs) { // Traiter les sockets qui renvoie la liste des joueurs
+    if (nbJoueurs == 2) {
+        ctrBataille.a_pret()
+        return false
+    }
 
-// Traiter la socket qui renvoie la liste des joueurs
-
-ctrBataille.modeleClient.io.on('connection', function (socket) {
-    socket.on("sjoueurs", (joueurs) => {
-        if (joueurs == 2)
-            ctrBataille.a_pret()
-        else
-            ctrBataille.a_index()
-    })
+    let blocNombreJoueurs = document.getElementById('attente')
+    blocNombreJoueurs.innerText = nbJoueurs
 });
