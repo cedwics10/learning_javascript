@@ -12,55 +12,95 @@ const { Server } = require("socket.io")
 
 const io = new Server(serverWeb);
 
-nombreJoueursPartie = 2
-objetJoueurs = {}
+class Joueurs {
 
-function nombreJoueurs() {
-    return Object.keys(objetJoueurs).length;
+    static nombreJoueursRequis = 2
+    static arrayJoueurs = []
+
+    static nombre() {
+        console.log('Objet joueur : ', Joueurs.arrayJoueurs)
+
+        return Joueurs.arrayJoueurs
+            .filter(value => value.prenom)
+            .length;
+    }
+
+    static tropDe() {
+        return this.nombre() >= 2
+    }
+
+    static estNon(intSocketId) {
+        !Joueurs.arrayJoueurs[intSocketId]
+    }
+
+    static dejaInscrit(intSocketId) {
+        return Joueurs.arrayJoueurs
+            .filter(value => value.socket === intSocketId)
+            .length !== 0;
+    }
+
+    static inscrire(intSocketId, prenom) {
+        if (!Joueurs.arrayJoueurs[intSocketId])
+            Joueurs.arrayJoueurs.push({
+                socket: intSocketId,
+                prenom: prenom
+            })
+    }
+
+    static deconnecter(idSocket) {
+        Joueurs.arrayJoueurs = Joueurs.arrayJoueurs.filter(value => value.socket != idSocket)
+    }
+
+    static connecter(objSocket) {
+        Object.keys(Joueurs.arrayJoueurs).forEach((value, index) => {
+            console.log('données du joueur : ', value)
+        })
+    }
+
 }
 
 io.on("connection", (socket) => {
 
-    if (nombreJoueurs() < nombreJoueursPartie) {
-        objetJoueurs[socket.id] = {}
-        console.log('Un nouveau joueur est connecté.')
+    if (Joueurs.nombre() < Joueurs.nombreJoueursRequis) {
+        console.log('Un nouveau joueur arrive.')
     }
     else {
-        console.log('Il y a déjà assez de joueurs connectés')
+        console.log('Il y a déjà assez de joueurs connectés.')
     }
 
-
-    socket.on("joueur", (prenom) => {
-
-        io.emit('sjoueurs', nombreJoueurs()) // io désigne tlm, socket le client
-
-        if (!objetJoueurs[socket.id]) {
-            console.log("Un joueur tente de se connecter alors qu'il ne fait pas partie des joueurs.")
+    socket.on("inscription", (prenom) => {
+        if (Joueurs.tropDe()) {
+            console.log('Le nombre de jouerus maximal eest déjà atteint')
+            socket.emit('saction', 'refuse')
             return false;
         }
 
-        if (Object.keys(objetJoueurs[socket.id]).length !== 0) {
+        if (Joueurs.estNon(socket.id)) {
+            console.log("Un individu tente de s'inscrire alors qu'il ne fait pas partie des joueurs.")
+            return false;
+        }
+
+        if (Joueurs.dejaInscrit(socket.id)) {
             console.log("Un joueur tente de retaper son pseudo à nouveau")
             return false;
         }
 
-        objetJoueurs[socket.id] = {
-            prenom: prenom
-        }
+        Joueurs.inscrire(socket.id, prenom)
 
+        if (Joueurs.nombre() == Joueurs.nombreJoueursRequis)
+            Joueurs.connecter(socket)
 
-        console.log('Le nombre de joueurs (' + nombreJoueurs() + ') s est envoyé')
+        console.log('Le nombre de joueurs : ' + Joueurs.nombre())
+        io.emit('sjoueurs', Joueurs.nombre()) // Le nombre de joueurs est envoyé à tout l emonde
+
     })
-
 
     socket.on("disconnect", () => {
 
-        if (!objetJoueurs[socket.id])
+        if (Joueurs.deconnecter(socket.id))
             return false
 
-        delete objetJoueurs[socket.id]
+        Joueurs.deconnecter(socket.id) // editercc
         console.log('Un joueur vient de se déconnecter.')
     })
 })
-
-

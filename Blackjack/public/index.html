@@ -12,55 +12,68 @@
 </head>
 
 <body>
-    <!-- Vue du site internet -->
-
+    <!-- Vues du site internet -->
     <div data-vue="index" class="vue">
-        <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span>
-        </h1>
-
+        <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span></h1>
+        En attente de jouerus.<br />
         Nombre de joueurs en ligne : <span id="attente"></span>
     </div>
 
     <div data-vue="pret" class="vue">
         <h1>Bienvenu sur le jeu de la bataille <span id="prenom"></span></h1>
-
-        <duv id="attente">La partie peut commencer</duv>
+        La partie peut commencer
         <button data-vue="jeu">Jouer au jeu</button>
     </div>
 
+    <div data-vue="refuse" class="vue">
+        <h1>Bienvenu sur le jeu de la bataille</h1>
+        Vous êtes mis en attente. Quand il y aura moins de joueurs, vous pourrez vous reconnecter.
+    </div>
+
     <div data-vue="jeu" class="vue">
+        <h1>Veuillez tirer une carte</h1>
         * Veuillez tirer une carte :
-        <button data-vue="carte">Tirer une carte</button>
+        <button data-vue="choix_carte">Tirer une carte</button>
     </div>
 
-    <div data-vue="carte" class="vue">
-        Vous avez tiré la carte : as de pique<br />
-        En tattente de la carte du joueur suivant
-        <button data-vue="jeu">Tirer une carte</button>
+    <div data-vue="choix_carte" class="vue">
+        Vous avez tiré la carte : <div id="carteTire"><br />
+            En tattente de la carte du joueur suivant
+            <button data-vue="jeu">Tirer une carte</button>
+        </div>
 
-    </div>
+        <div data-vue="gagne" class="vue">
+            Vous avez tiré la carte : as de pique<br />
+            L'autre joueur a tiré la carte : as de trois
+            <button data-vue="bataille">Faire la bataille</button>
+        </div>
 
-    <div data-vue="gagne" class="vue">
-        Vous avez tiré la carte : as de pique<br />
-        L'autre joueur a tiré la carte : as de trois
-        <button data-vue="bataille">Faire la bataille</button>
+        <div data-vue="bataille" class="vue">
+            * Vous êes à égalité. C'est parti pour la bataille !
+        </div>
 
-    </div>
+        <script src="js/ClientSockets.class.js"></script>
+        <script src="js/base/Ctr_Controleur.class.js"></script>
+        <script src="js/Ctr_Bataille.js"></script>
 
-    <div data-vue="bataille" class="vue">
-        * Vous êes à égalité. C'est parti pour la bataille !
-    </div>
+        <script src="js/fonctions.js"></script>
+        <script>
+            let ctrBataille = new Ctr_Bataille()
 
+            // Evenement boutons de changement de page
+            boutonsPage = document.body.querySelectorAll('button')
 
-    <script src="js/ClientSockets.class.js"></script>
-    <script src="js/Ctr_Bataille.js"></script>
+            boutonsPage.forEach((boutonEnvoyer) => {
+                boutonEnvoyer.addEventListener('click', (e) => {
+                    let nomVue = boutonEnvoyer.dataset.vue
+                    if (nomVue && typeof ctrBataille["a_" + nomVue] === "function") {
+                        ctrBataille["a_" + nomVue]()
+                    }
+                })
+            })
+        </script>
 
-    <script src="js/fonctions.js"></script>
-    <script>
-        let ctrBataille = new Ctr_Bataille()
-    </script>
-
-    <script src="js/ServerSockets.class.js"></script>
+        <script src="js/ServerSockets.js"></script>
 
 </body>
 
