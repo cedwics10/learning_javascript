@@ -16,7 +16,7 @@ class ClientSockets {
         return nomJoueur
     }
 
-    entreePartie() {
-        this.socket.emit('demarre', null)
+    piocheCarte() {
+        this.socket.emit('pioche', this.socket.id)
     }
 }

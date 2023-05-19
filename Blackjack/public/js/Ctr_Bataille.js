@@ -1,5 +1,5 @@
 class Ctr_Bataille extends Ctr_Controleur { // Contrôleur client de la bataille
-    constructor(socket) {
+    constructor() {
         super()
 
         super.cacherTout()
@@ -23,6 +23,7 @@ class Ctr_Bataille extends Ctr_Controleur { // Contrôleur client de la bataille
     a_jeu() {
         super.cacherTout()
         alert('le jeu commence')
+        // this.modeleClient.entreePartie()
         super.afficherVue('jeu')
     }
 
@@ -33,6 +34,8 @@ class Ctr_Bataille extends Ctr_Controleur { // Contrôleur client de la bataille
 
     a_choix_carte() {
         super.cacherTout()
+        this.modeleClient.piocheCarte()
+        console.log('Vous avez choisi', Math.floor(Math.random() * 10))
         super.afficherVue('choix_carte')
     }
 }

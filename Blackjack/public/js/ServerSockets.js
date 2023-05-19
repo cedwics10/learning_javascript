@@ -8,11 +8,12 @@ ctrBataille.modeleClient.socket.on('demarrer', function (boolDemarrage) { // Tra
     blocNombreJoueurs.innerText = nbJoueurs
 });
 
-ctrBataille.modeleClient.socket.on('sjoueurs', function (nbJoueurs) { // Traiter les sockets qui renvoie la liste des joueurs
-    if (nbJoueurs == 2) {
+ctrBataille.modeleClient.socket.on('sconnecter', function (boolDemarrage) { // Traiter les sockets qui renvoie la liste des joueurs
+    if (boolDemarrage == 'oui') {
         ctrBataille.a_pret()
         return false
     }
+
 
     let blocNombreJoueurs = document.getElementById('attente')
     blocNombreJoueurs.innerText = nbJoueurs

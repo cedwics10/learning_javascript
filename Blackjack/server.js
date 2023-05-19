@@ -1,3 +1,6 @@
+const { Cartes } = require('./classes/Cartes.class');
+const { Joueurs } = require('./classes/Joueurs.class');
+
 
 const express = require('express')
 const app = express()
@@ -11,53 +14,6 @@ app.use(express.static('public'))
 const { Server } = require("socket.io")
 
 const io = new Server(serverWeb);
-
-class Joueurs {
-
-    static nombreJoueursRequis = 2
-    static arrayJoueurs = []
-
-    static nombre() {
-        console.log('Objet joueur : ', Joueurs.arrayJoueurs)
-
-        return Joueurs.arrayJoueurs
-            .filter(value => value.prenom)
-            .length;
-    }
-
-    static tropDe() {
-        return this.nombre() >= 2
-    }
-
-    static estNon(intSocketId) {
-        !Joueurs.arrayJoueurs[intSocketId]
-    }
-
-    static dejaInscrit(intSocketId) {
-        return Joueurs.arrayJoueurs
-            .filter(value => value.socket === intSocketId)
-            .length !== 0;
-    }
-
-    static inscrire(intSocketId, prenom) {
-        if (!Joueurs.arrayJoueurs[intSocketId])
-            Joueurs.arrayJoueurs.push({
-                socket: intSocketId,
-                prenom: prenom
-            })
-    }
-
-    static deconnecter(idSocket) {
-        Joueurs.arrayJoueurs = Joueurs.arrayJoueurs.filter(value => value.socket != idSocket)
-    }
-
-    static connecter(objSocket) {
-        Object.keys(Joueurs.arrayJoueurs).forEach((value, index) => {
-            console.log('données du joueur : ', value)
-        })
-    }
-
-}
 
 io.on("connection", (socket) => {
 
@@ -87,11 +43,18 @@ io.on("connection", (socket) => {
 
         Joueurs.inscrire(socket.id, prenom)
 
+        // La partie peut commencer
         if (Joueurs.nombre() == Joueurs.nombreJoueursRequis)
-            Joueurs.connecter(socket)
+            Joueurs.connecter()
 
         console.log('Le nombre de joueurs : ' + Joueurs.nombre())
-        io.emit('sjoueurs', Joueurs.nombre()) // Le nombre de joueurs est envoyé à tout l emonde
+
+        if (Joueurs.partieCommence()) {
+            Joueurs.prevenirDebut(io)
+        }
+    })
+
+    socket.on("pioche", (idSocket) => {
 
     })
 
