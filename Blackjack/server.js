@@ -47,14 +47,27 @@ io.on("connection", (socket) => {
         if (Joueurs.nombre() == Joueurs.nombreJoueursRequis)
             Joueurs.connecter()
 
-        console.log('Le nombre de joueurs : ' + Joueurs.nombre())
-
         if (Joueurs.partieCommence()) {
             Joueurs.prevenirDebut(io)
+            console.log(Joueurs.arrayJoueurs[0].paquet)
         }
     })
 
     socket.on("pioche", (idSocket) => {
+        if (Joueurs.quiADejaJoue().includes(idSocket))
+            return false
+
+        let i = 0
+        Joueurs.arrayJoueurs.forEach((element) => {
+            if (element.socket == idSocket) {
+                let cartePiochee = Joueurs.arrayJoueurs[i].paquet.piocher()
+                console.log('* Carte piochée : ')
+                console.log(cartePiochee)
+                Joueurs.arrayDejaJoue[element.socket] = { carte: cartePiochee }
+            }
+
+            i++
+        })
 
     })
 

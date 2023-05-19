@@ -35,7 +35,8 @@ class Ctr_Bataille extends Ctr_Controleur { // Contrôleur client de la bataille
     a_choix_carte() {
         super.cacherTout()
         this.modeleClient.piocheCarte()
-        console.log('Vous avez choisi', Math.floor(Math.random() * 10))
+
+        // farire du dom 
         super.afficherVue('choix_carte')
     }
 }

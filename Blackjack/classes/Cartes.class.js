@@ -76,16 +76,21 @@ class Cartes {
         }
     }
 
-    distribuer() {
+    distribuer(arrayJoueurs) {
         this.melanger()
 
         const indiceMilieu = Math.floor(this.paquet.length / 2);
 
-        const premierMoitie = this.paquet.slice(0, indiceMilieu)
-        const deuxiemeMoitie = this.paquet.slice(indiceMilieu)
+        let Paquets = []
+        Paquets.push(this.paquet.slice(0, indiceMilieu))
+        Paquets.push(this.paquet.slice(indiceMilieu))
 
-
-        return [new Cartes(premierMoitie), new Cartes(deuxiemeMoitie)]
+        let i = 0
+        Paquets.forEach((paquet) => {
+            arrayJoueurs[i].paquet = new Cartes(Paquets[i])
+            i++
+        })
+        return arrayJoueurs
     }
 
     piocher() {

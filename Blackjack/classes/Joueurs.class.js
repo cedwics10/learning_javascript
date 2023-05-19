@@ -1,12 +1,14 @@
 const { Cartes } = require('./Cartes.class');
 
 class Joueurs {
-
-
-    static Jeu = new Cartes()
     static nombreJoueursRequis = 2
     static nombreJoueursConfirme = 0
+
     static arrayJoueurs = []
+    static quiAJoue = {}
+
+    static jeuCartes = new Cartes()
+
 
     static nombre() {
         console.log('Objet joueur : ', Joueurs.arrayJoueurs)
@@ -16,9 +18,6 @@ class Joueurs {
             .length;
     }
 
-    static partieCommence() {
-        return Joueurs.nombre() == 2
-    }
     static tropDe() {
         return this.nombre() >= 2
     }
@@ -33,6 +32,7 @@ class Joueurs {
             .length !== 0;
     }
 
+
     static inscrire(intSocketId, prenom) {
         if (!Joueurs.arrayJoueurs[intSocketId])
             Joueurs.arrayJoueurs.push({
@@ -40,26 +40,37 @@ class Joueurs {
                 prenom: prenom
             })
     }
-
-    static deconnecter(idSocket) {
-        Joueurs.arrayJoueurs = Joueurs.arrayJoueurs.filter(value => value.socket != idSocket)
-    }
-
     static connecter() {
         Object.keys(Joueurs.arrayJoueurs).forEach((value, index) => {
             console.log('données du joueur : ', value)
         })
     }
 
+
+    static partieCommence() {
+        return Joueurs.nombre() == 2
+    }
+
     static prevenirDebut(io) {
-        console.log('La partie peut commencer : ')
-        console.log(Joueurs.arrayJoueurs)
+        Joueurs.arrayJoueurs = this.jeuCartes.distribuer(Joueurs.arrayJoueurs)
 
         Joueurs.arrayJoueurs.forEach((joueur) => {
             io.to(joueur.socket).emit('demarrer', 'oui');
         })
+    }
 
-        console.log('socket envoyée')
+    static quiADejaJoue() {
+        let arraySockets = []
+        console.log(Joueurs.quiAJoue)
+
+        Object.entries(Joueurs.quiAJoue).forEach((dict) => {
+            arraySockets.push(dict.socket)
+        })
+
+        return arraySockets
+    }
+    static deconnecter(idSocket) {
+        Joueurs.arrayJoueurs = Joueurs.arrayJoueurs.filter(value => value.socket != idSocket)
     }
 
 }
