@@ -69,6 +69,25 @@ class Joueurs {
 
         return arraySockets
     }
+
+    static GagnantManche() {
+        // Le gagnant est par défaut le premier joeur
+        let gagnant = null
+        let maxScore = 0
+
+        /* Vérifier la valuer de la carte du premier jour
+        par rapport au deuxième */
+
+        for (const [socket, dictJoueur] of Object.entries(Joueurs.quiAJoue)) {
+            let score = Cartes.score(dictJoueur.carte)
+            console.log('score : ', score)
+            maxScore = (score >= maxScore) ? score : maxScore
+            gagnant = (score >= maxScore) ? socket : gagnant
+        }
+
+        console.log('Le gagnant est le joueur :' + gagnant + ' avec le score ' + maxScore)
+        Joueurs.quiAJoue = {}
+    }
     static deconnecter(idSocket) {
         Joueurs.arrayJoueurs = Joueurs.arrayJoueurs.filter(value => value.socket != idSocket)
     }
