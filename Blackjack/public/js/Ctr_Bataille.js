@@ -36,7 +36,7 @@ class Ctr_Bataille extends Ctr_Controleur { // Contrôleur client de la bataille
         super.cacherTout()
         this.modeleClient.piocheCarte()
 
-        // farire du dom 
+        // Afficher le choix de carte
         super.afficherVue('choix_carte')
     }
 }

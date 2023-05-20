@@ -21,12 +21,12 @@ ctrBataille.modeleClient.socket.on('sconnecter', function (boolDemarrage) { // T
 
 
 ctrBataille.modeleClient.socket.on('saction', function (nomAction) { // Traiter les sockets qui renvoie la liste des joueurs
-    console.log(nomAction + ' chargé.')
     ctrBataille['a_' + nomAction]()
 })
 
+// (?)
 ctrBataille.modeleClient.socket.on('spioche',
     function (cartePioche) {
-        console.log('La caret tiré est  : ')
-        console.log(cartePioche)
+        // console.log('La caret tiré est  : ')
+        // console.log(cartePioche)
     })

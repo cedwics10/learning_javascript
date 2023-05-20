@@ -102,11 +102,12 @@ class Cartes {
         this.paquet.unshift(...cartes)
     }
 
+    nombreCartes() {
+        return this.paquet.length
+    }
+
     static score(objetCarte) {
         let rang = objetCarte.rang
-        console.log('rang : ', rang)
-        console.log('Classement :')
-        console.log(Cartes.arrayClassemetCartes)
 
         return Cartes.arrayClassemetCartes.find(key =>
             Cartes.arrayClassemetCartes[key] == rang)

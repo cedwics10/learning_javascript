@@ -55,7 +55,7 @@ io.on("connection", (socket) => {
             i++
         })
 
-        if (Object.keys(Joueurs.quiAJoue).length == Joueurs.nombreJoueursRequis) {
+        if (Object.keys(Joueurs.quiAJoue).length === Joueurs.nombreJoueursRequis) {
             Joueurs.GagnantManche()
         }
     })

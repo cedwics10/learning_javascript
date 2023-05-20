@@ -11,8 +11,6 @@ class Joueurs {
 
 
     static nombre() {
-        console.log('Objet joueur : ', Joueurs.arrayJoueurs)
-
         return Joueurs.arrayJoueurs
             .filter(value => value.prenom)
             .length;
@@ -70,42 +68,46 @@ class Joueurs {
         return arraySockets
     }
 
-    rendreCartesGagnant(socketGagnant) {
-        arrayJoueurs = Joueurs.arrayJoueurs.filter((socket) => socket == socketGagnant)
-        if (arrayJoueurs.length == 0)
-            return false
+    static calculerScore() {
+        let maxScore = 0, socketGagnant = null, cartesEnJeu = []
 
-        let cartesGagnes = []
+        for (const [socket, donneeMancheJoueur] of Object.entries(Joueurs.quiAJoue)) {
+            let carteJoue = donneeMancheJoueur.carte
+            cartesEnJeu.push(carteJoue)
 
-        Object.entries(Joueurs.quiAJoue)
-            .forEach((socket, carte) => {
-                cartesGagnes.push(carte)
-            })
+            let score = Cartes.score(carteJoue)
 
-        arrayJoueurs[0].paquet.recupererCartes(cartesGagnes)
+            socketGagnant = (score >= maxScore) ? socket : socketGagnant
+            maxScore = (score >= maxScore) ? score : maxScore
+        }
 
+        return [socketGagnant, maxScore, cartesEnJeu]
     }
 
     static GagnantManche() {
-        // Le gagnant est par défaut le premier joeur
-        let gagnant = null
-        let maxScore = 0
+        const [socketGagnant, maxScore, cartesEnJeu] = Joueurs.calculerScore()
 
-        /* Vérifier la valuer de la carte du premier jour
-        par rapport au deuxième */
+        console.log('La socket du gagnant est : ' + socketGagnant)
 
-        for (const [socket, dictJoueur] of Object.entries(Joueurs.quiAJoue)) {
-            let score = Cartes.score(dictJoueur.carte)
-            console.log('score : ', score)
-            maxScore = (score >= maxScore) ? score : maxScore
-            gagnant = (score >= maxScore) ? socket : gagnant
-        }
+        let objetGagnant = Joueurs.arrayJoueurs
+            .filter((joueur, cle) => joueur.socket == socketGagnant)[0]
 
-        console.log('Le gagnant est : ' + gagnant)
+        objetGagnant.paquet.recupererCartes(cartesEnJeu)
 
-        this.rendreCartesGagnant(gagnant)
+        Joueurs.bilan()
 
         Joueurs.quiAJoue = {}
+    }
+
+    static bilan() {
+        Joueurs.arrayJoueurs.forEach((joueur) => {
+            console.log('Joueur',
+                joueur.prenom,
+                ' a ',
+                joueur.paquet.nombreCartes(),
+                ' cartes.')
+        })
+
     }
 
     static deconnecter(idSocket) {
