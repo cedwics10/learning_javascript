@@ -70,6 +70,22 @@ class Joueurs {
         return arraySockets
     }
 
+    rendreCartesGagnant(socketGagnant) {
+        arrayJoueurs = Joueurs.arrayJoueurs.filter((socket) => socket == socketGagnant)
+        if (arrayJoueurs.length == 0)
+            return false
+
+        let cartesGagnes = []
+
+        Object.entries(Joueurs.quiAJoue)
+            .forEach((socket, carte) => {
+                cartesGagnes.push(carte)
+            })
+
+        arrayJoueurs[0].paquet.recupererCartes(cartesGagnes)
+
+    }
+
     static GagnantManche() {
         // Le gagnant est par défaut le premier joeur
         let gagnant = null
@@ -85,9 +101,13 @@ class Joueurs {
             gagnant = (score >= maxScore) ? socket : gagnant
         }
 
-        console.log('Le gagnant est le joueur :' + gagnant + ' avec le score ' + maxScore)
+        console.log('Le gagnant est : ' + gagnant)
+
+        this.rendreCartesGagnant(gagnant)
+
         Joueurs.quiAJoue = {}
     }
+
     static deconnecter(idSocket) {
         Joueurs.arrayJoueurs = Joueurs.arrayJoueurs.filter(value => value.socket != idSocket)
     }
