@@ -6,15 +6,22 @@ router.get('/', (req, res) =>  {
 })
 
 router.post('/', (req, res) =>  {
-    res.json({message: req.body.message})
+    res.json({
+            test: "Bonjour",    
+            message: req.body.message
+        })
 })
 
 router.put('/:id', (req, res) =>  {
-    res.json({messageId: req.body.message})
+    res.json({
+        messageId: req.body.message
+    })
 })
 
 router.delete('/:id', (req, res) =>  {
-    res.json({message: "Ville supprimée :  " + req.params.id})
+    res.json({
+        message: "Ville supprimée :  " + req.params.id
+    })
 })
 
 module.exports = router
