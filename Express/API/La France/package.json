@@ -4,12 +4,13 @@
   "description": "La France - API",
   "main": "index.js",
   "scripts": {
-    "test" : "o test design for this app",
+    "test": "o test design for this app",
     "server": "nodemon server/server.js"
   },
   "author": "Cedwics10",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "mongoose": "^8.0.2",

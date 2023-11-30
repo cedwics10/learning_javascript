@@ -12,15 +12,22 @@ router.post('/', (req, res) =>  {
         })
 })
 
-router.put('/:id', (req, res) =>  {
+router.put('/:id', (req, res) => {
     res.json({
-        messageId: req.body.message
+    'test' : 'ok',
+    'number' : req.params.id ?? 0
+        }) 
     })
-})
 
 router.delete('/:id', (req, res) =>  {
     res.json({
         message: "Ville supprimée :  " + req.params.id
+    })
+})
+
+router.patch('/like-post/:id', (req, res) =>  {
+    res.json({
+        message: "Ville likée :" + req.params.id
     })
 })
 
