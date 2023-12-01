@@ -6,7 +6,7 @@ router.get('/', (req, res) =>  {
 })
 
 router.post('/', (req, res) =>  {
-    res.json({
+    res.json({ 
             test: "Bonjour",    
             message: req.body.message
         })
@@ -25,9 +25,15 @@ router.delete('/:id', (req, res) =>  {
     })
 })
 
-router.patch('/like-post/:id', (req, res) =>  {
+router.patch('/like-city/:id', (req, res) =>  {
     res.json({
         message: "Ville likée :" + req.params.id
+    })
+})
+
+router.patch('/dislike-city/:id', (req, res) =>  {
+    res.json({
+        message: "Ville délikée :" + req.params.id
     })
 })
 

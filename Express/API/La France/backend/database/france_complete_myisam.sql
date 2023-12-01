@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS france2022 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+yuCREATE DATABASE IF NOT EXISTS france2022 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE france2022;
 
 # Affichage de la table region

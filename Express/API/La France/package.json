@@ -2,10 +2,10 @@
   "name": "la-france",
   "version": "1.0.0",
   "description": "La France - API",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
     "test": "o test design for this app",
-    "server": "nodemon server/server.js"
+    "server": "nodemon backend/server.js"
   },
   "author": "Cedwics10",
   "license": "ISC",
