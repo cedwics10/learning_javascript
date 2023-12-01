@@ -1,7 +1,14 @@
 const port = 5000;
 
+const connectDB = require('./config/database')
+const dotenv = require('dotenv').config()
+
 const express = require("express")
 const app = express()
+
+// connecting to the database
+connectDB()
+
 
 // Middleware to parse the request
 app.use(express.json())
