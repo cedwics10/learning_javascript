@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let nombreSaisi = 1, plusPetit = Number.POSITIVE_INFINITY, plusGrand = Number.NEGATIVE_INFINITY, positionPlusGrand = 0;
+
+      pos = 0;
+      while (nombreSaisi != 0) {
+        pos++;
+        nombreSaisi = parseInt(prompt("Entrez le nombre numéro #" + pos + " (0 pour arrêter):"));
+        if(nombreSaisi >= plusGrand)
+        {
+          plusGrand = nombreSaisi;
+          positionPlusGrand = pos;
+        }
+
+        if(nombreSaisi <= plusPetit)
+        {
+            plusPetit = nombreSaisi;
+        }
+
+      }
+
+      alert("Le nombre le plus grand que vous avez saisi est " + plusGrand + " et le plus petit " + plusPetit);
+    </script>
+  </body>
+</html>

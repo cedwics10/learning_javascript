@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      alert("Schtroumph");
+
+      let nombreSaisi;
+      let nombreElements1 = parseInt(
+        prompt("Saisir le nombre d'élémnets du premier tableau")
+      );
+
+      let nombreElements2 = parseInt(
+        prompt("Saisir le nombre d'élémnets du second tableau")
+      );
+      let arrayElements1 = Array(nombreElements1).fill(0),
+        arrayElements2 = Array(nombreElements2).fill(0),
+        arrayElements3 = Array(nombreElements2).fill(0);
+
+      let i = 0;
+      while (i < nombreElements1) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + i + " du premeir tableau."));
+        arrayElements1[i] = nombreSaisi;
+        i++;
+      }
+
+      alert(arrayElements1);
+
+      let j = 0;
+      while (j < nombreElements2) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + j + " du deuxième tableau"));
+        arrayElements2[j] = nombreSaisi;
+        j++;
+      }
+
+      alert(arrayElements2);
+
+      let schtroumph = 0;
+      for (i = 0; i < nombreElements1; i++) {
+        for (j = 0; j < nombreElements2; j++) {
+          schtroumph += arrayElements2[j] * arrayElements1[i];
+        }
+      }
+
+
+      alert("Le schtroumph de ces deux tableaux vaut : " + schtroumph);
+    </script>
+  </body>
+</html>

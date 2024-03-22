@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function exercice() {
+        const nombreElements = Number(prompt("Saisissez le nombre d'éléments"));
+        let tableauElements = Array(nombreElements);
+
+        for (let i = 0; i < nombreElements; i++) {
+          tableauElements[i] = Math.floor(Math.random()*10+1);
+        }
+
+        alert("Tableau actuel \n" + tableauElements);
+
+        const valeurAAjouter = Number(
+          prompt("Quelle est la valeur à ajouter ?")
+        );
+        let cleAPlacer = Number(
+          prompt("A quelle clé ajouter cette valeur ?")
+        );
+
+        if (cleAPlacer > nombreElements || cleAPlacer < 0) {
+          alert("Erreur : fin de l'exercice.");
+          return;
+        }
+
+        cleAPlacer--;
+
+        let tableauFinal = tableauElements.slice(0, cleAPlacer);
+
+        tableauFinal[cleAPlacer] = valeurAAjouter;
+
+        for (let i = cleAPlacer + 1; i < nombreElements + 1; i++) {
+            tableauFinal[i] = tableauElements[i-1]
+        }
+
+        alert("Tableau final :" + tableauFinal)
+      }
+
+      exercice();
+    </script>
+  </body>
+</html>

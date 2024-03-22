@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      alert("Calculateur de somme de valeurs d'un tableau");
+
+      let nombreElements = parseInt(prompt("Saisir le nombre d'élémnets de votre tableau"));
+      let arrayValeurs = Array();
+
+      let i = 0;
+      while (i < nombreElements) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + i));
+        arrayValeurs[i] = nombreSaisi;
+        i++;
+      }
+
+      let somme = 0; 
+
+      for(let i = 0; i < nombreElements; i++)
+      {
+        somme+= arrayValeurs[i];
+      }
+
+      alert("La somme des valeurs entrées vaut : " + somme);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let numberOne, absoluteValue;
+      
+      numberOne = parseFloat(prompt("Saisissez un nombre quelconque"));
+      absoluteValue = numberOne > 0 ? numberOne : (-1) * numberOne;
+
+      texte = Number.isNaN(absoluteValue) ? "Erreur" :  "Sa valeur absolue est " + absoluteValue;
+      alert(texte);
+    </script>
+  </body>
+</html>

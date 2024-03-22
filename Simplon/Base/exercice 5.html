@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let nombreUn, nombreDeux, nombreTrois, orderedNumbers;
+      
+      nombreUn = Number(prompt("Saisissez le premier nombre"));
+      nombreDeux = Number(prompt("Saisissez le deuxième nombre"));
+      nombreTrois = Number(prompt("Saisissez le troisième nombre"));
+
+      orderedNumbers = (nombreUn <=  nombreDeux && nombreDeux <= nombreTrois) && 
+      !Number.isNaN(nombreUn) &&  !Number.isNaN(nombreDeux) && !Number.isNaN(nombreTrois);
+      
+      texte =  orderedNumbers ? "Les trois nombres sont dans l'ordre croissant" :
+      "Les nombres ne sont pas dans l'ordre croissabt";
+      alert(texte);
+    </script>
+  </body>
+</html>

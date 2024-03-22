@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function repeterEtoiles() {
+        let nombreRepetitions = 0, texteFinal = "";
+        nombreRepetitions = prompt("Donnez un nombre :");
+
+        if (Number.isNaN(nombreRepetitions)) {
+          alert("Nombre de répétitions invalide.");
+          return;
+        }
+
+        let i = 1;
+        while (i <= nombreRepetitions) {
+          texteFinal += "*".repeat(nombreRepetitions) + "\n";
+          i++;
+        }
+        alert(texteFinal);
+      }
+      repeterEtoiles()
+    </script>
+  </body>
+</html>

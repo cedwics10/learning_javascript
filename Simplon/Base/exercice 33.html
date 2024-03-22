@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      alert("Générateur de tableau");
+
+      let nombreElements = parseInt(prompt("Saisir le nombre d'élémnets de votre tableau"));
+      let objetFrequences = Object();
+
+      let i = 0;
+      while (i < nombreElements) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + i));
+        objetFrequences[nombreSaisi] = objetFrequences[nombreSaisi] ? objetFrequences[nombreSaisi] + 1 : 1;
+        i++;
+      }
+
+      let texte = "";
+      for(var nombre in objetFrequences)
+      {
+        texte += nombre + " apparaît : " + objetFrequences[nombre] + " fois.\n";
+      }
+
+      alert(texte);
+    </script>
+  </body>
+</html>

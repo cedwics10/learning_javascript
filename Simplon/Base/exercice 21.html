@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let minimum = 10,
+        maximum = 20;
+      let saisieFinale = maximum + 1;
+
+      do {
+        saisieFinale = Number(
+          prompt("Entrez un nombre compris entre " + minimum + " et " + maximum  +" :")
+        );
+        if(saisieFinale < 10 )
+          alert("Plus grand");
+      } while (saisieFinale < minimum || saisieFinale > maximum);
+
+      alert("Le nombre valide que vous avez saisi est : " + saisieFinale);
+    </script>
+  </body>
+</html>

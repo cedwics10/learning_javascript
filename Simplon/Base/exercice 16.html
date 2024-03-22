@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let nombreSaisies = 20;
+      let plusGrand = Number.NEGATIVE_INFINITY;
+      let tableau = Array(nombreSaisies).fill(0);
+
+      i = 0;
+      while (i < nombreSaisies) {
+        nombre = parseInt(prompt("Entrez un nombre (" + i + "/" + nombreSaisies + "):"));
+        if(nombre > plusGrand)
+          plusGrand = nombre;
+        i++;
+      }
+
+      alert("Le nombre le plus grand que vous avez saisi est : " + plusGrand);
+    </script>
+  </body>
+</html>

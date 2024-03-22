@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let prixHTArticle, prixTotal, nombreArticles, tva;
+        prixHTArticle = parseFloat(prompt("Saisissez le prix de votre articl e,"))
+        nombreArticles = Number(prompt("Entrez le nombre d'articles"));
+        tva = Number(prompt("Saissez la TVA (en %)"))
+
+        prixTotal = nombreArticles * prixHTArticle * (1 + tva / 100);
+        
+        alert("Le prix total de ces " + nombreArticles + " articles est : " + prixTotal);
+    </script>
+</body>
+</html>

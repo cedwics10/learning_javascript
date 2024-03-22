@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      alert("Générateur de tableau");
+
+      let nombreSaisi;
+      let nombreElements = parseInt(
+        prompt("Saisir le nombre d'élémnets de votre tableau")
+      );
+      let arrayElements1 = Array(nombreElements).fill(0),
+        arrayElements2 = Array(nombreElements).fill(0),
+        arrayElements3 = Array(nombreElements).fill(0);
+
+      let i = 0;
+      while (i < nombreElements) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + i));
+        arrayElements1[i] = nombreSaisi;
+        i++;
+      }
+
+      alert(arrayElements1);
+
+      let j = 0;
+      while (j < nombreElements) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + j));
+        arrayElements2[j] = nombreSaisi;
+        j++;
+      }
+
+      alert(arrayElements2);
+
+      let k = 0;
+      while (k < nombreElements) {
+        arrayElements3[k] =  arrayElements1[k]  +  arrayElements2[k];
+        k++;
+      }
+
+      alert(arrayElements3);
+    </script>
+  </body>
+</html>

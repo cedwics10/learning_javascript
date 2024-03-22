@@ -1,0 +1,19 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 48px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.gagne 
+{
+  color: green;
+}
+
+.perdu
+{
+  color: red;
+}
+

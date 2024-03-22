@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      alert("Générateur de tableau");
+      let nombreElements = parseInt(prompt("Saisir le nombre d'élémnets à additionner :"));
+
+      let arrayNombres = Array(nombreElements).fill(0);
+
+      let i = 0;
+      while (i < nombreElements) {
+        nombreSaisi = parseInt(prompt("Saisir le nombre numéro " + i));
+        arrayNombres[i] = nombreSaisi;
+        i++;
+      }
+
+      let somme = 0;
+
+      arrayNombres.forEach(nombre => {
+        somme += nombre;
+      })
+
+      alert("La somme de ces nombres vaut : " + somme)
+    </script>
+  </body>
+</html>

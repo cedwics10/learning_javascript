@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function tableDuNombre() {
+        let nombre, produit, texteFinal = "";
+        nombre = parseInt(prompt("Entrez un nombre :"));
+
+        if(Number.isNaN(nombre))
+        {
+          alert("Nombre invalide");
+          return;
+        }
+
+        texteFinal = "Table du nombre " + nombre + " : \n";
+
+        i = 1;
+        while (i <= 10) {
+          produit = i * nombre;
+          texteFinal += i + " * " + nombre +" = " + produit + "\n";
+          i++;
+        }
+
+        alert(texteFinal);
+      }
+
+      tableDuNombre();
+    </script>
+  </body>
+</html>

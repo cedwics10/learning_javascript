@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let nombreADeviner = Number(prompt("Saisir un nombre caché à faire deviner"));
+      let nombreSaisi;
+
+      while (nombreSaisi != nombreADeviner) {
+        nombreSaisi = parseInt(prompt("Essayez de deviner le nombre généré par ordinateur:"));
+        if(nombreSaisi < nombreADeviner)
+        {
+          alert("C'est plus");
+        }
+        else if(nombreSaisi > nombreADeviner)
+        {
+          alert("C'est moins");
+        }
+
+      }
+
+      alert("Vous avez saisi le nombre correct : " + nombreADeviner);
+    </script>
+  </body>
+</html>

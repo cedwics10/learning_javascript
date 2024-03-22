@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+       let nombreSaisies = 10;
+       let saisieFinale = 4;
+
+       do
+       {
+            saisieFinale = Number(prompt("Entrez un nombre compris entre 1 et 3 :"));
+       } while([1,2,3].indexOf(saisieFinale) === -1);
+ 
+       alert("Le nombre valide que vous avez saisi est : " + saisieFinale);
+    </script>
+  </body>
+</html>
