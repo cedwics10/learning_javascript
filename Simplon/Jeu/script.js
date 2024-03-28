@@ -15,7 +15,7 @@ const kamehamehma = document.getElementById("kamehameha");
 /* MATH */
 
 function headOrTails() {
-    return (Math.random() > 0.8);
+    return (Math.random() > 1);
 }
 
 /* THE SOUND */
@@ -31,9 +31,10 @@ function soundDangerHomer() {
 window.setInterval(function (e) {
     let pixelsHomer = (Number(homerSimpson.style.top.slice(0, -2)) + homerYDirection * 10);
     homerSimpson.style.top = pixelsHomer + "px";
+    homerSimpson.style.left = Math.floor(window.innerWidth * 0.9) + "px";
     let currentHomerPosition = homerSimpson.style.top.slice(0, -2);
 
-    if (currentHomerPosition <= 10) {
+    if (currentHomerPosition <= 20) {
         homerYDirection = homerYDirection * (-1);
         homerSimpson.style.top = "11px";
     }
@@ -105,11 +106,19 @@ window.addEventListener("click", function (e) {
 
 })
 
+/* Mouvement des kam */
 setInterval(() => {
-    arrayKame.forEach((myKame) => { myKame.move()
+    arrayKame.forEach((myKame) => { myKame.move();
         myKame.doesItTouched();  
     });
-    console.log("taille tableau", arrayKame.length);
+
 }, 100);
 
+/* Does homer gets touched ?? */
+setInterval(() => {
+    arrayKame.forEach((myKame) => {
+        myKame.doesItTouched();  
+    });
+
+}, 10);
 /* KAMEHAMEHA EVENT */
