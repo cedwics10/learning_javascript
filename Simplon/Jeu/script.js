@@ -74,6 +74,9 @@ document.addEventListener("keypress", function (e) {
             myAudio.src = "sons/bande_son.mp3";
             myAudio.play();
             break;
+		case "m":
+			myAudio.stop();
+			break;
         case "a":
             launchKamehamehma();
             soundDangerHomer();
