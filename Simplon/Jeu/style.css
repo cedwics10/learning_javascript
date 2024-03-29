@@ -1,29 +1,27 @@
-body
-{
-    height: 100%;
-    width: 100%;
+body {
+  height: 100%;
+  width: 100%;
 }
 
-
-#sangoku
-{
-    position: absolute;
-    max-height: 100px;
-    transform: translate(-40%, -30%);
+#sangoku {
+  position: absolute;
+  max-height: 100px;
+  transform: translate(-40%, -30%);
 }
 
-#homer 
-{
-    transition: 25%;
-    position: absolute;
-    left: 90%;
-    max-height: 80px;
-    top: 20px;
+#homer {
+  transition: 25%;
+  position: absolute;
+  left: 90%;
+  max-height: 80px;
+  top: 20px;
 }
 
-.kamehameha
-{
-    position: absolute;
-    max-height: 30px;
+.kamehameha {
+  position: absolute;
+  max-height: 30px;
 }
 
+#info {
+  font-size: 25px;
+}

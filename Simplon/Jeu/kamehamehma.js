@@ -47,24 +47,28 @@ class Kamehamehma {
         let xPosition = Number(this.myKame.style.left.slice(0, -2))
         let yPosition = Number(this.myKame.style.top.slice(0, -2))
 
-        let homerXPosition = Number(this.homer.style.left.slice(0, -2))
+        let homerXPosition = Number(this.homer.style.left.slice(0, -2)) 
         let homerYPosition = Number(this.homer.style.top.slice(0, -2))
         
 
         // vérifier la distance entre la balle et l'ennemi
-        let distance =  Math.hypot(Math.abs(homerXPosition - xPosition - 15), Math.abs(homerYPosition - yPosition - 15));
+        let distance =  Math.hypot(Math.abs(homerXPosition + 20 - xPosition - 15), Math.abs(homerYPosition + 40 - yPosition - 15));
 
         // booléen qui indique si la balle est assez proche de l'ennmi
-        let ballCloseToHomer = distance < 20 && !Number.isNaN(distance);
+        let ballCloseToHomer = distance < 40 && !Number.isNaN(distance);
        
         if(ballCloseToHomer && !this.alreadyTouchedHomer )
         {
+            this.audio.volume = 0.3;
             // si homer simpson a été touché, il emet son cri
             this.audio.play();
 
             this.alreadyTouchedHomer = true;
             
             this.myKame.style.display = "none";
+
+            const score = document.getElementById("score");
+            score.innerText = Number(score.innerText ) + 1;
         }
         
     
